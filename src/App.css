@@ -1,0 +1,11 @@
+.container {
+    /* width: 100%; */
+    background-color: rebeccapurple;
+    height: 50px;
+}
+
+.child {
+    background-color: aquamarine;
+    height: 50px;
+    width: 10%;
+}
