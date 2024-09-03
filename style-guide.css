@@ -1,0 +1,56 @@
+
+/* Tamanho das fontes */
+
+:root {
+    --heading1: 9.5rem;
+    --heading2: 6rem;
+    --heading3: 4.8rem;
+    --heading4: 3.4rem;
+    --heading5: 2.4rem;
+    --heading6: 2rem;
+    --subtitle1: 1.6rem;
+    --subtitle2: 1.4rem;
+    --body1: 1.6rem;
+    --body2: 1.4rem;
+    --Button: 1.4rem;
+    --caption: 1.4rem;
+    --overLine: 1rem;
+
+    /* Paleta 1 */
+ 
+    --foodPaleteOne-1: #F21B2D;
+    --foodPaleteOne-2: #F27127;
+    --foodPaleteOne-3: #260101;
+    --foodPaleteOne-4: #0D0000;
+    --foodPaleteOne-5: #F2F2F2;
+ 
+    /* Paleta 2 */
+
+    --foodPaleteTwo-1: #F27127;
+    --foodPaleteTwo-2: #D97E4A;
+    --foodPaleteTwo-3: #591902;
+    --foodPaleteTwo-4: #260101;
+    --foodPaleteTwo-5: #F2F2F2;
+
+
+}
+
+
+/* Palet de cor numero 1- Possui cores mais brilhantes */
+
+/* Color Theme Swatches in Hex */
+.food-1-hex { color: #F21B2D; }
+.food-2-hex { color: #F27127; }
+.food-3-hex { color: #260101; }
+.food-4-hex { color: #0D0000; }
+.food-5-hex { color: #F2F2F2; }
+
+/* Palet de cor numero 2 - Possui cores mais coloridas  */
+
+/* Color Theme Swatches in Hex */
+.food-2-1-hex { color: #F27127; }
+.food-2-2-hex { color: #D97E4A; }
+.food-2-3-hex { color: #591902; }
+.food-2-4-hex { color: #260101; }
+.food-2-5-hex { color: #F2F2F2; }
+

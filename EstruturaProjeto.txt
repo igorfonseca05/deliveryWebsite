@@ -1,0 +1,69 @@
+1 - Definir Requisitos e Funcionalidades
+2 - Escolher Tecnologias e Ferramentas
+3 - Criar o Design e Layout
+4 - Configurar Ambiente de Desenvolvimento
+5 - Desenvolver a Estrutura do Site
+6 - Implementar Funcionalidades de Menu e Pedido
+7 - Integrar Sistema de Pagamento
+8 - Desenvolver o Back-end e Banco de Dados
+9 - Testar Funcionalidades e Responsividade
+10 - Implementar Medidas de Segurança
+11 - Realizar Testes Finais e Correções
+12 - Deploy do Site
+13 - Monitorar e Manter o Site
+
+1- Definir Requisitos e Funcionalidades
+   
+   1.1 - Página Inicial
+            Apresentação do restaurante
+            Destaques dos pratos e promoções
+            Menu de Produtos
+
+    1.2 -Listagem de marmitex e outros itens
+            Descrição dos pratos
+            Preços
+            Imagens dos produtos
+    
+    1.3 - Sistema de Pedidos
+            Opção de selecionar itens do menu
+            Escolha de quantidade
+            Adição de observações para o pedido
+            Escolha de horários para entrega ou retirada
+    
+    1.4 - Carrinho de Compras
+            Visualização dos itens selecionados
+            Edição e remoção de itens
+            Resumo do pedido
+
+    1.5 - Formulário de Checkout
+            Campos para informações do cliente (nome, endereço, telefone)
+            Opção de escolha entre entrega ou retirada
+            Métodos de pagamento (cartão de crédito/débito, pagamento na entrega)
+
+    1.6 - Integração com Sistema de Pagamento
+            Configuração de gateways de pagamento (ex.: PayPal, Stripe)
+            Processamento seguro de transações
+    
+    1.7 - Painel Administrativo
+            Gerenciamento de pedidos
+            Atualização do menu e preços
+            Visualização de relatórios e estatísticas de vendas
+
+    1.8- Cadastro e Login de Clientes
+            Criação de contas e login
+            Recuperação de senha
+            Histórico de pedidos
+    
+    1.9- Responsividade
+            Design adaptável para dispositivos móveis e desktops
+            
+    1.10- Segurança
+            Proteção de dados do cliente
+            Certificados SSL para transações seguras
+            Funcionalidades Adicionais (opcionais)
+
+    1.11- Avaliações e comentários dos clientes
+            Ofertas e promoções especiais
+            Newsletter para atualizações e promoções
+
+
