@@ -36,7 +36,6 @@
             Ofertas e promoções especiais
             Newsletter para atualizações e promoções
 
-
 2- Escolher Tecnologias e Ferramentas
     **NodeJs, React, Firebase, vercel, mongoDB**
 
