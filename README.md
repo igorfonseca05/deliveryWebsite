@@ -1,20 +1,5 @@
 # Projeto Paraíso da gastronomia :bowl_with_spoon:
 
-## Acompanhe o desenvolvimento do projeto
-
-- [x] Definir Requisitos e Funcionalidades
-- [x] Escolher Tecnologias e Ferramentas
-- [ ] Criar o Design e Layout
-- [ ] Configurar Ambiente de Desenvolvimento
-- [ ] Desenvolver a Estrutura do Site
-- [ ] Implementar Funcionalidades de Menu e Pedido
-- [ ] Integrar Sistema de Pagamento
-- [ ] Desenvolver o Back-end e Banco de Dados
-- [ ] Testar Funcionalidades e Responsividade
-- [ ] Implementar Medidas de Segurança
-- [ ] Realizar Testes Finais e Correções
-- [ ] Deploy do Site
-- [ ] Monitorar e Manter o Site
 
 ## Descrição do projeto
  O **Paraíso da Gastronomia** é um site de delivery especializado em marmitex, oferecendo refeições caseiras, frescas e saborosas para seus clientes. Este projeto visa criar uma plataforma online onde os usuários possam visualizar o cardápio, fazer pedidos personalizados e realizar pagamentos de forma segura e prática.
@@ -37,5 +22,19 @@
 * **Hospedagem**: Vercel ou Netlify para deploy do front-end, e Heroku para o back-end.
 * **Ferramentas de Desenvolvimento**: Figma para design de interfaces, Postman para testes de APIs, e Git/GitHub para controle de versão.
 
- ## Design
 
+## Acompanhe o desenvolvimento do projeto
+
+- [x] Definir Requisitos e Funcionalidades
+- [x] Escolher Tecnologias e Ferramentas
+- [ ] Criar o Design e Layout
+- [ ] Configurar Ambiente de Desenvolvimento
+- [ ] Desenvolver a Estrutura do Site
+- [ ] Implementar Funcionalidades de Menu e Pedido
+- [ ] Integrar Sistema de Pagamento
+- [ ] Desenvolver o Back-end e Banco de Dados
+- [ ] Testar Funcionalidades e Responsividade
+- [ ] Implementar Medidas de Segurança
+- [ ] Realizar Testes Finais e Correções
+- [ ] Deploy do Site
+- [ ] Monitorar e Manter o Site
