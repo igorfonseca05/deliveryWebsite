@@ -1,5 +1,4 @@
-# Projeto Paraíso da gastronomia
-***
+# Projeto Paraíso da gastronomia :bowl_with_spoon:
 
 ## Acompanhe o desenvolvimento do projeto
 
@@ -39,7 +38,6 @@
 * **Ferramentas de Desenvolvimento**: Figma para design de interfaces, Postman para testes de APIs, e Git/GitHub para controle de versão.
 
  ## Design
- 
 
 
 
