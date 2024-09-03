@@ -39,6 +39,7 @@
 - [ ] Deploy do Site
 - [ ] Monitorar e Manter o Site
 
+<<<<<<< HEAD
 # Definir Requisitos e Funcionalidades
 
  1.1. **Gestão de Pedidos**
@@ -100,3 +101,59 @@
     - Monitore o desempenho do site e faça manutenção contínua para garantir que ele funcione corretamente.
 
 Essa ordem ajuda a garantir que o desenvolvimento do site siga uma sequência lógica, mas lembre-se de que algumas etapas podem precisar ser ajustadas ou repetidas conforme o projeto avança.
+=======
+# Descrição das etapas
+
+ ### 1 - Requisitos e Funcionalidades
+
+    Gestão de Pedidos:  Implementar um sistema para receber, rastrear e gerenciar pedidos de clientes.
+
+    Criação de Sistema Web: Desenvolver um sistema web para a gestão de pedidos, acessível para administradores e funcionários.
+
+    Disponibilização de Vendas pelo Site: Integrar um sistema de e-commerce para permitir a realização de vendas diretamente pelo site.
+
+    Cadastro de Clientes: Implementar funcionalidades para registro e gerenciamento de contas de clientes.
+
+    Gestão de Finanças: Criar um módulo para controle financeiro, incluindo receita, despesas e relatórios financeiros.
+
+    Controle de Estoque: Desenvolver uma funcionalidade para gerenciar o estoque de ingredientes e outros produtos necessários para o funcionamento do delivery.
+
+    Avaliações e comentários dos clientes: Ofertas e promoções especiais, Newsletter para atualizações e promoções
+
+### 2 - Tecnologias e Ferramentas
+    NodeJs, React, Firebase, vercel, mongoDB**
+
+### 3 - Criar o Design e Layout
+    Desenvolver o design do site e definir a aparência visual
+
+### 4 - Configurar Ambiente de Desenvolvimento
+    Preparar ambiente de desenvolvimento com todas as ferramentas necessárias.
+
+### 5 - Desenvolver a Estrutura do Site 
+    Comecar a codificar a estrutura básica do site, incluindo o layout e a navegação.
+
+### 6 - Implementar Funcionalidades de Menu e Pedido
+    Adicionar funcionalidades específicas, como a visualização do menu e a capacidade de fazer pedidos.
+
+### 7 - Integrar Sistema de Pagamento
+    Configurar e integrar o sistema de pagamento para permitir transações seguras.
+
+### 8 - Desenvolver o Back-end e Banco de Dados
+    Desenvolver o back-end para gerenciar dados e pedidos, e configure o banco de dados.
+
+### 9 - Testar Funcionalidades e Responsividade
+    Testar o site para garantir que todas as funcionalidades estão funcionando corretamente e que o site é responsivo.
+
+### 10 - Implementar Medidas de Segurança
+    Adicionar medidas de segurança para proteger dados e transações.
+
+### 11 - Realizar Testes Finais e Correções
+    Realizar testes finais e faça correções com base nos resultados dos testes.
+
+### 12 - Deploy do Site
+    Publicar o site em um servidor para torná-lo acessível ao público.
+
+### 13 - Monitorar e Manter o Site
+    Monitorar o desempenho do site e faça manutenção contínua para garantir que ele funcione corretamente.
+
+>>>>>>> b8cb417e06774c176ec23788280b4b4260697151
