@@ -17,6 +17,8 @@
     1.1. **Gestão de Pedidos**
         - Implementar um sistema para receber, rastrear e gerenciar pedidos de clientes.
 
+        
+
     1.2. **Criação de Sistema Web**
         - Desenvolver um sistema web para a gestão de pedidos, acessível para administradores e funcionários.
 
