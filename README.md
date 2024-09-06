@@ -94,4 +94,3 @@
 ### 13 - Monitorar e Manter o Site
     Monitorar o desempenho do site e faça manutenção contínua para garantir que ele funcione corretamente.
 
->>>>>>> master
