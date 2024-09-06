@@ -58,7 +58,7 @@
     Avaliações e comentários dos clientes: Ofertas e promoções especiais, Newsletter para atualizações e promoções
 
 ### 2 - Tecnologias e Ferramentas
-    NodeJs, React, Firebase, vercel, mongoDB**
+    NodeJs, React, react-notistack, Firebase, vercel, mongoDB**
 
 ### 3 - Criar o Design e Layout
     Desenvolver o design do site e definir a aparência visual

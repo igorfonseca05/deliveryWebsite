@@ -22,7 +22,7 @@
     --foodPaleteOne-2: #F27127;
     --foodPaleteOne-3: #260101;
     --foodPaleteOne-4: #0D0000;
-    --foodPaleteOne-5: #F2F2F2;
+    --foodPaleteOne-5: #F9FAFC;
  
     /* Paleta 2 */
 
@@ -43,12 +43,13 @@
 .food-2-hex { color: #F27127; }
 .food-3-hex { color: #260101; }
 .food-4-hex { color: #0D0000; }
-.food-5-hex { color: #F2F2F2; }
+.food-5-hex { color: #F9FAFC; }
 
 /* Palet de cor numero 2 - Possui cores mais coloridas  */
 
 /* Color Theme Swatches in Hex */
 .food-2-1-hex { color: #F27127; }
+.food-2-2-hex { color: #D97E4A; }
 .food-2-2-hex { color: #D97E4A; }
 .food-2-3-hex { color: #591902; }
 .food-2-4-hex { color: #260101; }
