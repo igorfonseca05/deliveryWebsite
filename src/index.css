@@ -1,0 +1,87 @@
+
+
+/* Estilos Globais */
+* {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+ 
+
+
+/* Estilos para telas grandes (desktops) */
+@media (min-width: 1200px) {
+  .container {
+      max-width: 1140px;
+      margin: 0 auto;
+  }
+  .header {
+      font-size: 2rem;
+  }
+  .main-content {
+      display: flex;
+      gap: 20px;
+  }
+  .sidebar {
+      width: 25%;
+  }
+  .content {
+      width: 75%;
+  }
+}
+
+/* Estilos para telas médias (tablets) */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .container {
+      max-width: 720px;
+      margin: 0 auto;
+  }
+  .header {
+      font-size: 1.5rem;
+  }
+  .main-content {
+      display: block;
+  }
+  .sidebar,
+  .content {
+      width: 100%;
+  }
+}
+
+/* Estilos para telas pequenas (smartphones) */
+/* @media (max-width: 767px) {
+  body {
+      font-size: 14px;
+  }
+  .container {
+      padding: 0 10px;
+  }
+  .header {
+      font-size: 1.25rem;
+  }
+  .main-content {
+      display: block;
+  }
+  .sidebar,
+  .content {
+      width: 100%;
+      margin-bottom: 10px;
+  }
+} */
+
+/* Estilos para telas muito pequenas (smartphones em modo retrato) */
+/* @media (max-width: 480px) {
+  .header {
+      font-size: 1rem;
+  }
+  .container {
+      padding: 0 5px;
+  }
+  .main-content {
+      padding: 0;
+  }
+} */
