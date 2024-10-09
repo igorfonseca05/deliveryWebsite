@@ -1,24 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap.bundle'
+
+import Home from './pages/Home'
+import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
+
 
   return (
     <>
-      <div className="container">
-        <h1>Lorem meu texto</h1>
-        <p style={{ref: 'preload'}}>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repudiandae natus, exercitationem hic sequi cum unde ullam rerum iusto est ratione voluptates id culpa in alias deleniti accusamus reprehenderit odit optio.</p>
-        <picture>
-            <source media="(min-width: 1440px)" srcSet="large.jpg" />
-            <source media="(min-width: 1024px)" srcSet="medium.jpg" />
-            <source media="(min-width: 768px)" srcSet="medium.jpg" />
-            <img src="small.jpg" alt="" />
-        </picture>
-        {/* <img src="small.jpg" srcSet='small.jpg 376w, medium.jpg 700w, large.jpg 1024w'  sizes="(max-width: 600px) 90vw, (max-width: 900px) 70vw, 33vw" alt="" /> */}
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   )
 }

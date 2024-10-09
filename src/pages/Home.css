@@ -1,0 +1,41 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    width: 100vw;
+}
+
+nav {
+    width: 80%;
+    margin: 0 auto;
+    /* height: 56px; */
+    position: fixed;
+    font-size: clamp(1.2em, 1.65em, 2.4em);
+}
+
+form input, button {
+    font-size: 16px !important;
+}
+
+ul {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+ul li {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    height: 38px !important;
+    padding: 4px 8px !important;
+}

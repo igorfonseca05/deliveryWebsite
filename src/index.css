@@ -15,41 +15,12 @@ html {
 
 /* Estilos para telas grandes (desktops) */
 @media (min-width: 1200px) {
-  .container {
-      max-width: 1140px;
-      margin: 0 auto;
-  }
-  .header {
-      font-size: 2rem;
-  }
-  .main-content {
-      display: flex;
-      gap: 20px;
-  }
-  .sidebar {
-      width: 25%;
-  }
-  .content {
-      width: 75%;
-  }
+  
 }
 
 /* Estilos para telas médias (tablets) */
 @media (min-width: 768px) and (max-width: 1199px) {
-  .container {
-      max-width: 720px;
-      margin: 0 auto;
-  }
-  .header {
-      font-size: 1.5rem;
-  }
-  .main-content {
-      display: block;
-  }
-  .sidebar,
-  .content {
-      width: 100%;
-  }
+  
 }
 
 /* Estilos para telas pequenas (smartphones) */
