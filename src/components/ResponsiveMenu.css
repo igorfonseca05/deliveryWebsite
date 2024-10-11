@@ -1,20 +1,22 @@
 /* src/components/ResponsiveMenu.css */
 .navbar {
     /* background: #cab5b5; */
-    height: 80px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 80%;
 }
 
 .navbar-container {
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 100%;
     z-index: 1;
     width: 100%;
-    max-width: 1000px;
-    padding: 0 20px;
+    max-width: 1200px;
+    /* padding: 0 20px; */
+    /* margin: -5px; */
 }
   
   .navbar-logo {
@@ -36,6 +38,8 @@
     align-items: center;
     list-style: none;
     text-align: center;
+    padding: 0px;
+    margin: 0px;
 }
 
 .navbar-logo img {
@@ -56,7 +60,7 @@
     color: rgb(63, 63, 63) !important;
     font-weight: 600;
     width: 100% !important;
-    font-size: 16px;
+    font-size: 16px !important;
   }
   
   .nav-links:hover {
@@ -65,6 +69,7 @@
   }
   
   .nav-links-signup {
+    display: flex;
     background-color: #eea24b;
     padding: 0.5rem 1.5rem;
     border-radius: 4px;

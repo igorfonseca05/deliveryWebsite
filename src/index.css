@@ -11,6 +11,20 @@ html {
     font-size: 62.5%;
 }
 
+section {
+    margin-top: 20px;
+}
+
+p {
+    font-size: 1.6em !important;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+a {
+    font-size: 1.6em !important;
+}
  
 
 
