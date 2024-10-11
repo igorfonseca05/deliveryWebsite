@@ -39,3 +39,45 @@ ul li a {
     height: 38px !important;
     padding: 4px 8px !important;
 }
+
+.carrosel-container {
+    width: 100% !important;
+    margin: 0 auto;
+    height: 400px !important;
+}
+
+.publi-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.carousel-item {
+    height: 460px;
+    background-color: tomato;
+} 
+
+.carousel-item .publi-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.publi-container h1 {
+    margin: 0px 0px 0.5em 0em;
+    font-size: 3.5em;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.carousel-item .publi-text p {
+    /* margin: 0px 0px 0.5em 2em; */
+    margin: 0px;
+}
+
+.carousel-inner .carousel-item  img {
+    width: 100% !important;
+    height: 450px !important;
+}

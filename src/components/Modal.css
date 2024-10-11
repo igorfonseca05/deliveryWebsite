@@ -1,131 +1,95 @@
-/* From Uiverse.io by Yaya12085 */ 
-.form {
+/* From Uiverse.io by alexruix */ 
+
+.modal-body {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    position: relative;
-  }
-  
-  .title {
-    font-size: 28px;
-    color: royalblue;
-    font-weight: 600;
-    letter-spacing: -1px;
+    /* align-items: ; */
+}
+
+.form-box {
+    /* max-width: 300px; */
+    background: #f3f3f3;
+    overflow: hidden;
+    border-radius: 16px;
+    color: #010101;
+}
+
+.form {
     position: relative;
     display: flex;
-    align-items: center;
-    padding-left: 30px;
-  }
-  
-  .title::before,.title::after {
-    position: absolute;
-    content: "";
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    left: 0px;
-    background-color: royalblue;
-  }
-  
-  .title::before {
-    width: 18px;
-    height: 18px;
-    background-color: royalblue;
-  }
-  
-  .title::after {
-    width: 18px;
-    height: 18px;
-    animation: pulse 1s linear infinite;
-  }
-  
-  .message, .signin {
-    color: rgba(88, 87, 87, 0.822);
-    font-size: 14px;
-  }
-  
-  .signin {
+    flex-direction: column;
+    padding: 32px 24px 24px;
+    gap: 16px;
     text-align: center;
+    font-size: 16px !important;
   }
   
-  .signin a {
-    color: royalblue;
+  /*Form text*/
+  .title {
+    font-weight: bold;
+    font-size: 1.6em;
   }
   
-  .signin a:hover {
-    text-decoration: underline royalblue;
+  .subtitle {
+    font-size: 1em;
+    color: #666;
   }
   
-  .flex {
-    display: flex;
+  /*Inputs box*/
+  .form-container {
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 1em 0 .5em;
     width: 100%;
-    gap: 6px;
-  }
-  
-  .form label {
-    position: relative;
-  }
-  
-  .form label .input {
-    width: 100%;
-    padding: 10px 10px 20px 10px;
+}
+
+.input {
+    background: none;
+    border: 0;
     outline: 0;
-    border: 1px solid rgba(105, 105, 105, 0.397);
-    border-radius: 10px;
+    height: 40px;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    font-size: .9em;
+    padding: 8px 15px;
+    background-color: #fff;
+    margin: 5px 0px;
+
   }
   
-  .form label .input + span {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    color: grey;
-    font-size: 0.9em;
-    cursor: text;
-    transition: 0.3s ease;
+  .form-section {
+    text-align: center;
+    padding: 16px;
+    font-size: .85em;
+    background-color: #e0ecfb;
+    box-shadow: rgb(0 0 0 / 8%) 0 -1px;
+    font-size: 1.6em !important;
   }
   
-  .form label .input:placeholder-shown + span {
-    top: 15px;
-    font-size: 0.9em;
+  .form-section a {
+    font-weight: bold;
+    color: #0066ff;
+    transition: color .3s ease;
   }
   
-  .form label .input:focus + span,.form label .input:valid + span {
-    top: 30px;
-    font-size: 0.7em;
-    font-weight: 600;
+  .form-section a:hover {
+    color: #005ce6;
+    text-decoration: underline;
   }
   
-  .form label .input:valid + span {
-    color: green;
-  }
-  
-  .submit {
-    border: none;
-    outline: none;
-    background-color: royalblue;
-    padding: 10px;
-    border-radius: 10px;
+  /*Button*/
+  .form button {
+    background-color: #eea24b;
     color: #fff;
-    font-size: 16px;
-    transform: .3s ease;
+    border: 0;
+    border-radius: 24px;
+    padding: 10px 16px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .3s ease;
   }
   
-  .submit:hover {
-    background-color: rgb(56, 90, 194);
-  }
-  
-  @keyframes pulse {
-    from {
-      transform: scale(0.9);
-      opacity: 1;
-    }
-  
-    to {
-      transform: scale(1.8);
-      opacity: 0;
-    }
+  .form button:hover {
+    background-color: #fa921c;
   }
