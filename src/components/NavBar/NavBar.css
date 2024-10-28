@@ -2,8 +2,91 @@ header {
     width: 100vw;
 }
 
-nav {
+.top_navbar {
+    display: flex;
+    justify-content: space-between;
+    height: 5.6rem;
+    align-items: center;
+    width: 100vw;
+    padding: 0px 1rem;
+}
+
+.lateral_navBar {
+    display: flex;
+    position: fixed;
+    top: 0px;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
     width: 25rem;
     background-color: violet;
+    width: 0px;
+    overflow-x: hidden;
+    transition: ease 0.4s all;
+}
+
+.open {
+    width: 25rem;
+}
+
+.top-menu-content {
+    display: flex;
+
+}
+
+.logo-top-menu {
+    width: 9rem;
+}
+
+.lateral-logo {
+    width: 2.4rem;
+}
+
+.logo-top-menu img,
+.lateral-logo img {
+    width: 100%;
+}
+
+.search_input {
+    display: inline-flex;
+    position: relative;
+    width: 2.4rem;
+    /* background-color: rebeccapurple; */
+}
+
+.search_input input,
+.search_input button {
+    height: 3.2rem;
+
+}
+
+.search_input input {
+    width: 0px;
+    border: none;
+}
+
+.search_input button {
+    display: flex;
+    position: absolute;
+    right: 0px;
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    padding: 5px;
+}
+
+.search_input button:hover {
+    background-color: #f3f2f2;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+.li_container a li p {
+    white-space: nowrap;
+}
+
+.navBar_footer {
+    display: flex;
+    white-space: nowrap;
 }
