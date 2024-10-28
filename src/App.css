@@ -1,22 +1,10 @@
+html {
+    font-size: 62.5%;
+    min-height: 100vh;
+    background-color: wheat;
+}
 
- body {
+body {
     overflow-x: hidden;
-    background-color:#faf7f9 !important ;
-}
-
-.container {
-    /* width: 100%; */
-    background-color: rgb(220, 193, 247);
-    min-height: 100vw;
-    font-size: 1.6em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.container > h1, p {
-    width: 50%;
-    /* background-color: aquamarine; */
-    margin: 0 auto;
-    padding-top: 1rem;
+    background-color: #faf7f9 !important;
 }
