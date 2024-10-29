@@ -32,7 +32,7 @@ function NavBar() {
         function getScreenSize(e) {
             let screenSize = e.target.innerWidth;
 
-            console.log(e.target)
+            // console.log(e.target)
 
             if (screenSize >= 768 || screenSize === 1360) {
                 setNorrowMenu(!narrowMenu)
