@@ -1,6 +1,37 @@
 /* Estilos Globais */
+
+:root {
+
+    /* Colors */
+    --menu_color: #F5F5F5;
+    --padding_icon: 10px;
+
+    /* Cores da Paleta de Delivery */
+
+    /* Cor Principal para Botões e Chamadas de Ação */
+    --cor-principal: #4CAF50;
+    /* Verde Folha */
+
+    /* Cor de Destaque para Detalhes e Promoções */
+    --cor-destaque: #FF6F00;
+    /* Laranja Vibrante */
+
+    /* Cor de Fundo para o Menu Lateral e Áreas de Fundo */
+    --cor-fundo-menu: #F5F5F5;
+    /* Branco Suave (White Smoke) */
+
+    /* Cor do Texto Principal */
+    --cor-texto-principal: #333333;
+    /* Cinza Escuro */
+
+    /* Cor do Texto Secundário e Ícones */
+    --cor-texto-e-icon: #757575;
+    /* Cinza Médio */
+
+}
+
 * {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -23,6 +54,18 @@ p {
 a {
     font-size: 1.6em !important;
 }
+
+.material-symbols-outlined {
+    color: var(--cor-texto-e-icon);
+}
+
+hr {
+    width: 100%;
+    margin: 2rem auto;
+    color: #b6b6b6;
+}
+
+
 
 
 

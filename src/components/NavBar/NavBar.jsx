@@ -15,7 +15,7 @@ function NavBar() {
     return (
         <header>
             <nav className='top_navbar'>
-                <span className='material-symbols-outlined' onClick={handleClick}>menu</span>
+                <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                 <div className="logo-top-menu">
                     <img src="logo.svg" alt="logo" />
                 </div>
@@ -29,19 +29,31 @@ function NavBar() {
                 </div>
             </nav>
             <nav className={`lateral_navBar ${isOpen ? 'open' : ''}`}>
-                <div className=''>
-                    <span className='material-symbols-outlined' onClick={handleClick}>menu</span>
-                    <div className="lateral-logo">
+                <div className='logo_and_icon_container'>
+                    <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
+                    {/* <div className="lateral-logo">
                         <img src="logoIcon.svg" alt="logo" />
+                        </div> */}
+                </div>
+                <div className='menu_title_container menu_piece'>
+                    <span className='title_lateral_menu'>Menu</span>
+                    <ul className='li_container'>
+                        <NavLink><li className='nav_item'> <span className="material-symbols-outlined list-icon">home</span> <p>Home</p></li></NavLink>
+                        <NavLink><li className='nav_item'> <span className='material-symbols-outlined list-icon'>lunch_dining</span> <p>Cardápio</p></li></NavLink>
+                        <NavLink><li className='nav_item'> <span className='material-symbols-outlined list-icon'>group</span> <p>Sobre nós</p></li></NavLink>
+                        <NavLink><li className='nav_item'> <span className='material-symbols-outlined list-icon'>call</span> <p>Contact</p></li></NavLink>
+                    </ul>
+                    <hr />
+                </div>
+                <div className='menu_acccount_container menu_piece'>
+                    <span className='title_lateral_menu'>Account</span>
+                    <div className='buttons_container'>
+                        <button className='button'>Sign in</button>
+                        <button>Sign up</button>
                     </div>
+                    <hr />
                 </div>
 
-                <ul className='li_container'>
-                    <NavLink><li className='nav_item'> <span className="material-symbols-outlined menu-icon">home</span> <p>Home</p></li></NavLink>
-                    <NavLink><li className='nav_item'> <span className='material-symbols-outlined menu-icon'>lunch_dining</span> <p>Cardápio</p></li></NavLink>
-                    <NavLink><li className='nav_item'> <span className='material-symbols-outlined menu-icon'>group</span> <p>Sobre nós</p></li></NavLink>
-                    <NavLink><li className='nav_item'> <span className='material-symbols-outlined menu-icon'>call</span> <p>Contact</p></li></NavLink>
-                </ul>
                 <footer className='navBar_footer'>
                     <span>&copy;</span>
                     <h5>Paraiso da gastronomia</h5>
