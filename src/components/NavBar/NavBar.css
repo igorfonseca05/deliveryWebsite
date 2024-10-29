@@ -81,13 +81,6 @@ header {
     width: 100%;
 }
 
-.logo_and_icon_container {
-    display: flex;
-    height: 5.6rem;
-    align-items: center;
-    justify-content: space-between;
-}
-
 .menu_icon:last-child {
     padding: var(--padding_icon);
     padding-bottom: 1.6rem;

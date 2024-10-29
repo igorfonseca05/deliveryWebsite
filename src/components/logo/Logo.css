@@ -1,0 +1,12 @@
+.logo_and_icon_container {
+    display: flex;
+    /* height: 4rem; */
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo_company_on_hover {
+    width: 12rem;
+    margin: 1.2rem 0rem;
+    /* height: 100%; */
+}
