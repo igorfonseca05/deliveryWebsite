@@ -55,7 +55,7 @@ function NavBar() {
     }, [])
 
     function handleValue() {
-        setChangeLogo(!changeLogo)
+        setTimeout(() => setChangeLogo(!changeLogo), 100)
     }
 
 
@@ -104,25 +104,25 @@ function NavBar() {
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className="material-symbols-outlined list-icon">home</span>
-                                    <p className={`${changeLogo ? 'showTextMenu' : ''}`}>Home</p>
+                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>lunch_dining</span>
-                                    <p className={`${changeLogo ? 'showTextMenu' : ''}`}>Cardápio</p>
+                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Cardápio</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
-                                    <p className={`${changeLogo ? 'showTextMenu' : ''}`}>Sobre nós</p>
+                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Sobre nós</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>call</span>
-                                    <p className={`${changeLogo ? 'showTextMenu' : ''}`}>Contact</p>
+                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Contact</p>
                                 </li>
                             </NavLink>
                         </ul>

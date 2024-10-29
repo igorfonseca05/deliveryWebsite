@@ -95,8 +95,14 @@ hr {
     overflow: hidden;
 }
 
-.showTextMenu {
+.hideTextMenu {
     opacity: 0;
+    display: none;
+}
+
+.showTextMenu {
+    /* display: none; */
+    opacity: 1;
 }
 
 
