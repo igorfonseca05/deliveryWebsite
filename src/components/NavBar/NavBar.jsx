@@ -102,7 +102,7 @@ function NavBar() {
                         </div> */}
                     </div>
                     <div className='search_input'>
-                        <input type="text" placeholder='Buscar' />
+                        <input className={`${toggleElement ? '' : 'hideInput'}`} type="text" placeholder='Buscar' />
                         <button>
                             <span className="material-symbols-outlined">
                                 search
@@ -127,7 +127,7 @@ function NavBar() {
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
-                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sobre nós</p>
+                                    <p className={` ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sobre nós</p>
                                 </li>
                             </NavLink>
                             <NavLink>
@@ -143,12 +143,14 @@ function NavBar() {
                         <span className='title_lateral_menu'>Account</span>
                         <div className='buttons_container'>
                             <button className='button'>
-                                <span class="material-symbols-outlined buttonIcon" style={{ marginRight: '1.2rem' }}>login</span>
-                                {toggleElement ? "Entrar" : ''}
+                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
+                                <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
+                                {/* {toggleElement ? "Entrar" : ''} */}
                             </button>
-                            <button>
-                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>logout</span>
-                                {toggleElement ? "Cadastrar" : ''}
+                            <button className='button-signUp'>
+                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
+                                <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
+                                {/* {toggleElement ? "Cadastrar" : ''} */}
                             </button>
                         </div>
                         <hr />

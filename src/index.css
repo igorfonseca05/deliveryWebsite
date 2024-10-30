@@ -74,48 +74,18 @@ hr {
     color: #b6b6b6;
 }
 
-
-.logo_container {
-    display: flex;
-    position: relative;
-    justify-content: center;
-    width: 4rem;
-    margin: auto;
-}
-
-.logo_company {
-    width: 100%;
-    margin: 0 auto;
-    /* position: absolute; */
-}
-
-.logo_and_icon_container {
-    width: 100%;
-    /* background-color: rgb(236, 220, 252); */
-    overflow: hidden;
-}
-
 .hideTextMenu {
     /* visibility: hidden; */
     opacity: 0 !important;
     /* display: none; */
-    transition: opacity 0.1s 0.1s linear;
+    transition: opacity 0.1s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .showTextMenu {
-    /* display: none; */
-    transition: opacity 0.1s 0.1s linear;
+    transition: opacity 0.1s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     opacity: 1;
 }
 
-.marginIcon {
-    margin-right: 1.2rem;
-    color: white;
-}
-
-.buttonIcon {
-    opacity: 0.4;
-}
 
 
 /* Estilos para telas grandes (desktops) */
@@ -129,9 +99,6 @@ hr {
         display: none !important;
     }
 
-    .li_container li p {
-        opacity: 0.5;
-    }
 
     .narrow_lateral_navBar {
         display: flex;

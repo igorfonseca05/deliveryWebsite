@@ -24,7 +24,7 @@ header {
     /* width: 0px; */
     overflow: hidden !important;
     transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1),
-        width 0.9s 0.1s cubic-bezier(0.25, 0.8, 0.25, 1);
+        width 0.9s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateX(-100%);
     z-index: 10;
 }
@@ -111,17 +111,26 @@ header {
 
 
 .search_input input {
+    position: relative;
     display: inline-flex;
     width: 100% !important;
     border: none;
     background-color: white;
     border-radius: var(--border-Radius);
-    padding-left: 3.2rem;
+    padding-left: 4.2rem;
+    /* opacity: 1; */
+}
+
+.hideInput {
+    opacity: 0;
+    transition: opacity 0.1s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .search_input input::placeholder {
+    display: flex;
+    align-items: center;
     /* display: inline-flex; */
-    /* padding-left: 3.2rem; */
+    /* padding-left: 1.2rem; */
     font-size: 1.4rem;
     font-weight: 500;
 }
@@ -130,9 +139,9 @@ header {
 .search_input button {
     display: flex;
     position: absolute;
-    left: 1.5rem;
+    left: 1.2rem;
+    margin: 0rem 1.2rem;
     align-items: center;
-
     outline: none;
     border: none;
     background-color: transparent;
@@ -179,9 +188,15 @@ header {
     background-color: var(--cor-principal-hover);
 }
 
+.li_container a li p {
+    color: var(--cor-texto-e-icon) !important;
+    font-weight: 500;
+    /* opacity: 1 !important; */
+}
+
 .li_container a li:hover>p,
 .li_container a li:hover>span {
-    color: white;
+    color: white !important;
 }
 
 .li_container a {
@@ -214,13 +229,51 @@ header {
 
 .buttons_container button {
     display: inline-flex;
+    position: relative;
     align-items: center;
+    /* text-align: center; */
     justify-content: center;
     padding: 1rem 0rem;
     border-radius: var(--border-Radius);
     border: none;
-    font-size: 1.2rem;
+    font-size: 1.2rem !important;
     white-space: nowrap;
+}
+
+.buttons_container button:last-child:hover {
+    background-color: #3e8f42;
+}
+
+.buttons_container button p {
+    font-size: 1.2rem !important;
+    white-space: nowrap;
+    width: auto;
+}
+
+
+.marginIcon {
+    left: 20%;
+}
+
+.button span {
+    left: 18%;
+    /* color: red !important; */
+}
+
+.button-signUp span {
+    /* left: 18%; */
+    color: rgb(255, 255, 255) !important;
+}
+
+.buttonIcon {
+    z-index: 4 !important;
+    position: absolute;
+    left: 20%;
+    color: white;
+    transition: color 0.1s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    /* color: white; */
+    /* opacity: 0.4; */
+    /* text-align: center !important; */
 }
 
 .buttons_container button:last-child {
@@ -231,6 +284,7 @@ header {
 .menu_piece {
     flex-grow: 1;
 }
+
 
 
 .navBar_footer {

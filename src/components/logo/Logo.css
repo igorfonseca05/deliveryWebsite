@@ -3,9 +3,27 @@
     /* height: 4rem; */
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+
+.logo_container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    width: 4rem;
+    margin: auto;
+}
+
+.logo_company {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 2;
+    /* position: absolute; */
 }
 
 .logo_company_on_hover {
+    position: absolute;
     width: 13rem;
     margin: 0rem 0rem;
     height: 4rem;
