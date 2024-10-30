@@ -14,7 +14,9 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(false)
 
-    const [changeLogo, setChangeLogo] = useState(true)
+    const [toggleElement, setToggleElement] = useState(true)
+
+    const [screenSize, setScreenSize] = useState(window.innerWidth)
 
     function handleClick() {
         setIsOpen(!isOpen)
@@ -34,28 +36,38 @@ function NavBar() {
     useEffect(() => {
 
         function getScreenSize() {
-            let screenSize = window.innerWidth;
 
-            // console.log(e.target)
 
-            if (screenSize >= 768 || screenSize === 1360) {
-                setNorrowMenu(!narrowMenu)
+            const isGratherThan = screenSize >= 768
+
+            if (isGratherThan) {
+                setNorrowMenu(true)
+                return
             } else {
-                setNorrowMenu(narrowMenu)
+                setNorrowMenu(false)
             }
+
         }
 
         getScreenSize()
 
         window.addEventListener('resize', useDebounce(() => getScreenSize(), 100))
 
-
-        return () => { window.removeEventListener('resize', useDebounce(() => getScreenSize(), 10000)) }
+        return () => {
+            window.removeEventListener('resize',
+                useDebounce(() => {
+                    getScreenSize()
+                }, 10000))
+        }
 
     }, [])
 
-    function handleValue() {
-        setTimeout(() => setChangeLogo(!changeLogo), 100)
+    function handleHovering() {
+        if (screenSize >= 768) {
+            // setTimeout(() => setToggleElement(!true), 100)
+        } else {
+            setToggleElement(true)
+        }
     }
 
 
@@ -78,13 +90,13 @@ function NavBar() {
             <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
             ${narrowMenu ? 'narrow_lateral_navBar' : ''}`}
-                onMouseEnter={handleValue}
-                onMouseLeave={handleValue}
+                onMouseEnter={handleHovering}
+                onMouseLeave={handleHovering}
             >
 
                 <div className="sideMenu_content">
                     <div className='logo_and_icon_container'>
-                        <Logo changeLogo={changeLogo} />
+                        <Logo changeLogo={toggleElement} />
                         <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                         {/* <div className="lateral-logo">
                         <img src="logoIcon.svg" alt="logo" />
@@ -104,25 +116,25 @@ function NavBar() {
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className="material-symbols-outlined list-icon">home</span>
-                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Home</p>
+                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>lunch_dining</span>
-                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Cardápio</p>
+                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Cardápio</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
-                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Sobre nós</p>
+                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Sobre nós</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>call</span>
-                                    <p className={`${changeLogo ? 'hideTextMenu' : 'showTextMenu'}`}>Contact</p>
+                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Contact</p>
                                 </li>
                             </NavLink>
                         </ul>
@@ -140,7 +152,7 @@ function NavBar() {
 
                 <footer className='navBar_footer'>
                     <span>&copy;</span>
-                    <h5>Paraiso da gastronomia</h5>
+                    <p>Paraiso da gastronomia</p>
                 </footer>
             </nav>
             <div className={`overlay ${isOpen ? 'showOverlay' : ''}`} id="overlay"></div>
