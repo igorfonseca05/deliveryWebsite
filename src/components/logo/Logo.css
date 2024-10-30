@@ -6,7 +6,6 @@
     position: relative;
 }
 
-
 .logo_container {
     display: flex;
     position: relative;
@@ -27,4 +26,5 @@
     width: 13rem;
     margin: 0rem 0rem;
     height: 4rem;
+    color: red !important;
 }

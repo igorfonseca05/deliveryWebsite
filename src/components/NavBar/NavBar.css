@@ -118,12 +118,13 @@ header {
     background-color: white;
     border-radius: var(--border-Radius);
     padding-left: 4.2rem;
-    /* opacity: 1; */
+    opacity: 1;
+    transition: var(--opacity_transition);
 }
 
 .hideInput {
-    opacity: 0;
-    transition: opacity 0.1s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0 !important;
+    transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .search_input input::placeholder {

@@ -1,10 +1,13 @@
 html {
+    /* width: 100vw; */
     font-size: 62.5%;
     min-height: 150vh;
-    background-color: wheat;
+    background-color: rgb(43, 117, 49);
+    /* overflow-x: hidden; */
 }
 
 body {
-    overflow-x: hidden;
-    background-color: #faf7f9 !important;
+    /* overflow-x: hidden; */
+    /* width: 100vw; */
+    background-color: #1bd7dd !important;
 }

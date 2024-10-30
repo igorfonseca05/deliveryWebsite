@@ -7,7 +7,8 @@ import './Home.css'
 
 function Home() {
     return (
-        <div className='section-hero'>
+        <div className='section_container section-hero'>
+
         </div>
     )
 }
