@@ -18,6 +18,8 @@ function NavBar() {
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
+    const [time, setTime] = useState(0)
+
     function handleClick() {
         setIsOpen(!isOpen)
     }
@@ -46,7 +48,6 @@ function NavBar() {
             } else {
                 setNorrowMenu(false)
             }
-
         }
 
         getScreenSize()
@@ -62,14 +63,14 @@ function NavBar() {
 
     }, [])
 
-    function handleHovering() {
-        if (screenSize >= 768) {
-            // setTimeout(() => setToggleElement(!true), 100)
-        } else {
-            setToggleElement(true)
-        }
-    }
+    function handleHovering(value) {
+        // console.log(value)
 
+        if (screenSize >= 768) {
+            setTimeout(() => setToggleElement(value), 100)
+        }
+
+    }
 
     return (
         <header>
@@ -90,8 +91,8 @@ function NavBar() {
             <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
             ${narrowMenu ? 'narrow_lateral_navBar' : ''}`}
-                onMouseEnter={handleHovering}
-                onMouseLeave={handleHovering}
+                onMouseEnter={() => handleHovering(true)}
+                onMouseLeave={() => handleHovering(false)}
             >
 
                 <div className="sideMenu_content">
@@ -116,25 +117,25 @@ function NavBar() {
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className="material-symbols-outlined list-icon">home</span>
-                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Home</p>
+                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>lunch_dining</span>
-                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Cardápio</p>
+                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
-                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Sobre nós</p>
+                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sobre nós</p>
                                 </li>
                             </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>call</span>
-                                    <p className={`${toggleElement ? 'hideTextMenu' : 'showTextMenu'}`}>Contact</p>
+                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Contact</p>
                                 </li>
                             </NavLink>
                         </ul>
