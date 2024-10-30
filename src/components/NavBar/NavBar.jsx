@@ -14,7 +14,7 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(false)
 
-    const [toggleElement, setToggleElement] = useState(true)
+    const [toggleElement, setToggleElement] = useState(false)
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
@@ -64,8 +64,6 @@ function NavBar() {
     }, [])
 
     function handleHovering(value) {
-        // console.log(value)
-
         if (screenSize >= 768) {
             setTimeout(() => setToggleElement(value), 100)
         }
@@ -114,13 +112,13 @@ function NavBar() {
                     <div className='menu_title_container menu_piece'>
                         <span className='title_lateral_menu'>Menu</span>
                         <ul className='li_container'>
-                            <NavLink>
+                            <NavLink to={'/'}>
                                 <li className='nav_item'>
                                     <span className="material-symbols-outlined list-icon">home</span>
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
-                            <NavLink>
+                            <NavLink to={'/produtos'}>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>lunch_dining</span>
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
@@ -144,8 +142,14 @@ function NavBar() {
                     <div className='menu_acccount_container menu_piece'>
                         <span className='title_lateral_menu'>Account</span>
                         <div className='buttons_container'>
-                            <button className='button'>Sign in</button>
-                            <button>Sign up</button>
+                            <button className='button'>
+                                <span class="material-symbols-outlined buttonIcon" style={{ marginRight: '1.2rem' }}>login</span>
+                                {toggleElement ? "Entrar" : ''}
+                            </button>
+                            <button>
+                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>logout</span>
+                                {toggleElement ? "Cadastrar" : ''}
+                            </button>
                         </div>
                         <hr />
                     </div>
