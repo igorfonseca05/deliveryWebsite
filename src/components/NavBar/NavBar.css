@@ -99,7 +99,7 @@ header {
     display: inline-flex;
     position: relative;
     width: 100%;
-    margin-bottom: 1.6rem;
+    margin: 1.6rem 0rem;
     /* background-color: rebeccapurple; */
 }
 
@@ -160,7 +160,7 @@ header {
 
 .title_lateral_menu {
     display: block;
-    padding: 0rem 0rem 1.6rem 0rem;
+    /* padding: 0rem 0rem 1.6rem 0rem; */
     font-size: 1.2rem;
     color: var(--cor-texto-e-icon);
     font-weight: 600;
@@ -173,7 +173,7 @@ header {
     /* flex-grow: 1; */
     padding: 0px;
     /* height: 70%; */
-    row-gap: 0.4rem;
+    row-gap: 0.8rem;
 }
 
 .li_container a li {
@@ -183,10 +183,11 @@ header {
     /* background-color: var(--cor-principal); */
     height: 4.4rem;
     border-radius: var(--border-Radius);
+    /* row-gap: 1rem; */
 }
 
 .li_container a li:hover {
-    background-color: var(--cor-principal-hover);
+    background-color: var(--cor-destaque-hover);
 }
 
 .li_container a li p {
@@ -242,7 +243,7 @@ header {
 }
 
 .buttons_container button:last-child:hover {
-    background-color: #3e8f42;
+    background-color: var(--button_hover_color);
 }
 
 .buttons_container button p {
@@ -278,7 +279,7 @@ header {
 }
 
 .buttons_container button:last-child {
-    background-color: var(--cor-principal);
+    background-color: var(--cor-destaque);
     color: white;
 }
 

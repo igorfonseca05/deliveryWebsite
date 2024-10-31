@@ -16,7 +16,9 @@
     /* Verde Folha */
 
     /* Cor de Destaque para Detalhes e Promoções */
-    --cor-destaque: #FF6F00;
+    --cor-destaque: #F27127;
+    --cor-destaque-hover: #FF8A47;
+    --click: #D85D1C;
     /* Laranja Vibrante */
 
     /* Cor de Fundo para o Menu Lateral e Áreas de Fundo */
@@ -28,13 +30,15 @@
     /* Cinza Escuro */
 
     /* Cor do Texto Secundário e Ícones */
-    --cor-texto-e-icon: #757575;
+    --cor-texto-e-icon: #5C5C5C;
     /* Cinza Médio */
 
 
     /* Tamanho das fontes */
 
     --side-menu-font-size: 1.4rem;
+
+    --button_hover_color: #FF8A47;
 
     --border-Radius: 8px;
     --lateral-menu-width: 7.6rem;
@@ -116,7 +120,7 @@ hr {
     }
 
     .logo_and_icon_container {
-        margin: 1.6rem 0rem;
+        margin: 1.6rem 0rem 0rem 0rem;
     }
 
     .narrow_lateral_navBar:hover {
@@ -130,7 +134,7 @@ hr {
     } */
 
     .title_lateral_menu {
-        display: none;
+        opacity: 0;
     }
 
     .menu_icon:last-child {
