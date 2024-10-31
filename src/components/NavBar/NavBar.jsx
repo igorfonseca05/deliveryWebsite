@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 
 import { NavLink } from 'react-router-dom'
 
@@ -18,7 +18,9 @@ function NavBar() {
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
-    const [time, setTime] = useState(0)
+
+    const nav = useRef(null)
+
 
     function handleClick() {
         setIsOpen(!isOpen)
@@ -55,19 +57,17 @@ function NavBar() {
         window.addEventListener('resize', useDebounce(() => getScreenSize(), 100))
 
         return () => {
-            window.removeEventListener('resize',
-                useDebounce(() => {
-                    getScreenSize()
-                }, 10000))
+            window.removeEventListener('resize', getScreenSize())
         }
 
     }, [])
 
-    function handleHovering(value) {
-        if (screenSize >= 768) {
-            setTimeout(() => setToggleElement(value), 100)
-        }
 
+    function handleHovering(value = '') {
+        setScreenSize(window.innerWidth)
+        if (screenSize >= 768) {
+            setToggleElement(value)
+        }
     }
 
     return (
@@ -86,7 +86,7 @@ function NavBar() {
                     </button>
                 </div> */}
             </nav>
-            <nav className={`lateral_navBar
+            <nav ref={nav} className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
             ${narrowMenu ? 'narrow_lateral_navBar' : ''}`}
                 onMouseEnter={() => handleHovering(true)}

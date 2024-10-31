@@ -70,6 +70,7 @@ header {
 
 .logo-top-menu {
     width: 10rem;
+
 }
 
 .lateral-logo {
@@ -79,6 +80,10 @@ header {
 .logo-top-menu img,
 .lateral-logo img {
     width: 100%;
+}
+
+.menu_icon {
+    user-select: none;
 }
 
 .menu_icon:last-child {
