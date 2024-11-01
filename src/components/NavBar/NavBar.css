@@ -2,13 +2,15 @@ header {
     width: 100vw;
 }
 
+/* Menu top config */
+
 .top_navbar {
     display: flex;
     justify-content: space-between;
     height: 5.6rem;
     align-items: center;
     width: 100vw;
-    padding: 0px 1rem;
+    padding: 1rem;
     background-color: var(--menu_color);
 }
 
@@ -27,6 +29,7 @@ header {
         width 0.9s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateX(-100%);
     z-index: 10;
+
 }
 
 .open {
@@ -68,8 +71,11 @@ header {
 }
 
 .logo-top-menu {
-    width: 10rem;
-
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    width: calc(90%) !important;
+    /* background-color: rgba(102, 51, 153, 0.342); */
 }
 
 .lateral-logo {
@@ -112,7 +118,6 @@ header {
     height: 3.2rem;
 
 }
-
 
 .search_input input {
     position: relative;
@@ -290,7 +295,6 @@ header {
 .menu_piece {
     flex-grow: 1;
 }
-
 
 
 .navBar_footer {

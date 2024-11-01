@@ -1,0 +1,44 @@
+.slick-list {
+    border-radius: 20px !important;
+
+}
+
+
+.carousel_container {
+    /* width: 95% !important; */
+    margin: 0 auto !important;
+}
+
+.card {
+    height: 250px;
+}
+
+
+/* Posicionar os botões sobre o slide */
+.slick-prev,
+.slick-next {
+    position: absolute;
+    top: 50%;
+    /* Centraliza verticalmente */
+    transform: translateY(-50%);
+    /* Corrige a centralização */
+    z-index: 1;
+    /* Garante que fiquem acima do conteúdo */
+}
+
+/* Ajuste para o botão da esquerda */
+.slick-prev {
+    left: 10px;
+    /* Ajuste a posição horizontal conforme necessário */
+}
+
+/* Ajuste para o botão da direita */
+.slick-next {
+    right: 10px;
+    /* Ajuste a posição horizontal conforme necessário */
+}
+
+.slick-dots li button::before {
+    color: var(--cor-principal) !important;
+    /* background-color: rebeccapurple; */
+}

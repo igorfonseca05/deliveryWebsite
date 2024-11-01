@@ -85,7 +85,17 @@ function NavBar() {
             <nav className='top_navbar'>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                 <div className="logo-top-menu">
-                    <img src="logo.svg" alt="logo" />
+                    <div className='search_input search-top-menu'>
+                        <div className='input-iconSearch-container'>
+                            <input type="text" placeholder='Buscar' />
+                            <button>
+                                <span className="material-symbols-outlined">
+                                    search
+                                </span>
+                            </button>
+                        </div>
+                        <span className='material-symbols-outlined'>shopping_cart</span>
+                    </div>
                 </div>
                 {/* <div className='search_input'>
                     <input type="text" />

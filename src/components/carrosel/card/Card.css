@@ -1,0 +1,7 @@
+.card_container {
+    display: flex;
+    background-color: rebeccapurple;
+    /* width: 100vw; */
+    /* height: 150px !important; */
+    /* border-radius: 10px; */
+}
