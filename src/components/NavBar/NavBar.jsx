@@ -12,11 +12,13 @@ import { useDebounce } from '../../hooks/useDebouce'
 function NavBar() {
 
     const [isOpen, setIsOpen] = useState(false)
-    const [narrowMenu, setNorrowMenu] = useState(false)
+    const [narrowMenu, setNorrowMenu] = useState(null)
 
     const [toggleElement, setToggleElement] = useState(false)
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
+
+    // const [isGratherThan, setIsGratherThan] = useState(window.innerWidth >= 768 || screenSize === window.screen.width)
 
 
     const nav = useRef(null)
@@ -39,11 +41,10 @@ function NavBar() {
 
     useEffect(() => {
 
+        const isGratherThan = screenSize >= 768 || screenSize === window.screen.width
+        console.log(screenSize >= 768 || screenSize === window.screen.width, screenSize, window.screen.width)
+
         function getScreenSize() {
-
-            setScreenSize(window.innerWidth)
-
-            const isGratherThan = screenSize >= 768
 
             if (isGratherThan) {
                 setNorrowMenu(true)
@@ -57,13 +58,21 @@ function NavBar() {
 
         getScreenSize()
 
-        window.addEventListener('resize', useDebounce(() => getScreenSize(), 100))
+    }, [screenSize])
+
+
+    useEffect(() => {
+
+        const debounceResize = useDebounce(() => setScreenSize(window.innerWidth), 100)
+
+        window.addEventListener('resize', debounceResize)
 
         return () => {
-            window.removeEventListener('resize', getScreenSize())
+            window.removeEventListener('resize', debounceResize)
         }
 
-    }, [screenSize])
+    }, [])
+
 
 
     function handleHovering(value = '') {
