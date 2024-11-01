@@ -49,11 +49,10 @@ header {
     /* Fundo preto semitransparente */
     z-index: 5;
     /* Deve estar atrás do menu lateral */
-    /* display: none; */
+    display: none;
     opacity: 0;
     transition: opacity 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
     /* Oculto por padrão */
-
 }
 
 

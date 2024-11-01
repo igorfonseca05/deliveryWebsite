@@ -20,10 +20,6 @@ function NavBar() {
 
     // const [isGratherThan, setIsGratherThan] = useState(window.innerWidth >= 768 || screenSize === window.screen.width)
 
-
-    const nav = useRef(null)
-
-
     function handleClick() {
         setIsOpen(!isOpen)
     }
@@ -42,7 +38,6 @@ function NavBar() {
     useEffect(() => {
 
         const isGratherThan = screenSize >= 768 || screenSize === window.screen.width
-        console.log(screenSize >= 768 || screenSize === window.screen.width, screenSize, window.screen.width)
 
         function getScreenSize() {
 
@@ -56,7 +51,6 @@ function NavBar() {
         }
 
         getScreenSize()
-
     }, [screenSize])
 
 
@@ -73,13 +67,18 @@ function NavBar() {
     }, [])
 
 
-
     function handleHovering(value = '') {
-        setScreenSize(window.innerWidth)
+        // setScreenSize(window.innerWidth)
         if (screenSize >= 768) {
             setToggleElement(value)
+        } else {
+            setToggleElement(true)
         }
     }
+
+    useEffect(() => {
+        handleHovering()
+    }, [screenSize])
 
     return (
         <header>
@@ -97,7 +96,7 @@ function NavBar() {
                     </button>
                 </div> */}
             </nav>
-            <nav ref={nav} className={`lateral_navBar
+            <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
             ${narrowMenu ? 'narrow_lateral_navBar' : ''}`}
                 onMouseEnter={() => handleHovering(true)}

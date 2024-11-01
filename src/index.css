@@ -38,8 +38,6 @@
 
     --side-menu-font-size: 1.4rem;
 
-    --button_hover_color: #FF8A47;
-
     --border-Radius: 8px;
     --lateral-menu-width: 7.6rem;
 
@@ -91,9 +89,9 @@ hr {
 }
 
 .section_container {
-    /* width: 100vw; */
-    margin: 0rem 0rem 0rem 7.6rem;
-    background-color: slateblue !important;
+    width: calc(100% - 7.6rem);
+    margin: 0 0 0 var(--lateral-menu-width);
+    transition: all 0.7s ease;
 }
 
 
@@ -147,9 +145,6 @@ hr {
 
 /* Estilos para telas médias (tablets) */
 @media (min-width: 768px) and (max-width: 1199px) {
-    html {
-        background-color: rebeccapurple !important;
-    }
 
     .overlay {
         display: none !important;
@@ -194,10 +189,23 @@ hr {
         display: none;
     }
 
+    .section_container {
+        width: 100%;
+        margin: 0;
+        /* background-color: slateblue !important; */
+    }
+
 }
 
 /* Estilos para telas muito pequenas (smartphones em modo retrato) */
 @media (max-width: 480px) {
+
+    .section_container {
+        width: 100%;
+        margin: 0;
+        /* background-color: slateblue !important; */
+    }
+
     .lateral_navBar {
         overflow: scroll;
     }
