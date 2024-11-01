@@ -41,14 +41,17 @@ function NavBar() {
 
         function getScreenSize() {
 
+            setScreenSize(window.innerWidth)
 
             const isGratherThan = screenSize >= 768
 
             if (isGratherThan) {
                 setNorrowMenu(true)
+                setIsOpen(false)
                 return
             } else {
                 setNorrowMenu(false)
+                // isOpen(tru)
             }
         }
 
@@ -60,7 +63,7 @@ function NavBar() {
             window.removeEventListener('resize', getScreenSize())
         }
 
-    }, [])
+    }, [screenSize])
 
 
     function handleHovering(value = '') {
@@ -143,12 +146,12 @@ function NavBar() {
                         <span className='title_lateral_menu'>Account</span>
                         <div className='buttons_container'>
                             <button className='button'>
-                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
+                                <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
                                 {/* {toggleElement ? "Entrar" : ''} */}
                             </button>
                             <button className='button-signUp'>
-                                <span class={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
+                                <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
                                 {/* {toggleElement ? "Cadastrar" : ''} */}
                             </button>
