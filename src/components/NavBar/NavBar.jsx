@@ -49,7 +49,6 @@ function NavBar() {
             if (isGratherThan) {
                 setNorrowMenu(true)
                 setIsOpen(false)
-                return
             } else {
                 setNorrowMenu(false)
                 // isOpen(tru)
