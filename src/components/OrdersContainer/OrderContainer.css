@@ -1,0 +1,34 @@
+.cart_icon {
+    cursor: pointer;
+}
+
+.myShoppingCard_container {
+    position: fixed;
+    height: 100vh;
+    width: 30rem;
+    background: white;
+    top: 0;
+    right: 0rem;
+    z-index: 4;
+    padding: 1.6rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+}
+
+.order_title_container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+
+.order_title_container h3 {
+    font-size: 2rem;
+}
+
+.close_orders_container {
+    /* margin-right: 1rem; */
+    order: 2;
+    cursor: pointer;
+
+}

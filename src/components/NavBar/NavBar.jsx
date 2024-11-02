@@ -8,6 +8,7 @@ import "./NavBar.css"
 import Logo from '../logo/Logo'
 
 import { useDebounce } from '../../hooks/useDebouce'
+import OrderContainer from '../OrdersContainer/OrderContainer'
 
 function NavBar() {
 
@@ -84,6 +85,7 @@ function NavBar() {
         <header>
             <nav className='top_navbar'>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
+                <img src="logo.svg" alt="" />
                 <div className="logo-top-menu">
                     <div className='search_input search-top-menu'>
                         <div className='input-iconSearch-container'>
@@ -94,8 +96,9 @@ function NavBar() {
                                 </span>
                             </button>
                         </div>
-                        <span className='material-symbols-outlined'>shopping_cart</span>
                     </div>
+                    <span className='material-symbols-outlined cart_icon'>shopping_cart</span>
+                    <OrderContainer />
                 </div>
                 {/* <div className='search_input'>
                     <input type="text" />
