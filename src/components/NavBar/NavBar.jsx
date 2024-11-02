@@ -191,7 +191,7 @@ function NavBar() {
                     <p>Paraiso da gastronomia</p>
                 </footer>
             </nav>
-            <div className={`overlay ${isOpen ? 'showOverlay' : ''}`} id="overlay"></div>
+            <div className={`overlay ${isOpen || OrderisOpen ? 'showOverlay' : ''}`} id="overlay"></div>
         </header>
     )
 }
