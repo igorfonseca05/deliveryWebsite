@@ -13,6 +13,8 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             <main>
                 <div className='orders_container'>
                     <CardOrder />
+                    <CardOrder />
+                    <CardOrder />
                 </div>
             </main>
             <footer className='total_orders'>
