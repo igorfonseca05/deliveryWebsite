@@ -13,6 +13,7 @@ import OrderContainer from '../OrdersContainer/OrderContainer'
 function NavBar() {
 
     const [isOpen, setIsOpen] = useState(false)
+    const [OrderisOpen, setOrderIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(null)
 
     const [toggleElement, setToggleElement] = useState(false)
@@ -26,7 +27,7 @@ function NavBar() {
     }
 
     function avoidScrollBody() {
-        if (isOpen) {
+        if (isOpen || OrderisOpen) {
             document.body.style.overflow = 'hidden'
         } else {
             document.body.style.overflow = ''
@@ -81,6 +82,11 @@ function NavBar() {
         handleHovering()
     }, [screenSize])
 
+
+    function handleOrderContainer() {
+        setOrderIsOpen(!OrderisOpen)
+    }
+
     return (
         <header>
             <nav className='top_navbar'>
@@ -97,8 +103,8 @@ function NavBar() {
                             </button>
                         </div>
                     </div>
-                    <span className='material-symbols-outlined cart_icon'>shopping_cart</span>
-                    <OrderContainer />
+                    <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                    <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
                 </div>
                 {/* <div className='search_input'>
                     <input type="text" />

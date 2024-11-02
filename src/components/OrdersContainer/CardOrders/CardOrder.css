@@ -1,0 +1,56 @@
+.orders_container .card_order {
+    display: flex;
+    /* height: em; */
+}
+
+.card_order .food_img_container {
+    flex-grow: 2;
+    background-color: violet;
+    margin: 0px;
+    min-width: 4.3rem;
+}
+
+.food_img_container img {
+    width: 100%;
+    height: 100%;
+}
+
+.second-part-card {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0.5;
+    background-color: aquamarine;
+}
+
+.food_name {
+    width: 9rem;
+    white-space: nowrap;
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    padding: 0rem 0rem 0.8rem 0rem;
+    /* background-color: rgb(187, 245, 176); */
+    font-weight: 600;
+}
+
+.number_control {
+    display: flex;
+    align-items: center;
+    border: 1px solid gray;
+    width: 7rem;
+    justify-content: space-between;
+    border-radius: 0.6rem;
+}
+
+.number_control .number_button {}
+
+.number_control .number_button span {
+    font-size: 2rem;
+}
+
+.number_control .number {
+    font-size: 1.5rem;
+}
+
+.food_price_container {
+    flex-grow: 0.5
+}
