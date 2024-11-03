@@ -27,8 +27,8 @@ header {
     background-color: var(--menu_color);
     /* width: 0px; */
     overflow: hidden !important;
-    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-        width 0.9s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        width 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
     transform: translateX(-100%);
     z-index: 10;
 
@@ -52,7 +52,7 @@ header {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     /* Fundo preto semitransparente */
-    z-index: 5;
+    z-index: 3;
     /* Deve estar atrás do menu lateral */
     display: none;
     opacity: 0;
@@ -62,7 +62,7 @@ header {
 
 
 .showOverlay {
-    z-index: 5;
+    z-index: 3;
     opacity: 1;
     display: block;
 }

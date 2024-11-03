@@ -123,6 +123,36 @@ hr {
     /* display: flex; */
 }
 
+.button-style {
+    display: flex;
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border-radius: var(--border-Radius);
+    border: none;
+    background-color: var(--cor-destaque);
+}
+
+.scroll-bar::-webkit-scrollbar {
+    width: 0.8rem;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 5px;
+    border: 2px solid #f1f1f1;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb:hover {
+    background-color: #b3b3b3;
+}
+
+
+
 
 
 /* Estilos para telas grandes (desktops) */
@@ -134,7 +164,7 @@ hr {
     }
 
 
-    .top_navbar img {
+    .top_navbar img[src='logo.svg'] {
         display: none !important;
     }
 
@@ -177,9 +207,10 @@ hr {
         display: none;
     }
 
-
-
-
+    .myShoppingCard_container {
+        width: 32rem;
+        padding: 2rem;
+    }
 
 }
 

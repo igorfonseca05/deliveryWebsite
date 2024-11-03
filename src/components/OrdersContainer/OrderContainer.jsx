@@ -10,18 +10,37 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                     onClick={handleOrderContainer}> close</span>
                 <h3>Meus pedidos</h3>
             </header>
-            <main>
-                <div className='orders_container'>
+            <div className='infors-order-container'>
+                <main className='orders_container scroll-bar'>
                     <CardOrder />
                     <CardOrder />
-                    <CardOrder />
-                </div>
-            </main>
-            <footer className='total_orders'>
-                <div className='orders_fees'></div>
-                <div className='order_total'></div>
-                <div className='order_button'></div>
-            </footer>
+
+                </main>
+                <footer className='total_orders'>
+                    <div className='orders_fees'>
+                        <hr />
+                        <div className='fess_container'>
+                            <p>Sub total</p>
+                            <span>R$259.36</span>
+                        </div>
+                        <div className='fess_container'>
+                            <p>Taxa de entrega</p>
+                            <span>R$9.00</span>
+                        </div>
+                    </div>
+                    <hr />
+                    <div className='order_total'>
+                        <p>Total</p>
+                        <span>R$268.36</span>
+                    </div>
+                    <div className='order_button'>
+                        <button className='button-style'>
+                            <p>Fazer pedido</p>
+                            <span className='material-symbols-outlined'>chevron_right</span>
+                        </button>
+                    </div>
+                </footer>
+            </div>
         </div>
     )
 }
