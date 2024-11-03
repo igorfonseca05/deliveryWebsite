@@ -41,7 +41,9 @@
     --border-Radius: 8px;
     --lateral-menu-width: 7.6rem;
 
-    --opacity_transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1)
+    --opacity_transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    --slide_container_size: 25rem
 }
 
 * {
@@ -219,6 +221,10 @@ hr {
         display: none;
     }
 
+    .search-top-menu {
+        width: 60%;
+    }
+
 
     .top_navbar img {
         display: none !important;
@@ -252,6 +258,11 @@ hr {
         display: none;
     }
 
+    .cards_infos_container .Card_carousel_title {
+        font-size: 1.7rem !important;
+        width: 100%;
+    }
+
 
 }
 
@@ -262,8 +273,9 @@ hr {
     }
 
     .section_container {
-        width: 100%;
+        width: 100% !important;
         margin: 0;
+        padding: 1rem 1.5rem;
         /* background-color: slateblue !important; */
     }
 
@@ -284,8 +296,8 @@ hr {
     }
 
 
-    .search-top-menu img {
-        width: 50%;
+    .search-top-menu {
+        opacity: 0 !important;
     }
 
     .logo-top-menu {
@@ -295,11 +307,35 @@ hr {
         width: fit-content;
         margin-left: 0rem !important;
         padding: 0rem 0dvh 0rem 0rem;
-        background-color: rgba(255, 216, 216, 0.932);
+        /* background-color: rgba(255, 216, 216, 0.932); */
     }
 
     .logo-top-menu .search-top-menu {
         display: none;
+    }
+
+    .slick-list {
+        height: var(--slide_container_size) !important;
+    }
+
+    .figure_container {
+        /* flex-grow: 1; */
+        /* margin: 3rem auto; */
+        width: 100%;
+        height: var(--slide_container_size) !important;
+
+    }
+
+    .cards_infos_container .Card_carousel_title {
+        font-size: 3rem !important;
+        width: 100%;
+    }
+
+    .Card_corousel_subtitle {
+        font-size: 1.3rem !important;
+        font-weight: 300;
+        color: rgba(255, 255, 255, 0.774);
+        /* display: none; */
     }
 
 
@@ -309,13 +345,17 @@ hr {
 /* Estilos para telas muito pequenas (smartphones em modo retrato) */
 @media (max-width: 480px) {
 
-
     .section_container {
         width: 100%;
         margin: 0;
         padding: 1rem 0.8rem;
         /* background-color: slateblue !important; */
     }
+
+    /* .search-top-menu {
+        display: none !important;
+    } */
+
 
     .lateral_navBar {
         overflow: scroll;
@@ -329,38 +369,33 @@ hr {
         display: none;
     }
 
-    .search-top-menu {
-        display: flex;
-        justify-content: end;
-        /* width: 90%; */
-        margin-right: 2rem;
-    }
-
     .slick-list {
         height: 18rem !important;
     }
 
     .figure_container {
         /* margin: 3rem auto; */
+        width: 140vw;
         height: 18rem !important;
 
     }
 
     .cards_infos_container {
         height: fit-content !important;
-        padding: 1.4rem;
-        width: 100%;
+        /* padding: 2rem; */
+        /* width: 76%; */
         height: fit-content;
         /* flex-grow: 2; */
     }
 
     .cards_infos_container .Card_carousel_title {
-        font-size: 1.45rem !important;
+        font-size: 1.5rem !important;
         width: 100%;
     }
 
     .Card_corousel_subtitle {
-        font-size: 1.1rem !important;
+        font-size: 1rem !important;
+        /* content: 'hoje é dia de ' !important; */
     }
 
 

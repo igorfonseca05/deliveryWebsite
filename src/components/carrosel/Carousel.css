@@ -7,6 +7,7 @@
     /* overflow: hidden; */
 }
 
+
 .slick-list .card {
     border: none;
     height: auto;
@@ -28,22 +29,29 @@
     transform: translateY(-50%);
     /* Corrige a centralização */
     z-index: 1;
+    display: none !important;
     /* Garante que fiquem acima do conteúdo */
 }
 
-/* Ajuste para o botão da esquerda */
 .slick-prev {
     left: 10px;
-    /* Ajuste a posição horizontal conforme necessário */
 }
 
-/* Ajuste para o botão da direita */
 .slick-next {
     right: 10px;
-    /* Ajuste a posição horizontal conforme necessário */
 }
 
 .slick-dots li button::before {
     color: var(--cor-principal) !important;
     /* background-color: rebeccapurple; */
+}
+
+.slick-slider:hover>.slick-prev,
+.slick-prev:hover {
+    display: block !important;
+}
+
+.slick-slider:hover>.slick-next,
+.slick-next:hover {
+    display: block !important;
 }
