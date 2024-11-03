@@ -1,7 +1,17 @@
 .slick-list {
     border-radius: 20px !important;
     /* z-index: 3; */
+    max-width: 1171px;
+    height: 30rem !important;
+    /* margin: 1.6rem 0rem; */
+    overflow: hidden;
 }
+
+.slick-list .card {
+    border: none;
+    height: auto;
+}
+
 
 
 .carousel_container {

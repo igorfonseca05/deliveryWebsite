@@ -72,7 +72,6 @@ header {
 .top-menu-content {
     display: flex;
     /* background-color: rgba(224, 228, 21, 0.342); */
-
 }
 
 .logo-top-menu {
@@ -82,9 +81,6 @@ header {
     width: calc(100% - var(--lateral-menu-width));
     margin-left: 6.6rem !important;
     padding: 0rem 5rem 0rem 2.8rem;
-    /* background-color: rgb(207, 167, 247); */
-    /* margin: 0px; */
-    /* border: 1px solid black */
 }
 
 

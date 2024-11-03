@@ -92,7 +92,7 @@ hr {
     width: calc(100% - var(--lateral-menu-width));
     margin: 0 0 0 var(--lateral-menu-width);
     transition: all 0.7s ease;
-    padding: 0px 4.8rem;
+    padding: 1rem 4.8rem;
 }
 
 .search-top-menu {
@@ -152,9 +152,6 @@ hr {
 }
 
 
-
-
-
 /* Estilos para telas grandes (desktops) */
 @media (min-width: 1200px) {
 
@@ -163,17 +160,13 @@ hr {
         display: none;
     }
 
-
     .top_navbar img[src='logo.svg'] {
         display: none !important;
     }
 
-
-
     .overlay {
         display: none !important;
     }
-
 
     .narrow_lateral_navBar {
         display: flex;
@@ -316,9 +309,11 @@ hr {
 /* Estilos para telas muito pequenas (smartphones em modo retrato) */
 @media (max-width: 480px) {
 
+
     .section_container {
         width: 100%;
         margin: 0;
+        padding: 1rem 0.8rem;
         /* background-color: slateblue !important; */
     }
 
@@ -340,6 +335,12 @@ hr {
         /* width: 90%; */
         margin-right: 2rem;
     }
+
+    .slick-list {
+        height: 17rem !important;
+    }
+
+
 }
 
 @media (orientation: landscape) {

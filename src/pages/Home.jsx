@@ -12,15 +12,7 @@ function Home() {
             <div className='slider_container'>
                 <Carousel />
             </div>
-            <div className=''>
-                <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos accusantium at, amet illo commodi, reiciendis eum odit modi possimus repellat esse iste qui inventore et eligendi minus, consequatur nulla minima?</h1>
-            </div>
-            <div className=''>
-                <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos accusantium at, amet illo commodi, reiciendis eum odit modi possimus repellat esse iste qui inventore et eligendi minus, consequatur nulla minima?</h1>
-            </div>
-            <div className=''>
-                <h1>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos accusantium at, amet illo commodi, reiciendis eum odit modi possimus repellat esse iste qui inventore et eligendi minus, consequatur nulla minima?</h1>
-            </div>
+
         </div>
     )
 }

@@ -38,8 +38,30 @@ const Carousel = () => {
     return (
         <div className='carousel_container'>
             <Slider {...settings}>
-                <div className='card'><Card imgSource={"massas.png"} /></div>
-                <div className='card'><Card imgSource={"doce.png"} /></div>
+                <div className='card'>
+                    <Card
+                        title={"Refeição Completa em Minutos!"}
+                        subtitle={'Peça hoje e receba no conforto da sua casa. Qualidade e sabor que surpreendem!'}
+                        imgSource={"massas.png"} />
+                </div>
+                <div className='card'>
+                    <Card
+                        title={"Promoções Exclusivas Todos os Dias!"}
+                        subtitle={'Aproveite pratos deliciosos com descontos especiais. Não perca!'}
+                        imgSource={"sorvete.webp"} />
+                </div>
+                <div className='card'>
+                    <Card
+                        title={"Sabores Caseiros Feitos com Carinho!"}
+                        subtitle={'Sinta o gostinho de comida caseira em cada refeição. Feito com ingredientes frescos e muito amor.'}
+                        imgSource={"sorvete.webp"} />
+                </div>
+                <div className='card'>
+                    <Card
+                        title={"Faça seu Pedido em Poucos Cliques!"}
+                        subtitle={'Com nosso sistema prático, escolher e pedir ficou mais fácil do que nunca!'}
+                        imgSource={"sorvete.webp"} />
+                </div>
             </Slider>
         </div>
     );

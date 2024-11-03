@@ -1,8 +1,15 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./OrderContainer.css"
 import CardOrder from './CardOrders/CardOrder'
 
 function OrderContainer({ isOpen, handleOrderContainer }) {
+
+    const [emptyOrders, setEmptyOrders] = useState(0)
+
+    const orders = useRef(null)
+
+    useEffect(() => setEmptyOrders(orders.current?.children.length), [])
+
     return (
         <div className={`myShoppingCard_container ${isOpen ? 'openOrderContaiener' : ''}`}>
             <header className='order_title_container'>
@@ -11,10 +18,8 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                 <h3>Meus pedidos</h3>
             </header>
             <div className='infors-order-container'>
-                <main className='orders_container scroll-bar'>
-                    <CardOrder />
-                    <CardOrder />
-
+                <main ref={orders} className='orders_container scroll-bar'>
+                    {emptyOrders ? (<CardOrder />) : (<p>Seu carrinho está vazio</p>)}
                 </main>
                 <footer className='total_orders'>
                     <div className='orders_fees'>
