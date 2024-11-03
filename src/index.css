@@ -294,7 +294,7 @@ hr {
         justify-content: space-between;
         width: fit-content;
         margin-left: 0rem !important;
-        padding: 0rem 2rem 0rem 0rem;
+        padding: 0rem 0dvh 0rem 0rem;
         background-color: rgba(255, 216, 216, 0.932);
     }
 
@@ -337,7 +337,30 @@ hr {
     }
 
     .slick-list {
-        height: 17rem !important;
+        height: 18rem !important;
+    }
+
+    .figure_container {
+        /* margin: 3rem auto; */
+        height: 18rem !important;
+
+    }
+
+    .cards_infos_container {
+        height: fit-content !important;
+        padding: 1.4rem;
+        width: 100%;
+        height: fit-content;
+        /* flex-grow: 2; */
+    }
+
+    .cards_infos_container .Card_carousel_title {
+        font-size: 1.45rem !important;
+        width: 100%;
+    }
+
+    .Card_corousel_subtitle {
+        font-size: 1.1rem !important;
     }
 
 

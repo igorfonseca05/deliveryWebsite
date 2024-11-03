@@ -8,23 +8,26 @@
     border-radius: 20px;
     overflow: hidden;
     /* padding: 5rem; */
-    height: 100vh;
+    height: fit-content;
     border: none;
 }
 
 
 .cards_infos_container {
-    position: absolute;
-    left: 6rem;
-    top: 6rem;
+    /* position: absolute; */
+    /* left: 6rem; */
+    /* top: 6rem; */
     display: flex;
     flex-direction: column;
     /* margin: 3rem auto; */
     /* flex-grow: 0.5; */
     /* padding: 6rem; */
-    justify-content: center;
+    /* justify-content: center; */
     z-index: 2;
     color: white;
+    min-height: 18rem;
+    height: max-content;
+    /* background-color: rgb(25, 145, 61); */
 }
 
 .Card_carousel_title {
@@ -39,11 +42,15 @@
 }
 
 .figure_container {
-    position: absolute;
+    display: flex;
+    /* align-items: center; */
+    /* position: absolute; */
     /* background-color: red; */
     /* flex-grow: 1; */
-    height: 30rem !important;
-    right: 3rem;
+    width: 100%;
+    height: 30em !important;
+    /* max-height: 30em !important; */
+    /* right: 3rem; */
 }
 
 .card_container img {
