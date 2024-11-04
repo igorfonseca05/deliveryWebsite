@@ -9,6 +9,7 @@ import Logo from '../logo/Logo'
 
 import { useDebounce } from '../../hooks/useDebouce'
 import OrderContainer from '../OrdersContainer/OrderContainer'
+import { useModalContext } from '../../context/ModalContext'
 
 function NavBar() {
 
@@ -20,7 +21,8 @@ function NavBar() {
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
-    // const [isGratherThan, setIsGratherThan] = useState(window.innerWidth >= 768 || screenSize === window.screen.width)
+    const { handleOpenModal } = useModalContext()
+
 
     function handleClick() {
         setIsOpen(!isOpen)
@@ -176,7 +178,7 @@ function NavBar() {
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
                                 {/* {toggleElement ? "Entrar" : ''} */}
                             </button>
-                            <button className='button-signUp'>
+                            <button className='button-signUp' onClick={handleOpenModal}>
                                 <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
                                 {/* {toggleElement ? "Cadastrar" : ''} */}

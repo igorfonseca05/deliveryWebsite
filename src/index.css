@@ -43,7 +43,7 @@
 
     --opacity_transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
-    --slide_container_size: 25rem
+    --slide_container_size: 22class="button-signUp" rem
 }
 
 * {
@@ -151,6 +151,15 @@ hr {
 
 .scroll-bar::-webkit-scrollbar-thumb:hover {
     background-color: #b3b3b3;
+}
+
+.button_bunner {
+    position: absolute;
+    bottom: 4rem;
+    left: 8.4rem;
+    padding: 1rem 4rem;
+    border-radius: var(--border-Radius);
+    font-size: 1.6rem
 }
 
 
@@ -263,6 +272,18 @@ hr {
         width: 100%;
     }
 
+    .slick-list {
+        height: 26rem !important;
+    }
+
+    .figure_container {
+        /* flex-grow: 1; */
+        /* margin: 3rem auto; */
+        width: 100%;
+        height: 26rem !important;
+
+    }
+
 
 }
 
@@ -370,13 +391,13 @@ hr {
     }
 
     .slick-list {
-        height: 18rem !important;
+        height: 17rem !important;
     }
 
     .figure_container {
         /* margin: 3rem auto; */
         width: 140vw;
-        height: 18rem !important;
+        height: 17rem !important;
 
     }
 

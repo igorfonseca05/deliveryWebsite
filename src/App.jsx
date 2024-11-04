@@ -14,6 +14,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 
 // Pages
 import NavBar from './components/NavBar/NavBar'
+import ModalForm from './components/formContainer/ModalForm';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
 
   return (
     <>
+      <ModalForm />
       <BrowserRouter>
         <NavBar />
         <Routes>

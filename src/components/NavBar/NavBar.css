@@ -298,6 +298,11 @@ header {
     color: white;
 }
 
+.buttons_container button:last-child:hover {
+    background-color: var(--cor-destaque-hover);
+    color: white;
+}
+
 .menu_piece {
     flex-grow: 1;
 }

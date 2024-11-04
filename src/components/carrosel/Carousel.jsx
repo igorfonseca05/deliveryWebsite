@@ -42,7 +42,10 @@ const Carousel = () => {
                     <Card
                         title={"Refeição Completa em Minutos!"}
                         subtitle={'Peça hoje e receba no conforto da sua casa. Qualidade e sabor que surpreendem!'}
-                        imgSource={"massas.png"} />
+                        imgSource={"banner-1024.png"}
+                        imgSource2={"banner-320.png"}
+                        imgSource3={"banner-640.png"}
+                        imgSource4={"banner-1024.png"} />
                 </div>
                 <div className='card'>
                     <Card
