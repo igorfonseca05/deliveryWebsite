@@ -13,6 +13,9 @@ import { useModalContext } from '../../context/ModalContext'
 
 function NavBar() {
 
+    const lis = useRef()
+    const login_buttons = useRef()
+
     const [isOpen, setIsOpen] = useState(false)
     const [OrderisOpen, setOrderIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(null)
@@ -21,7 +24,25 @@ function NavBar() {
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
-    const { handleOpenModal } = useModalContext()
+
+    useEffect(() => {
+        const allTrigger = [...lis.current.children, ...login_buttons.current.children]
+
+        function addClickEvent() {
+            // console.log('po')
+            setIsOpen(false)
+        }
+
+        allTrigger?.forEach(item => {
+            item.addEventListener('click', addClickEvent)
+        })
+
+        return () => {
+            allTrigger?.forEach(item => {
+                item.removeEventListener('click', addClickEvent)
+            });
+        }
+    }, [])
 
 
     function handleClick() {
@@ -108,14 +129,6 @@ function NavBar() {
                     <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
                     <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
                 </div>
-                {/* <div className='search_input'>
-                    <input type="text" />
-                    <button>
-                        <span className="material-symbols-outlined">
-                            search
-                        </span>
-                    </button>
-                </div> */}
             </nav>
             <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
@@ -142,7 +155,7 @@ function NavBar() {
                     </div>
                     <div className='menu_title_container menu_piece'>
                         <span className='title_lateral_menu'>Menu</span>
-                        <ul className='li_container'>
+                        <ul ref={lis} className='li_container'>
                             <NavLink to={'/'}>
                                 <li className='nav_item'>
                                     <span className="material-symbols-outlined list-icon">home</span>
@@ -172,17 +185,19 @@ function NavBar() {
                     </div>
                     <div className='menu_acccount_container menu_piece'>
                         <span className='title_lateral_menu'>Account</span>
-                        <div className='buttons_container'>
+                        <div ref={login_buttons} className='buttons_container'>
                             <button className='button'>
                                 <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
                                 {/* {toggleElement ? "Entrar" : ''} */}
                             </button>
-                            <button className='button-signUp' onClick={handleOpenModal}>
-                                <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
-                                <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
-                                {/* {toggleElement ? "Cadastrar" : ''} */}
-                            </button>
+                            <NavLink to={'/login'}>
+                                <button className='button-signUp'>
+                                    <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
+                                    <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
+                                    {/* {toggleElement ? "Cadastrar" : ''} */}
+                                </button>
+                            </NavLink>
                         </div>
                         <hr />
                     </div>

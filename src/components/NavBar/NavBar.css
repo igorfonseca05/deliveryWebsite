@@ -244,6 +244,10 @@ header {
     row-gap: 0.4rem;
 }
 
+.buttons_container a {
+    width: 100%;
+}
+
 .buttons_container button {
     display: inline-flex;
     position: relative;
@@ -296,6 +300,7 @@ header {
 .buttons_container button:last-child {
     background-color: var(--cor-destaque);
     color: white;
+    width: 100%;
 }
 
 .buttons_container button:last-child:hover {
