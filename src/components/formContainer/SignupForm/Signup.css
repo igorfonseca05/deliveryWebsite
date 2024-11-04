@@ -1,0 +1,10 @@
+.padding_container .image-signUp-container {
+    flex-grow: 1 !important;
+    max-width: 500px;
+    background-image: url('signUp.jpg');
+    background-size: cover;
+    background-position: center;
+    order: 1;
+    border-radius: 0.6rem;
+    order: -1;
+}

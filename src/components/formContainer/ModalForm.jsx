@@ -3,6 +3,7 @@ import React from 'react'
 import './ModalForm.css'
 import { useModalContext } from '../../context/ModalContext'
 import Login from './LoginForm/Login'
+import Signup from './SignupForm/Signup'
 
 function ModalForm() {
 
@@ -14,10 +15,7 @@ function ModalForm() {
         <div className={`form_overlay ${modalIsOpen ? 'modalOpen' : ''}`}>
             <span className='material-symbols-outlined close-button' onClick={() => handleOpenModal()}>close</span>
             {
-                modalLogin ? <Login /> :
-                    (<div className=' signUp_form_container'>
-
-                    </div>)
+                modalLogin ? <Login /> : <Signup />
             }
         </div>
     )

@@ -11,7 +11,7 @@ header {
     align-items: center;
     width: 100vw;
     padding: 1rem;
-    background-color: var(--menu_color);
+    background-color: var(--cor-fundo-menu);
     /* margin: 0 auto; */
     /* background-color: rgb(101, 247, 33); */
 }
@@ -202,7 +202,7 @@ header {
 }
 
 .li_container a li:hover {
-    background-image: var(--cor-destaque);
+    background-color: var(--cor-principal);
 }
 
 .li_container a li p {
@@ -261,9 +261,9 @@ header {
     white-space: nowrap;
 }
 
-.buttons_container button:last-child:hover {
-    background-color: var(--button_hover_color);
-}
+/* .buttons_container button:last-child:hover {
+    background-color: var(--cor-principal-hover);
+} */
 
 .buttons_container button p {
     font-size: 1.2rem !important;
@@ -298,13 +298,13 @@ header {
 }
 
 .buttons_container button:last-child {
-    background-image: var(--cor-destaque);
+    background-color: var(--cor-principal);
     color: white;
     width: 100%;
 }
 
 .buttons_container button:last-child:hover {
-    background-image: var(--cor-destaque);
+    background-color: var(--cor-principal-hover);
     color: white;
 }
 

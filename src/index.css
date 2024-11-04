@@ -12,17 +12,19 @@
 
     /* Cor Principal para Botões e Chamadas de Ação */
     --cor-principal: #4CAF50;
-    --cor-principal-hover: #4caf4f9f;
+    --cor-principal-hover: #388E3C;
     /* Verde Folha */
 
     /* Cor de Destaque para Detalhes e Promoções */
-    --cor-destaque: linear-gradient(135deg, #FF8C00, #FFA726);
+    --cor-destaque: #4CAF50;
+    /* --cor-destaque: linear-gradient(135deg, #FF8C00, #FFA726); */
     --cor-destaque-hover: #ffa93f;
     --click: #D85D1C;
     /* Laranja Vibrante */
 
     /* Cor de Fundo para o Menu Lateral e Áreas de Fundo */
     --cor-fundo-menu: #F5F5F5;
+    --cor-fundo-pedidos: #F5F5F5;
     /* Branco Suave (White Smoke) */
 
     /* Cor do Texto Principal */
@@ -161,6 +163,36 @@ hr {
     border-radius: var(--border-Radius);
     font-size: 1.6rem
 }
+
+/* Formualarios */
+
+.form_container_login_and_signIn {
+    display: flex;
+    width: 90%;
+    min-height: 80%;
+    /* height: 100%; */
+    max-width: 1000px;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    border-radius: var(--border-Radius);
+    /* transform: translateY(-120%); */
+    /* transition: transform 2s 0.2s ease-in-out; */
+}
+
+
+.form_container {
+    display: flex;
+    min-width: 200px;
+    width: auto;
+    max-width: 500px;
+    flex-direction: column !important;
+    /* background-color: rgb(230, 230, 230); */
+    /* overflow: hidden; */
+    height: 100% !important;
+    margin: 0px;
+    padding: 3.5rem;
+}
+
 
 
 /* Estilos para telas grandes (desktops) */

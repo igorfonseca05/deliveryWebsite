@@ -14,7 +14,7 @@
     position: fixed;
     min-height: 100vh !important;
     width: 28rem;
-    background: white;
+    background: var(--cor-fundo-pedidos);
     top: 0;
     right: 0rem;
     z-index: 4;
@@ -90,6 +90,12 @@
 .order_total {
     display: flex;
     margin-bottom: 2rem;
+}
+
+.order_button>button:hover>p,
+.order_button>button:hover>span {
+    color: white !important;
+    /* background-color: violet; */
 }
 
 .order_total p {

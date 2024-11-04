@@ -1,16 +1,11 @@
 import React from 'react'
+import './Signup.css'
 
-import './Login.css'
-
-
-import { useModalContext } from '../../../context/ModalContext'
-
-function Login() {
-
+function Signup() {
     return (
         <div className={`form_container_login_and_signIn`}>
             <div className='padding_container'>
-                <div className='image-login-container'>
+                <div className='image-signUp-container'>
                     <div>
                         <img src="logo.svg" alt="" />
                     </div>
@@ -20,10 +15,21 @@ function Login() {
                         <img src="logoIcon.svg" alt="" />
                     </div>
                     <div className='form_heading'>
-                        <h1>Bem vindo de volta!</h1>
+                        <h1>Vamos começar!</h1>
                         <p>Complete suas informações para que possamos levar seu pedido até você!</p>
                     </div>
                     <form>
+                        <div className="input-field">
+                            <input
+                                required=""
+                                autoComplete="off"
+                                typeof="text"
+                                name="name"
+                                id="name"
+                            // placeholder='Email'
+                            />
+                            <label htmlFor="name">Nome</label>
+                        </div>
                         <div className="input-field">
                             <input
                                 required=""
@@ -43,14 +49,14 @@ function Login() {
                                 name="text"
                                 id="password"
                             />
-                            <label htmlFor="username">Password</label>
+                            <label htmlFor="username">Senha</label>
                             <span className='material-symbols-outlined password-visibility'>visibility</span>
                         </div>
                         <div className="btn-container">
-                            <button className="btn">Entrar</button>
+                            <button className="btn">Criar conta</button>
                             <div className="acc-text">
-                                New here ?
-                                <span style={{ color: "#0000ff", cursor: "pointer" }}>Create Account</span>
+                                Já posui conta ?
+                                <span style={{ color: "#0000ff", cursor: "pointer" }}>Entrar</span>
                             </div>
                         </div>
                     </form>
@@ -61,4 +67,4 @@ function Login() {
     )
 }
 
-export default Login
+export default Signup

@@ -21,9 +21,7 @@ function NavBar() {
     const [isOpen, setIsOpen] = useState(false)
     const [OrderisOpen, setOrderIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(null)
-
     const [toggleElement, setToggleElement] = useState(false)
-
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
 

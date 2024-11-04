@@ -6,23 +6,24 @@ export const ModalContext = createContext()
 export function ModalContextProvider({ children }) {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [modalLogin, setModalLogin] = useState(false)
+    const [modalLogin, setModalLogin] = useState(null)
 
     function handleOpenModal(formToOpen = '') {
 
-
+        // console.log(formToOpen)
 
         if (formToOpen === 'login') {
-            setModalLogin(!modalLogin)
-            setModalIsOpen(!modalLogin)
+            setModalLogin(true)
+            setModalIsOpen(!modalIsOpen)
             return
             // setModalIsOpen(!modalLogin)
         } else if (formToOpen === 'cadastro') {
-            setModalLogin(!modalLogin)
+            setModalLogin(false)
             setModalIsOpen(!modalIsOpen)
 
         }
         setModalIsOpen(!modalIsOpen)
+        // setModalIsOpen(false)
     }
 
     return (
