@@ -202,7 +202,7 @@ header {
 }
 
 .li_container a li:hover {
-    background-color: var(--cor-destaque-hover);
+    background-image: var(--cor-destaque);
 }
 
 .li_container a li p {
@@ -298,13 +298,13 @@ header {
 }
 
 .buttons_container button:last-child {
-    background-color: var(--cor-destaque);
+    background-image: var(--cor-destaque);
     color: white;
     width: 100%;
 }
 
 .buttons_container button:last-child:hover {
-    background-color: var(--cor-destaque-hover);
+    background-image: var(--cor-destaque);
     color: white;
 }
 

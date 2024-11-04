@@ -16,8 +16,8 @@
     /* Verde Folha */
 
     /* Cor de Destaque para Detalhes e Promoções */
-    --cor-destaque: #F27127;
-    --cor-destaque-hover: #FF8A47;
+    --cor-destaque: linear-gradient(135deg, #FF8C00, #FFA726);
+    --cor-destaque-hover: #ffa93f;
     --click: #D85D1C;
     /* Laranja Vibrante */
 
@@ -359,8 +359,15 @@ hr {
         /* display: none; */
     }
 
+    .padding_container {
+        /* display: grid; */
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 
+    }
 
+    /* .image-login-container {
+        display: none;
+    } */
 }
 
 /* Estilos para telas muito pequenas (smartphones em modo retrato) */
@@ -419,6 +426,20 @@ hr {
         /* content: 'hoje é dia de ' !important; */
     }
 
+    /* Login form */
+    .form_container {
+        width: 100%;
+        padding: 1rem !important;
+        background-image: var(--cor-texto-e-icon);
+    }
+
+    .logo_login {
+        display: none;
+    }
+
+    .padding_container .image-login-container {
+        order: 0;
+    }
 
 }
 

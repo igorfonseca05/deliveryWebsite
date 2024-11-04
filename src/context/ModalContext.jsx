@@ -9,11 +9,18 @@ export function ModalContextProvider({ children }) {
     const [modalLogin, setModalLogin] = useState(false)
 
     function handleOpenModal(formToOpen = '') {
+
+
+
         if (formToOpen === 'login') {
             setModalLogin(!modalLogin)
             setModalIsOpen(!modalLogin)
             return
             // setModalIsOpen(!modalLogin)
+        } else if (formToOpen === 'cadastro') {
+            setModalLogin(!modalLogin)
+            setModalIsOpen(!modalIsOpen)
+
         }
         setModalIsOpen(!modalIsOpen)
     }

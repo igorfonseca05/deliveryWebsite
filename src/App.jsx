@@ -23,13 +23,13 @@ function App() {
 
   return (
     <>
-      {/* <ModalForm /> */}
+      <ModalForm />
       <BrowserRouter>
         <NavBar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
           <Route path='/produtos' element={<Produtos />}></Route>
-          <Route path='/login' element={<Login />}></Route>
+          {/* <Route path='/login' element={<Login />}></Route> */}
         </Routes>
       </BrowserRouter>
     </>

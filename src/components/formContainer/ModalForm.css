@@ -8,12 +8,6 @@
     background: rgba(0, 0, 0, 0.616);
     z-index: 1000;
     display: none;
-
-    /* visibility: hidden; */
-    /* opacity: 0; */
-    transition: visibility 0.5s ease;
-    /* z-index: 11; */
-    /* Garante que o modal esteja acima de tudo */
 }
 
 .modalOpen {
@@ -42,28 +36,4 @@
     font-size: 3rem;
     cursor: pointer;
     color: white !important;
-}
-
-/* Login form */
-
-.login_form_container {
-    display: flex;
-    flex-wrap: wrap;
-    width: 90%;
-    height: 60%;
-    background-color: white;
-}
-
-.image-login-container {
-    /* flex-grow: 1; */
-    min-width: 100%;
-    /* width: fit-content; */
-    max-width: 500px;
-    /* height: fit-content; */
-    background-color: rebeccapurple;
-    flex-grow: 1;
-}
-
-.login_form_container form {
-    flex-grow: 2;
 }

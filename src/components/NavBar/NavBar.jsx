@@ -16,6 +16,8 @@ function NavBar() {
     const lis = useRef()
     const login_buttons = useRef()
 
+    const { handleOpenModal, modalIsOpen } = useModalContext()
+
     const [isOpen, setIsOpen] = useState(false)
     const [OrderisOpen, setOrderIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(null)
@@ -23,6 +25,7 @@ function NavBar() {
     const [toggleElement, setToggleElement] = useState(false)
 
     const [screenSize, setScreenSize] = useState(window.innerWidth)
+
 
 
     useEffect(() => {
@@ -50,7 +53,7 @@ function NavBar() {
     }
 
     function avoidScrollBody() {
-        if (isOpen || OrderisOpen) {
+        if (isOpen || OrderisOpen || modalIsOpen) {
             document.body.style.overflowY = 'hidden'
         } else {
             document.body.style.overflowY = ''
@@ -186,13 +189,13 @@ function NavBar() {
                     <div className='menu_acccount_container menu_piece'>
                         <span className='title_lateral_menu'>Account</span>
                         <div ref={login_buttons} className='buttons_container'>
-                            <button className='button'>
+                            <button className='button' onClick={() => handleOpenModal('login')}>
                                 <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
                                 <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
                                 {/* {toggleElement ? "Entrar" : ''} */}
                             </button>
-                            <NavLink to={'/login'}>
-                                <button className='button-signUp'>
+                            <NavLink>
+                                <button className='button-signUp' onClick={() => handleOpenModal('cadastro')}>
                                     <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
                                     <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
                                     {/* {toggleElement ? "Cadastrar" : ''} */}
