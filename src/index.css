@@ -16,7 +16,7 @@
     /* Verde Folha */
 
     /* Cor de Destaque para Detalhes e Promoções */
-    --cor-destaque: #4CAF50;
+    /* --cor-destaque: #4CAF50; */
     /* --cor-destaque: linear-gradient(135deg, #FF8C00, #FFA726); */
     --cor-destaque-hover: #ffa93f;
     --click: #D85D1C;
@@ -75,6 +75,7 @@ a {
 
 .material-symbols-outlined {
     color: var(--cor-texto-e-icon);
+    /* fill: 1 !important; */
 }
 
 hr {
