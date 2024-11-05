@@ -142,6 +142,7 @@ header {
     transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
+
 .search_input input::placeholder {
     display: flex;
     align-items: center;

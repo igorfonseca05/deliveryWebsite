@@ -3,3 +3,10 @@
     /* background-color: tomato; */
     /* padding: 1rem 4.5rem !important; */
 }
+
+
+.produtos {
+    background-color: violet;
+}
+
+.produtos .title_section {}

@@ -10,11 +10,6 @@ function Login() {
     return (
         <div className={`form_container_login_and_signIn`}>
             <div className='padding_container'>
-                <div className='image-login-container'>
-                    <div>
-                        <img src="logo.svg" alt="" />
-                    </div>
-                </div>
                 <div className="form_container">
                     <div className='logo_login'>
                         <img src="logoIcon.svg" alt="" />
@@ -54,6 +49,11 @@ function Login() {
                             </div>
                         </div>
                     </form>
+                </div>
+                <div className='image-login-container'>
+                    <div>
+                        <img src="logo.svg" alt="" />
+                    </div>
                 </div>
             </div>
             {/* <div><h2>po</h2></div> */}
