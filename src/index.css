@@ -98,7 +98,7 @@ hr {
 .section_container {
     display: flex;
     flex-direction: column;
-    row-gap: 1.6rem;
+    row-gap: 1.3rem;
     width: calc(100% - var(--lateral-menu-width));
     margin: 0 0 0 var(--lateral-menu-width);
     transition: all 0.7s ease;

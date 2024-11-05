@@ -1,12 +1,15 @@
 .section-hero {
     /* height: 10vw; */
     /* background-color: tomato; */
+}
+
+.title_section {
+    font-weight: 600;
     /* padding: 1rem 4.5rem !important; */
+    /* font-family: var(--logoFont); */
 }
 
 
 .produtos {
     background-color: violet;
 }
-
-.produtos .title_section {}

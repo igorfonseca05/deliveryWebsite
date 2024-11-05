@@ -16,6 +16,9 @@ function Home() {
             <h1 className='title_section'>Escolha entre as categorias</h1>
             <div className='produtos'>
                 <Menu />
+                <div>
+                    <p>produtos</p>
+                </div>
             </div>
 
         </div>
