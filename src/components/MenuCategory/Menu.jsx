@@ -7,7 +7,7 @@ import './Menu.css'
 
 function Menu() {
 
-    const [dataset, setDataSet] = useState('')
+    const [dataset, setDataSet] = useState('Todos')
 
     function handleColor(e) {
         setDataSet(e)
@@ -39,7 +39,7 @@ function Menu() {
                         data-js='Combos'
                         onClick={(e) => handleColor(e.target.dataset.js)}
                         className={`${dataset === 'Combos' ? 'ativo' : ''}`}>
-                        <span data-js='Combos' class="mdi mdi-food"></span>
+                        <span data-js='Combos' className="mdi mdi-food"></span>
                         Combos
                     </button>
                 </li>
@@ -48,7 +48,7 @@ function Menu() {
                         data-js='Especialidade'
                         onClick={(e) => handleColor(e.target.innerText)}
                         className={`${dataset === 'Especialidade' ? 'ativo' : ''}`}>
-                        <span data-js='Especialidade' class="mdi mdi-chef-hat"></span>
+                        <span data-js='Especialidade' className="mdi mdi-chef-hat"></span>
                         Especialidade</button>
                 </li>
                 <li className="category_item">
@@ -65,7 +65,7 @@ function Menu() {
                         data-js='Bebidas'
                         onClick={(e) => handleColor(e.target.dataset.js)}
                         className={`${dataset === 'Bebidas' ? 'ativo' : ''}`}>
-                        <span data-js='Bebidas' class="mdi mdi-cup"></span>
+                        <span data-js='Bebidas' className="mdi mdi-cup"></span>
                         Bebidas
                     </button>
                 </li>
