@@ -1,0 +1,76 @@
+.produtos_container div {
+    background-color: var(--cor-fundo-menu);
+}
+
+.produto_card {
+    /* margin: 0 auto; */
+    padding: 1rem;
+    width: 100%;
+    border-radius: var(--border-Radius);
+}
+
+.produto_card:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    /* background-color: red; */
+}
+
+.produto_card figure {
+    margin: 0;
+}
+
+.produto_card figure img {
+    width: 100%;
+    border-radius: calc(var(--border-Radius) - 4px);
+}
+
+.dish_name {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-weight: 500;
+    cursor: pointer;
+    padding-top: 0.5rem;
+}
+
+.showFullName {
+    overflow: none;
+    white-space: wrap;
+    text-overflow: none;
+}
+
+.ingredient_container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ingredient_container .ingredient {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #727272;
+}
+
+.ingredient_container .showIngredient {
+    overflow: hidden;
+    white-space: wrap;
+    text-overflow: clip;
+}
+
+.ingredient_container .arrow_icon {
+    /* display: inline-flex; */
+    /* align-items: start; */
+    transform: rotateZ(0deg);
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.produto_price {
+    color: var(--cor-principal);
+    /* background-color: red; */
+
+}

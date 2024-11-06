@@ -541,6 +541,13 @@ hr {
         order: -1;
     }
 
+    .produtos_container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        max-width: 1171px;
+        gap: 1rem;
+    }
+
 }
 
 @media (orientation: landscape) {

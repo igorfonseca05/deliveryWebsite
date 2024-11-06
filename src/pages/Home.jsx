@@ -7,18 +7,18 @@ import './Home.css'
 import Carousel from '../components/carrosel/Carousel'
 import Menu from '../components/MenuCategory/Menu'
 
+// Usando custom hook
+
+import { useFetch } from '../hooks/UseFetch'
+import CardsProduto from './produtos/CardsProduto/CardsProduto'
+
 function Home() {
 
-    const [dishName, setDishName] = useState(false)
-    const [ingredientIsOpen, setIngredientIsOpen] = useState(false)
+    const url = 'http://localhost:3000/cardapio'
 
-    function handleName() {
-        setDishName(!dishName)
-    }
+    const { data } = useFetch(url)
 
-    function handleShowIngredient() {
-        setIngredientIsOpen(!ingredientIsOpen)
-    }
+    // console.log(data)
 
     return (
         <div className='section_container section-hero'>
@@ -28,21 +28,11 @@ function Home() {
             <div className='produtos'>
                 <h1 className='title_section'>Escolha entre as categorias</h1>
                 <Menu />
+                <h2>card</h2>
                 <div className='produtos_container'>
-                    <div className='produto_card'>
-                        <figure>
-                            <img src="card.jpg" alt="" />
-                        </figure>
-                        <p onClick={handleName} className={`dish_name ${dishName ? 'showFullName' : ''}`}>Prato de macarrão asdfasdfa</p>
-                        <div className='ingredient_container'>
-                            <span className={`ingredient ${ingredientIsOpen ? 'showIngredient' : ''}`}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque natus eveniet in quod cumque, reiciendis, earum aut excepturi voluptate
-                            </span>
-                            <span className="mdi mdi-chevron-down arrow_icon"
-                                // style={{ transform: `${ingredientIsOpen ? 'rotate(40deg)' : ''} ` }}
-                                onClick={handleShowIngredient}></span>
-                        </div>
-                        <p className='produto_price'>R$47.50</p>
-                    </div>
+                    {data && data.map((item, index) => (
+                        <CardsProduto key={index} name={item.name} description={item.description} price={item.price} />
+                    ))}
                 </div>
             </div>
 
