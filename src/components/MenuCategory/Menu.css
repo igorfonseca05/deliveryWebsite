@@ -1,49 +1,57 @@
- .Menu_category_container {
-     margin-bottom: 1.3rem;
- }
+.Menu_category_container {
+    max-width: 1171px;
+}
 
- .menu_category_item_container {
-     display: flex;
-     justify-content: space-between;
-     column-gap: 1rem;
-     padding: 0;
-     margin: 0;
-     overflow-x: auto;
- }
+.menu_category_item_container {
+    display: flex;
+    justify-content: space-between;
+    column-gap: 1rem;
+    padding: 0;
+    margin: 0;
+    overflow-x: auto;
+    height: 5.6rem;
+}
 
- .menu_category_item_container::-webkit-scrollbar {
-     display: none;
- }
+.menu_category_item_container::-webkit-scrollbar {
+    display: none;
+}
 
- .menu_category_item_container li {
-     list-style: none;
-     width: 100%;
-     text-align: center;
-     white-space: nowrap;
-     font-weight: 600;
- }
+.menu_category_item_container li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 600;
+}
 
- .category_item button {
-     align-items: center;
-     display: inline-flex;
-     justify-content: center;
-     width: 100%;
-     padding: 0.1rem 1.8rem;
-     background-color: var(--cor-fundo-menu);
-     color: var(--cor-texto-e-icon);
-     border-radius: var(--border-Radius);
-     border: none;
- }
+.category_item button {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.1rem 1.6rem;
+    background-color: var(--cor-fundo-menu);
+    color: var(--cor-texto-e-icon);
+    border-radius: var(--border-Radius);
+    border: none;
+    height: 3.5rem;
 
- /* .menu_category_item_container .ativo {
-     background-color: var(--cor-principal);
-     color: white;
- } */
+}
+
+.menu_category_item_container .ativo {
+    background-color: var(--cor-principal);
+    transition: background-Color 0.2s ease-in-out;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.menu_category_item_container .ativo>span {
+    color: white;
+}
 
 
- .category_item i,
- .category_item span {
-     color: var(--cor-texto-e-icon);
-     font-size: 2.4rem;
-     padding-right: .3rem;
- }
+.category_item span {
+    color: var(--cor-texto-e-icon);
+    font-size: 2.4rem;
+    padding-right: .3rem;
+}

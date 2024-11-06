@@ -13,11 +13,18 @@ function Home() {
             <div className='slider_container'>
                 <Carousel />
             </div>
-            <h1 className='title_section'>Escolha entre as categorias</h1>
             <div className='produtos'>
+                <h1 className='title_section'>Escolha entre as categorias</h1>
                 <Menu />
-                <div>
-                    <p>produtos</p>
+                <div className='produtos_container'>
+                    <div className='produto_card'>
+                        <figure>
+                            <img src="card.jpg" alt="" />
+                        </figure>
+                        <p>Nome prato</p>
+                        <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque natus eveniet in quod cumque, reiciendis, earum aut excepturi voluptate</span>
+                        <p>R$47.50</p>
+                    </div>
                 </div>
             </div>
 

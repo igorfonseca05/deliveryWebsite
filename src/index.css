@@ -3,7 +3,7 @@
 :root {
 
     /* Colors */
-    --menu_color: #F5F5F5;
+    --menu_color: #ffffff;
     --padding_icon: 1.6rem;
 
     --logoFont: "Agbalumo", system-ui;
@@ -13,6 +13,8 @@
     /* Cor Principal para Botões e Chamadas de Ação */
     --cor-principal: #4CAF50;
     --cor-principal-hover: #388E3C;
+
+    --background-color: #f4f5fa;
     /* Verde Folha */
 
     /* Cor de Destaque para Detalhes e Promoções */
@@ -23,8 +25,8 @@
     /* Laranja Vibrante */
 
     /* Cor de Fundo para o Menu Lateral e Áreas de Fundo */
-    --cor-fundo-menu: #F5F5F5;
-    --cor-fundo-pedidos: #F5F5F5;
+    --cor-fundo-menu: #ffffff;
+    --cor-fundo-pedidos: #ffffff;
     /* Branco Suave (White Smoke) */
 
     /* Cor do Texto Principal */
@@ -99,7 +101,7 @@ hr {
 .section_container {
     display: flex;
     flex-direction: column;
-    row-gap: 1.3rem;
+    row-gap: 2rem;
     width: calc(100% - var(--lateral-menu-width));
     margin: 0 0 0 var(--lateral-menu-width);
     transition: all 0.7s ease;
@@ -125,8 +127,7 @@ hr {
 
 .input-iconSearch-container input:focus {
     outline: none;
-    border: solid 1px var(--cor-destaque);
-
+    border: solid 2px var(--cor-principal);
 }
 
 
@@ -134,6 +135,7 @@ hr {
     /* padding: 1.5rem; */
     border-radius: 10px;
     padding-left: 4.5rem;
+    background-color: var(--background-color);
 }
 
 .search-top-menu input::placeholder {
@@ -147,7 +149,7 @@ hr {
     padding: 1rem 1.2rem;
     border-radius: var(--border-Radius);
     border: none;
-    background-color: var(--cor-destaque);
+    background-color: var(--cor-principal);
 }
 
 .scroll-bar::-webkit-scrollbar {

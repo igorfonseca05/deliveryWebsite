@@ -14,7 +14,7 @@
     position: fixed;
     min-height: 100vh !important;
     width: 28rem;
-    background: var(--cor-fundo-pedidos);
+    background: var(--cor-fundo-menu);
     top: 0;
     right: 0rem;
     z-index: 4;

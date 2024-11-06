@@ -5,11 +5,31 @@
 
 .title_section {
     font-weight: 600;
-    /* padding: 1rem 4.5rem !important; */
+    padding: 1rem 0rem 1rem 0rem !important;
     /* font-family: var(--logoFont); */
 }
 
 
-.produtos {
-    /* background-color: ; */
+.produtos_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    max-width: 1171px;
+    gap: 1rem;
+
+}
+
+.produtos_container div {
+    background-color: var(--cor-fundo-menu);
+}
+
+.produto_card {
+    /* margin: 0 auto; */
+    padding: 0.8rem;
+    width: 100%;
+    border-radius: var(--border-Radius);
+}
+
+.produto_card figure img {
+    width: 100%;
+    border-radius: calc(var(--border-Radius) - 4px);
 }
