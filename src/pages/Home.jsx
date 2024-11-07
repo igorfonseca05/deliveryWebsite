@@ -16,29 +16,31 @@ import { useMenuContext } from '../context/MenuContext'
 
 function Home() {
 
-    const { dataset } = useMenuContext()
+    let { dataset } = useMenuContext()
 
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
 
-    const [selected, setSelected] = useState([])
+    const [url, setUrl] = useState('http://localhost:3000/cardapio')
+
 
     let categorias = new Set()
 
-    const url = 'http://localhost:3000/cardapio'
+    // const url = 'http://localhost:3000/cardapio'
     const { data } = useFetch(url)
 
 
     useEffect(() => {
 
-        dataset.toLowerCase()
+        dataset === "Especialidade" ? dataset = 'especialidade da casa' : ''
+        dataset === "Do dia" ? dataset = 'cardapio do dia' : ''
 
-        dataset === "especialidade" ? 'especialidade da casa' : ''
-        dataset === "do dia" ? 'cardapio do dia' : ''
+        if (dataset === 'Todos') {
+            setUrl('http://localhost:3000/cardapio')
+            return
+        }
 
-        const item = data?.filter(item => item.category === dataset)
-
-        console.log(dataset, data)
+        setUrl(`http://localhost:3000/cardapio?category=` + dataset.toLowerCase())
 
     }, [dataset])
 
@@ -48,6 +50,7 @@ function Home() {
         setCategory(categorias)
     }, [data])
 
+
     useEffect(() => {
         [...category].forEach((item) => {
             let arr = [...data]?.filter((prato) => prato.category === item)
@@ -56,7 +59,8 @@ function Home() {
 
     }, [category])
 
-    // console.log(selected)
+    // console.log(res)
+
 
     return (
         <div className='section_container section-hero'>
@@ -71,7 +75,6 @@ function Home() {
                         <CardsProduto key={i} categorie={item} dados={res[i]} />
                     ))
                 }
-
             </div>
 
         </div>

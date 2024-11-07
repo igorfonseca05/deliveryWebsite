@@ -6,10 +6,12 @@ export function useFetch(url) {
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState('')
 
+    // console.log(url)
+
     useEffect(() => {
         async function getData() {
 
-            if (data) return
+            // if (data) return
 
             setLoading(true)
 
@@ -31,7 +33,7 @@ export function useFetch(url) {
         setLoading(false)
         getData()
 
-    }, [url, data])
+    }, [url])
 
 
     return { data, loading, error }

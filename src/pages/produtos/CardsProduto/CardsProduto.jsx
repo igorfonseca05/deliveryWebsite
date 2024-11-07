@@ -39,6 +39,7 @@ function CardsProduto({ categorie, dados }) {
                     <h2>{categorie}</h2>
                 </div>
                 <div className='produtos_container'>
+                    {/* {console.log(dados)} */}
                     {
                         dados && dados.map(({ id, name, description, price }) => (
                             <div key={id} className='produto_card'>

@@ -76,6 +76,15 @@ function Menu() {
                         Porções
                     </button>
                 </li>
+                <li className="category_item">
+                    <button
+                        data-js='Sobremesas'
+                        onClick={(e) => setDataSet(e.target.dataset.js)}
+                        className={`${dataset === 'Sobremesas' ? 'ativo' : ''}`} >
+                        <span data-js='Sobremesas' className="material-symbols-outlined">icecream</span>
+                        Sobremesas
+                    </button>
+                </li>
             </ul>
         </div >
     )

@@ -183,6 +183,48 @@
       "description": "Essa deliciosa sobremesa de mini churros é uma porção com 10 mini churros deliciosos passados no açúcar e canela, prontos para acompanhar um doce de leite cremoso.",
       "price": "R$ 20,00",
       "photo": ""
+    },
+    {
+      "id": 22,
+      "name": "Nhoque à Bolonhesa",
+      "description": "Marmitex somente de nhoque à bolonhesa.",
+      "price": 30.0,
+      "category": "massas"
+    },
+    {
+      "id": 23,
+      "name": "Nhoque com Queijo",
+      "description": "Marmitex somente de nhoque com queijo ao molho vermelho.",
+      "price": "R$28.0",
+      "category": "massas"
+    },
+    {
+      "id": 24,
+      "name": "Macarrão Recheado",
+      "description": "",
+      "price": "R$28.0",
+      "category": "massas"
+    },
+    {
+      "id": 25,
+      "name": "Nhoque com Queijo e Bacon - Copia",
+      "description": "Marmitex somente de nhoque com queijo e bacon ao molho vermelho.",
+      "price": "R$30.0",
+      "category": "massas"
+    },
+    {
+      "id": 26,
+      "name": "Macarrão ao Molho Branco com Bacon - Médio",
+      "description": "Marmitex somente de macarrão ao molho branco com toque de catupiry com queijo e bacon.",
+      "price": "R$25.0",
+      "category": "massas"
+    },
+    {
+      "id": 27,
+      "name": "Macarrão ao Molho Branco com Bacon - Mini",
+      "description": "Marmitex somente de macarrão ao molho branco com toque de catupiry com queijo e bacon.",
+      "price": "R$23.0",
+      "category": "massas"
     }
   ]
 }
