@@ -21,6 +21,8 @@ function Home() {
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
 
+    const [titleDishes, setTitleDishes] = useState(dataset)
+
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
 
 
@@ -37,10 +39,12 @@ function Home() {
 
         if (dataset === 'Todos') {
             setUrl('http://localhost:3000/cardapio')
+            setTitleDishes(dataset)
             return
         }
 
         setUrl(`http://localhost:3000/cardapio?category=` + dataset.toLowerCase())
+        setTitleDishes(dataset)
 
     }, [dataset])
 
@@ -70,11 +74,22 @@ function Home() {
             <div className='produtos'>
                 <h1 className='title_section'>Escolha entre as categorias</h1>
                 <Menu />
-                {
+                <div className='title_category'>
+                    <h2>{titleDishes}</h2>
+                </div>
+                <div className='produtos_container'>
+                    {
+                        data?.map(({ name, price, description, id }, i) => (
+                            // <CardsProduto key={i} categorie={item} dados={res[i]} />
+                            <CardsProduto key={i} id={id} name={name} description={description} price={price} />
+                        ))
+                    }
+                </div>
+                {/* {
                     [...category]?.map((item, i) => (
                         <CardsProduto key={i} categorie={item} dados={res[i]} />
                     ))
-                }
+                } */}
             </div>
 
         </div>

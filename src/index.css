@@ -45,6 +45,8 @@
     --border-Radius: 8px;
     --lateral-menu-width: 7.6rem;
 
+    --top-menu-height: 5.6rem;
+
     --opacity_transition: opacity 0.4s 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
 
     --slide_container_size: 22rem;
@@ -76,6 +78,8 @@ a {
 }
 
 .material-symbols-outlined {
+    display: inline-flex;
+    align-items: center;
     color: var(--cor-texto-e-icon);
     /* fill: 1 !important; */
 }
@@ -105,7 +109,7 @@ hr {
     width: calc(100% - var(--lateral-menu-width));
     margin: 0 0 0 var(--lateral-menu-width);
     transition: all 0.7s ease;
-    padding: 1rem 4.8rem;
+    padding: calc(var(--top-menu-height) + 2rem) 4.8rem 1rem 4.8rem;
 }
 
 .search-top-menu {

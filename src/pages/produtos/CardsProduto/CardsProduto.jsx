@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import './CardsProduto.css'
 
-function CardsProduto({ categorie, dados }) {
+function CardsProduto({ id, name, description, price }) {
 
     const [dishName, setDishName] = useState('')
     const [isOpen, setIsOpen] = useState(false)
@@ -33,32 +33,25 @@ function CardsProduto({ categorie, dados }) {
     return (
 
         <>
-            {/* <h3>{categorie}</h3> */}
-            <div className='categories_container'>
-                <div className='title_category'>
-                    <h2>{categorie}</h2>
+            <div className='produto_card'>
+                <figure>
+                    <img src="card.jpg" alt="" />
+                </figure>
+                <p className={`dish_name ${dishName === id ? 'showFullName' : ''}`}
+                    onClick={() => handleName(id)}>
+                    {name}
+                </p>
+                <div className='ingredient_container'>
+                    <span className={`ingredient ${ingredientIsOpen === id ? 'showIngredient' : ''}`}>
+                        {description}
+                    </span>
+                    <span className="mdi mdi-chevron-down arrow_icon"
+                        onClick={() => handleShowIngredient(id)}></span>
                 </div>
-                <div className='produtos_container'>
-                    {/* {console.log(dados)} */}
-                    {
-                        dados && dados.map(({ id, name, description, price }) => (
-                            <div key={id} className='produto_card'>
-                                <figure>
-                                    <img src="card.jpg" alt="" />
-                                </figure>
-                                <p onClick={() => handleName(id)} className={`dish_name ${dishName === id ? 'showFullName' : ''}`}>{name}</p>
-                                <div className='ingredient_container'>
-                                    <span className={`ingredient ${ingredientIsOpen === id ? 'showIngredient' : ''}`}>{description}
-                                    </span>
-                                    <span className="mdi mdi-chevron-down arrow_icon"
-                                        onClick={() => handleShowIngredient(id)}></span>
-                                </div>
-                                <p className='produto_price'>{price}</p>
-                            </div>
-                        ))
-                    }
-                </div>
+                <p className='produto_price'>{price}</p>
+                <button>add carrinho</button>
             </div>
+
         </>
     )
 }

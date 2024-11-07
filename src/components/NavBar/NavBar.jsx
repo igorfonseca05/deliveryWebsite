@@ -24,6 +24,9 @@ function NavBar() {
     const [toggleElement, setToggleElement] = useState(false)
     const [screenSize, setScreenSize] = useState(window.innerWidth)
 
+    const [isVisible, setIsVisible] = useState(true)
+    const [lastScrollY, setLastScrollY] = useState(0)
+
 
 
     useEffect(() => {
@@ -111,9 +114,30 @@ function NavBar() {
         setOrderIsOpen(!OrderisOpen)
     }
 
+    useEffect(() => {
+
+        function handleScroll() {
+            const currentScrollY = window.scrollY
+
+            if (currentScrollY > lastScrollY) {
+                setIsVisible(false)
+            } else {
+                setIsVisible(true)
+            }
+
+            setLastScrollY(currentScrollY)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll)
+        }
+    }, [lastScrollY])
+
     return (
         <header>
-            <nav className='top_navbar'>
+            <nav className={`top_navbar ${!isVisible ? 'top_navbar_hidden' : ''}`}>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                 <img src="logo.svg" alt="" />
                 <div className="logo-top-menu">

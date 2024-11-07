@@ -5,15 +5,23 @@ header {
 /* Menu general configs*/
 
 .top_navbar {
+    position: fixed;
+    top: 0;
     display: flex;
     justify-content: space-between;
-    height: 5.6rem;
+    height: var(--top-menu-height);
     align-items: center;
     width: 100vw;
     padding: 1rem;
     background-color: var(--cor-fundo-menu);
+    transition: transform 0.3s ease;
+    z-index: 10;
     /* margin: 0 auto; */
     /* background-color: rgb(101, 247, 33); */
+}
+
+.top_navbar_hidden {
+    transform: translateY(-100%);
 }
 
 .lateral_navBar {
