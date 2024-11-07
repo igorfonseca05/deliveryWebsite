@@ -2,7 +2,7 @@
   "cardapio": [
     {
       "id": 1,
-      "category": "cardapio dia",
+      "category": "cardapio do dia",
       "name": "Strogonoff de Frango - Mini",
       "description": "Delicado strogonoff de frango, servido com arroz soltinho, feijão caseiro, batata frita crocante e batata palha.",
       "price": "R$ 18,00",
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "category": "cardapio dia",
+      "category": "cardapio do dia",
       "name": "Strogonoff de Frango - Médio",
       "description": "Strogonoff de frango preparado com maestria, acompanhado de arroz branco, feijão saboroso, batata frita dourada e batata palha.",
       "price": "R$ 20,00",
@@ -18,7 +18,7 @@
     },
     {
       "id": 3,
-      "category": "cardapio dia",
+      "category": "cardapio do dia",
       "name": "Bife à Milanesa - Médio",
       "description": "Clássico bife à milanesa servido com arroz, macarrão ao dente, batata frita e uma salada fresca.",
       "price": "R$ 20,00",
@@ -26,7 +26,7 @@
     },
     {
       "id": 4,
-      "category": "cardapio dia",
+      "category": "cardapio do dia",
       "name": "Filé de Frango Crocante com Ovo Frito - Médio",
       "description": "Filé de frango empanado crocante, acompanhado de arroz, feijão temperado, batata frita e uma salada variada.",
       "price": "R$ 23,00",
@@ -34,7 +34,7 @@
     },
     {
       "id": 5,
-      "category": "cardapio dia",
+      "category": "cardapio do dia",
       "name": "Bife à Milanesa - Mini",
       "description": "Bife à milanesa suculento, servido com arroz, macarrão, batata frita e salada fresca.",
       "price": "R$ 18,00",
@@ -130,7 +130,7 @@
     },
     {
       "id": 17,
-      "category": "porcoes",
+      "category": "porções",
       "name": "Porção de Peixe Panga Sem Espinhos (700g)",
       "description": "Suculenta porção de 700g de filé de peixe panga sem espinhos, acompanhada de limão para realçar o sabor. Ideal para compartilhar.",
       "price": "R$ 65,00",
@@ -138,7 +138,7 @@
     },
     {
       "id": 18,
-      "category": "porcoes",
+      "category": "porções",
       "name": "Porção de Peixe Panga (570g)",
       "description": "Porção de 570g de filé de peixe panga sem espinhos, servida com limão fresco. Perfeita para uma refeição leve e saborosa.",
       "price": "R$ 40,00",
@@ -146,7 +146,7 @@
     },
     {
       "id": 19,
-      "category": "porcoes",
+      "category": "porções",
       "name": "Porção de Coxinha de Frango",
       "description": "Crocantes coxinhas de frango empanadas com farinha panko, acompanhadas de molho barbecue para uma explosão de sabor.",
       "price": "R$ 50,00",
@@ -154,7 +154,7 @@
     },
     {
       "id": 20,
-      "category": "porcoes",
+      "category": "porções",
       "name": "Porção de Batata Frita com Cheddar e Bacon",
       "description": "Batata frita dourada e crocante, coberta com queijo cheddar cremoso e pedaços de bacon crocante. Um verdadeiro deleite!",
       "price": "R$ 45,00",

@@ -12,37 +12,51 @@ import Menu from '../components/MenuCategory/Menu'
 import { useFetch } from '../hooks/UseFetch'
 import CardsProduto from './produtos/CardsProduto/CardsProduto'
 
+import { useMenuContext } from '../context/MenuContext'
+
 function Home() {
+
+    const { dataset } = useMenuContext()
 
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
 
-    const url = 'http://localhost:3000/cardapio'
+    const [selected, setSelected] = useState([])
 
+    let categorias = new Set()
+
+    const url = 'http://localhost:3000/cardapio'
     const { data } = useFetch(url)
 
 
     useEffect(() => {
-        let categorias = new Set()
 
+        dataset.toLowerCase()
+
+        dataset === "especialidade" ? 'especialidade da casa' : ''
+        dataset === "do dia" ? 'cardapio do dia' : ''
+
+        const item = data?.filter(item => item.category === dataset)
+
+        console.log(dataset, data)
+
+    }, [dataset])
+
+
+    useEffect(() => {
         data && data.map(({ category }) => (categorias.add(category)))
-
         setCategory(categorias)
     }, [data])
 
-    // console.log([...data])
-
     useEffect(() => {
-
-        let arr
-
-        [...category] && [...category].forEach((item) => {
-            arr = [...data]?.filter((prod) => item = prod.category)
+        [...category].forEach((item) => {
+            let arr = [...data]?.filter((prato) => prato.category === item)
+            setRes(prev => [...prev, arr])
         })
 
-        setRes(arr)
-
     }, [category])
+
+    // console.log(selected)
 
     return (
         <div className='section_container section-hero'>
@@ -52,13 +66,12 @@ function Home() {
             <div className='produtos'>
                 <h1 className='title_section'>Escolha entre as categorias</h1>
                 <Menu />
-                <h2></h2>
-                <div className='produtos_container'>
-                    {res && res.map((item, index) => (
-                        // console.log()
-                        <CardsProduto key={index} name={item.name} description={item.description} price={item.price} />
-                    ))}
-                </div>
+                {
+                    [...category]?.map((item, i) => (
+                        <CardsProduto key={i} categorie={item} dados={res[i]} />
+                    ))
+                }
+
             </div>
 
         </div>

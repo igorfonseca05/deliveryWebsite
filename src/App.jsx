@@ -16,6 +16,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import ModalForm from './components/formContainer/ModalForm';
 import Login from './pages/login/Login';
+import { MenuContextProvider } from './context/MenuContext';
 
 
 function App() {
@@ -23,15 +24,17 @@ function App() {
 
   return (
     <>
-      <ModalForm />
-      <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path='/' element={<Home />}></Route>
-          <Route path='/produtos' element={<Produtos />}></Route>
-          {/* <Route path='/login' element={<Login />}></Route> */}
-        </Routes>
-      </BrowserRouter>
+      <MenuContextProvider>
+        <ModalForm />
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/produtos' element={<Produtos />}></Route>
+            {/* <Route path='/login' element={<Login />}></Route> */}
+          </Routes>
+        </BrowserRouter>
+      </MenuContextProvider>
     </>
   )
 }
