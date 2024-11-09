@@ -29,7 +29,7 @@ function Home() {
     let categorias = new Set()
 
     // const url = 'http://localhost:3000/cardapio'
-    const { data } = useFetch(url)
+    const { data, loading, error } = useFetch(url)
 
 
     useEffect(() => {
@@ -73,23 +73,35 @@ function Home() {
             </div>
             <div className='produtos'>
                 <div className='products_infos_container'>
-                    <h1 className='title_section'>Escolha entre as categorias</h1>
+                    <h1 className='title_section'>Categorias</h1>
                     <Menu />
                     {/* <div className='title_category'>
                         <h2>{titleDishes}</h2>
                     </div> */}
-                    <div className='produtos_container'>
-                        {
-                            data?.map(({ name, price, description, id }, i) => (
-                                // <CardsProduto key={i} categorie={item} dados={res[i]} />
-                                <CardsProduto key={i} id={id} name={name} description={description} price={price} />
-                            ))
-                        }
-                    </div>
+                    {loading ?
+                        <>
+                            <p>Loading...</p>
+                        </>
+                        :
+                        <div className='produtos_container'>
+                            {
+                                data?.map(({ name, price, description, id, image }, i) => (
+                                    // <CardsProduto key={i} categorie={item} dados={res[i]} />
+                                    <CardsProduto
+                                        key={i}
+                                        id={id}
+                                        name={name}
+                                        description={description}
+                                        price={price}
+                                        image={image} />
+                                ))
+                            }
+                        </div>
+                    }
                 </div>
-                <div className='user_location_container'>
+                {/* <div className='user_location_container'>
                     <h2>oi</h2>
-                </div>
+                </div> */}
             </div>
 
         </div>

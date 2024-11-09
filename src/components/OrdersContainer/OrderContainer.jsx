@@ -10,6 +10,8 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     useEffect(() => setEmptyOrders(orders.current?.children.length), [])
 
+
+
     return (
         <div className={`myShoppingCard_container ${isOpen ? 'openOrderContaiener' : ''}`}>
             <header className='order_title_container'>
@@ -19,7 +21,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             </header>
             <div className='infors-order-container'>
                 <main ref={orders} className='orders_container scroll-bar'>
-                    {emptyOrders ? (<CardOrder />) : (<p>Seu carrinho está vazio</p>)}
+                    {emptyOrders ? (<p>Seu carrinho está vazio</p>) : (<CardOrder />)}
                 </main>
                 <footer className='total_orders'>
                     <div className='orders_fees'>

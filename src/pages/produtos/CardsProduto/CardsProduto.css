@@ -18,10 +18,11 @@
     padding: 1rem;
     width: 100%;
     border-radius: var(--border-Radius);
+    /* height: max-content; */
 }
 
 .produto_card:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
     transition: all 0.2s ease-in-out;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     /* background-color: red; */
@@ -44,6 +45,7 @@
     font-weight: 500;
     cursor: pointer;
     padding-top: 0.5rem;
+    font-size: 1.4rem !important;
 }
 
 .showFullName {
@@ -83,5 +85,35 @@
 .produto_price {
     color: var(--cor-principal);
     /* background-color: red; */
+    font-weight: 600;
 
+}
+
+.price_and_cart_container {
+    display: flex;
+    align-items: center;
+    padding: var(--margin-xxs);
+}
+
+.price_and_cart_container button {
+    width: 30%;
+    border: none;
+    /* background-color: var(--cor-texto-e-icon); */
+    border-radius: var(--border-Radius);
+}
+
+.price_and_cart_container button:hover {
+    width: 30%;
+    border: none;
+    background-color: var(--cor-principal);
+    border-radius: var(--border-Radius);
+}
+
+.price_and_cart_container button span {
+    font-size: 2rem;
+    color: var(--cor-principal);
+}
+
+.price_and_cart_container button:hover>span {
+    color: white;
 }

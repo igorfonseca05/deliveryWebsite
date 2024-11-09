@@ -24,13 +24,15 @@ export function useFetch(url) {
 
                 setData(await res.json())
 
+                setLoading(false)
 
             } catch (error) {
                 setError(error.message)
+            } finally {
+                setLoading(false)
             }
         }
 
-        setLoading(false)
         getData()
 
     }, [url])

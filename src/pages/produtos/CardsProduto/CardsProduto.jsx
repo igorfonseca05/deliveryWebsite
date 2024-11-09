@@ -2,7 +2,11 @@ import { useEffect, useState } from 'react'
 
 import './CardsProduto.css'
 
-function CardsProduto({ id, name, description, price }) {
+import { useCartProductContext } from '../../../context/CartProductContaiener'
+
+function CardsProduto({ id, name, description, price, image }) {
+
+    const { setCartProductId } = useCartProductContext()
 
     const [dishName, setDishName] = useState('')
     const [isOpen, setIsOpen] = useState(false)
@@ -35,7 +39,9 @@ function CardsProduto({ id, name, description, price }) {
         <>
             <div className='produto_card'>
                 <figure>
-                    <img src="card.jpg" alt="" />
+                    {image ?
+                        <img src={image} alt="" /> :
+                        <img src="5.jpg" alt="comida" />}
                 </figure>
                 <p className={`dish_name ${dishName === id ? 'showFullName' : ''}`}
                     onClick={() => handleName(id)}>
@@ -48,8 +54,10 @@ function CardsProduto({ id, name, description, price }) {
                     <span className="mdi mdi-chevron-down arrow_icon"
                         onClick={() => handleShowIngredient(id)}></span>
                 </div>
-                <p className='produto_price'>{price}</p>
-                <button>add carrinho</button>
+                <div className='price_and_cart_container'>
+                    <p className='produto_price'>R${price}</p>
+                    <button onClick={() => setCartProductId(id)}><span className="mdi mdi-cart-plus"></span></button>
+                </div>
             </div>
 
         </>
