@@ -20,4 +20,4 @@ const app = initializeApp(firebaseConfig);
  
 const db = getDatabase(app)
 
-return {db}
+export default {db}

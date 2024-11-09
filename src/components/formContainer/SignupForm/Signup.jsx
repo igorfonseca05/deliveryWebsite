@@ -1,7 +1,16 @@
 import React from 'react'
 import './Signup.css'
 
+import { useAuth } from '../../../hooks/useAuth'
+
 function Signup() {
+
+    function handleUserData(e) {
+        e.preventDefault()
+
+    }
+
+
     return (
         <div className={`form_container_login_and_signIn`}>
             <div className='padding_container'>
@@ -18,7 +27,7 @@ function Signup() {
                         <h1>Vamos começar!</h1>
                         <p>Complete suas informações para que possamos levar seu pedido até você!</p>
                     </div>
-                    <form>
+                    <form onSubmit={handleUserData}>
                         <div className="input-field">
                             <input
                                 required=""

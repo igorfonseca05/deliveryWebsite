@@ -1,4 +1,4 @@
-import { db } from '../firebase/firebase'
+import { db } from '../firebase/config.js'
 
 import {
     getAuth,
@@ -7,11 +7,11 @@ import {
     updateProfile,
     signOut
 } from 'firebase/auth'
-import { create } from 'json-server'
+
 
 import { useEffect, useState } from 'react'
 
-export function useAuth() {
+function useAuth() {
 
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
@@ -23,7 +23,7 @@ export function useAuth() {
     //  implementado função de cleanUp
     const [cancelled, setCancelled] = useState(false)
 
-    function cancelled() {
+    function checkIfCancelled() {
         if (cancelled) {
             return
         }
@@ -33,7 +33,7 @@ export function useAuth() {
 
     // Função para criar usuario
     async function createUser(user) {
-        cancelled()
+        checkIfCancelled()
         setLoading(true)
         setError('')
 
@@ -70,5 +70,6 @@ export function useAuth() {
     }, [])
 
     return { auth, error, user, loading, success, createUser }
-
 }
+
+export default useAuth
