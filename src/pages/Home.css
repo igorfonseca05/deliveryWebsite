@@ -1,5 +1,23 @@
+.produtos {
+    display: flex;
+    column-gap: 1rem;
+}
+
+.products_infos_container {
+    width: 100% !important;
+    flex-grow: 2;
+}
+
+.user_location_container {
+    flex-grow: 1;
+    width: 80% !important;
+    /* flex-grow: 2; */
+    background-color: orangered;
+}
+
 .produtos_container {
     display: grid;
+    /* flex-grow: 1; */
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     max-width: 1171px;
     gap: 3rem;
@@ -7,6 +25,7 @@
 
 .title_section {
     font-weight: 600;
-    padding: 1rem 0rem 2rem 0rem !important;
+    margin: var(--margin-lg) 0px;
+    /* padding: 1rem 0rem 2rem 0rem !important; */
     /* font-family: var(--logoFont); */
 }

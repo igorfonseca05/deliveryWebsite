@@ -1,10 +1,12 @@
 .title_category {
     /* color: red; */
-    padding: 1rem 0rem;
+    margin: var(--margin-lg) 0rem;
 }
 
 .title_category h2 {
+    /* margin: var(--margin-xs) 0rem; */
     text-transform: capitalize;
+    font-weight: 400;
 }
 
 .produtos_container div {

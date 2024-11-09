@@ -20,7 +20,7 @@ function Menu() {
                         data-js='Todos'
                         onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Todos' ? 'ativo' : ''}`}>
-                        <span data-js='Todos' className="material-symbols-outlined">stockpot</span>
+                        <span data-js='Todos' className="mdi mdi-pot-steam"></span>
                         Todos
                     </button>
                 </li>
@@ -29,7 +29,7 @@ function Menu() {
                         data-js='Do dia'
                         onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Do dia' ? 'ativo' : ''}`}>
-                        <span data-js='Do dia' className="material-symbols-outlined">calendar_month</span>Do dia
+                        <span data-js='Do dia' className="mdi mdi-calendar-blank"></span>Do dia
                     </button>
                 </li>
                 <li className="category_item">
@@ -44,7 +44,7 @@ function Menu() {
                 <li className="category_item">
                     <button
                         data-js='Especialidade'
-                        onClick={(e) => setDataSet(e.target.innerText)}
+                        onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Especialidade' ? 'ativo' : ''}`}>
                         <span data-js='Especialidade' className="mdi mdi-chef-hat"></span>
                         Especialidade</button>
@@ -54,7 +54,7 @@ function Menu() {
                         data-js='Massas'
                         onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Massas' ? 'ativo' : ''}`}>
-                        <span data-js='Massas' className="material-symbols-outlined">dinner_dining</span>
+                        <span data-js='Massas' className="mdi  mdi-pasta"></span>
                         Massas
                     </button>
                 </li>
@@ -72,7 +72,7 @@ function Menu() {
                         data-js='Porções'
                         onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Porções' ? 'ativo' : ''}`} >
-                        <span data-js='Porções' className="material-symbols-outlined">kebab_dining</span>
+                        <span data-js='Porções' className="mdi mdi-french-fries"></span>
                         Porções
                     </button>
                 </li>
@@ -81,7 +81,7 @@ function Menu() {
                         data-js='Sobremesas'
                         onClick={(e) => setDataSet(e.target.dataset.js)}
                         className={`${dataset === 'Sobremesas' ? 'ativo' : ''}`} >
-                        <span data-js='Sobremesas' className="material-symbols-outlined">icecream</span>
+                        <span data-js='Sobremesas' className="mdi  mdi-ice-cream"></span>
                         Sobremesas
                     </button>
                 </li>

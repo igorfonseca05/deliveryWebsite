@@ -11,7 +11,7 @@ const Carousel = () => {
     const settings = {
         dots: true,           // Mostra os pontos de navegação
         infinite: true,       // Ativa o looping infinito
-        speed: 500,           // Velocidade da transição
+        speed: 800,           // Velocidade da transição
         slidesToShow: 1,      // Quantidade de slides visíveis
         slidesToScroll: 1,    // Quantidade de slides que passam ao rolar
         autoplay: false, // Ativa o autoplay
