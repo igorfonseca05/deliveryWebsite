@@ -7,6 +7,7 @@ import {
     updateProfile,
     signOut
 } from 'firebase/auth'
+import { create } from 'json-server'
 
 import { useEffect, useState } from 'react'
 
@@ -15,6 +16,8 @@ export function useAuth() {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(null)
+
+    const [user, setUser] = useState(null)
 
 
     //  implementado função de cleanUp
@@ -28,6 +31,7 @@ export function useAuth() {
 
     const auth = getAuth()
 
+    // Função para criar usuario
     async function createUser(user) {
         cancelled()
         setLoading(true)
@@ -50,6 +54,7 @@ export function useAuth() {
                 throw new Error('Erro ao criar usuário')
             }
 
+            console.log(res)
             setSuccess('Usuário criado com sucesso')
             setLoading(false)
 
@@ -57,8 +62,13 @@ export function useAuth() {
             setError(error.message)
         }
 
-    }
+        setLoading(false)
+    };
 
+    useEffect(() => {
+        return () => setCancelled(true)
+    }, [])
 
+    return { auth, error, user, loading, success, createUser }
 
 }
