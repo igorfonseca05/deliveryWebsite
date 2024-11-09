@@ -7,7 +7,7 @@ export function CartProductContextProvider({ children }) {
 
     const [cartProductId, setCartProductId] = useState('')
 
-    console.log(cartProductId)
+    // console.log(cartProductId)
 
     return (
         <CartProductContext.Provider value={{ cartProductId, setCartProductId }}>

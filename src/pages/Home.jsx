@@ -20,17 +20,17 @@ function Home() {
 
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
-
     const [titleDishes, setTitleDishes] = useState(dataset)
-
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
+
+    // const [OrderisOpen, setOrderIsOpen] = useState(false)
 
 
     let categorias = new Set()
 
-    // const url = 'http://localhost:3000/cardapio'
     const { data, loading, error } = useFetch(url)
 
+    // console.log(data)
 
     useEffect(() => {
 
@@ -63,6 +63,11 @@ function Home() {
 
     }, [category])
 
+    // function handleOrderContainer() {
+    //     setOrderIsOpen(!OrderisOpen)
+    // }
+
+
     // console.log(res)
 
 
@@ -75,6 +80,7 @@ function Home() {
                 <div className='products_infos_container'>
                     <h1 className='title_section'>Categorias</h1>
                     <Menu />
+                    {/* <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} /> */}
                     {/* <div className='title_category'>
                         <h2>{titleDishes}</h2>
                     </div> */}

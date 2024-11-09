@@ -2,7 +2,21 @@ import React, { useEffect, useRef, useState } from 'react'
 import "./OrderContainer.css"
 import CardOrder from './CardOrders/CardOrder'
 
+import { useCartProductContext } from '../../context/CartProductContaiener'
+import { useFetch } from '../../hooks/UseFetch'
+
 function OrderContainer({ isOpen, handleOrderContainer }) {
+
+    const { cartProductId } = useCartProductContext()
+
+    const [productUrl, setProductUrl] = useState('')
+
+    const url = `http://localhost:3000/cardapio/${cartProductId}`
+    const { data } = useFetch(url)
+
+
+
+    console.log(data)
 
     const [emptyOrders, setEmptyOrders] = useState(0)
 

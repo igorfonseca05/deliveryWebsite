@@ -1,43 +1,42 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 export function useFetch(url) {
-
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState('')
-
-    // console.log(url)
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState('');
 
     useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
+
         async function getData() {
-
-            // if (data) return
-
-            setLoading(true)
+            setLoading(true);
+            setError('');
 
             try {
-                const res = await fetch(url)
+                const res = await fetch(url, { signal });
 
                 if (!res.ok) {
-                    throw new Error('erro ao obter dados')
+                    throw new Error('Erro ao obter dados');
                 }
 
-                setData(await res.json())
-
-                setLoading(false)
-
+                const jsonData = await res.json();
+                setData(jsonData);
             } catch (error) {
-                setError(error.message)
+                if (error.name !== 'AbortError') {
+                    setError(error.message);
+                }
             } finally {
-                setLoading(false)
+                setLoading(false);
             }
         }
 
-        getData()
-
-    }, [url])
+        getData();
 
 
-    return { data, loading, error }
+        return () => controller.abort();
+    }, [url]);
 
+    return { data, loading, error };
 }
+

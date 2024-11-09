@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useMemo } from 'react'
 
 import { NavLink } from 'react-router-dom'
 
@@ -135,6 +135,10 @@ function NavBar() {
         }
     }, [lastScrollY])
 
+    const memorizedOrderContainer = useMemo(() => (
+        <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
+    ), [OrderisOpen])
+
     return (
         <header>
             <nav className={`top_navbar ${!isVisible ? 'top_navbar_hidden' : ''}`}>
@@ -152,7 +156,7 @@ function NavBar() {
                         </div>
                     </div>
                     <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
-                    <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
+                    {memorizedOrderContainer}
                 </div>
             </nav>
             <nav className={`lateral_navBar
