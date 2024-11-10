@@ -1,18 +1,51 @@
-import React from 'react'
-import './Signup.css'
+import React, { useEffect, useMemo, useState, useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from '../../../hooks/useAuth'
 
+import './Signup.css'
+
 function Signup() {
+
+    const [user, setUser] = useState({ name: '', email: '', password: '' })
+    const form = useRef(null)
+    const {
+        createUser,
+        error,
+        success,
+        loading,
+        user: usuario,
+        setSuccess
+    } = useAuth()
+
+
+    function handleUser(e) {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+    }
 
     function handleUserData(e) {
         e.preventDefault()
-
+        createUser(user)
     }
+
+
+
+    useEffect(() => {
+        error && toast.error(error, { position: 'top-left' })
+        success && toast.success(success, { position: 'top-left' })
+        success && form.current.reset()
+        setSuccess('')
+
+    }, [error, success])
 
 
     return (
         <div className={`form_container_login_and_signIn`}>
+            <ToastContainer />
             <div className='padding_container'>
                 <div className='image-signUp-container'>
                     <div>
@@ -27,15 +60,16 @@ function Signup() {
                         <h1>Vamos começar!</h1>
                         <p>Complete suas informações para que possamos levar seu pedido até você!</p>
                     </div>
-                    <form onSubmit={handleUserData}>
+                    <form ref={form} onSubmit={handleUserData}>
                         <div className="input-field">
                             <input
                                 required=""
                                 autoComplete="off"
-                                typeof="text"
+                                type="text"
                                 name="name"
                                 id="name"
-                            // placeholder='Email'
+                                onChange={(e) => handleUser(e)}
+                                placeholder='Nome'
                             />
                             <label htmlFor="name">Nome</label>
                         </div>
@@ -43,10 +77,11 @@ function Signup() {
                             <input
                                 required=""
                                 autoComplete="off"
-                                typeof="email"
+                                type='email'
                                 name="email"
                                 id="email"
-                            // placeholder='Email'
+                                onChange={(e) => handleUser(e)}
+                                placeholder='Email'
                             />
                             <label htmlFor="email">Email</label>
                         </div>
@@ -54,17 +89,19 @@ function Signup() {
                             <input
                                 required=""
                                 autoComplete="off"
-                                typeof="password"
-                                name="text"
+                                type='password'
+                                name="password"
                                 id="password"
+                                onChange={(e) => handleUser(e)}
+                                placeholder='Senha'
                             />
                             <label htmlFor="username">Senha</label>
                             <span className='material-symbols-outlined password-visibility'>visibility</span>
                         </div>
                         <div className="btn-container">
-                            <button className="btn">Criar conta</button>
+                            <button className="btn" disabled={loading}>Criar conta</button>
                             <div className="acc-text">
-                                Já posui conta ?
+                                Já possui conta?
                                 <span style={{ color: "#0000ff", cursor: "pointer" }}>Entrar</span>
                             </div>
                         </div>

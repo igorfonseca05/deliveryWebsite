@@ -11,9 +11,9 @@ import {
 
 import { useEffect, useState } from 'react'
 
-function useAuth() {
+export function useAuth() {
 
-    const [error, setError] = useState(null)
+    const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(null)
 
@@ -32,34 +32,37 @@ function useAuth() {
     const auth = getAuth()
 
     // Função para criar usuario
-    async function createUser(user) {
+    async function createUser({ name, email, password }) {
         checkIfCancelled()
         setLoading(true)
         setError('')
+
+        // console.log(user)
 
         try {
 
             const res = await createUserWithEmailAndPassword(
                 auth,
-                user.email,
-                user.password
+                email,
+                password
             )
 
-            await updateProfile(user, {
-                displayName: user.name,
-                photoURL: `${use.url ? use.url : ''}`
-            })
+            // await updateProfile(user, {
+            //     displayName: name,
+            //     photoURL: `${url ? url : ''}`
+            // })
 
-            if (!res.ok) {
+            if (!res) {
                 throw new Error('Erro ao criar usuário')
             }
 
-            console.log(res)
+            setUser(res.user)
             setSuccess('Usuário criado com sucesso')
             setLoading(false)
 
         } catch (error) {
             setError(error.message)
+            console.log(error)
         }
 
         setLoading(false)
@@ -69,7 +72,5 @@ function useAuth() {
         return () => setCancelled(true)
     }, [])
 
-    return { auth, error, user, loading, success, createUser }
+    return { auth, error, user, loading, success, createUser, setSuccess }
 }
-
-export default useAuth

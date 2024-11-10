@@ -78,32 +78,20 @@
 
 
 .input-field label {
-    position: absolute;
+    display: none;
+    /* position: absolute;
     color: #8d8d8d;
     pointer-events: none;
     background-color: transparent;
     left: 15px;
-    /* top: 0px; */
-    /* bottom: 0px; */
     padding-top: 0.2rem;
     height: fit-content;
-    /* background-color: rebeccapurple; */
+    
     transform: translateY(0.6rem);
     transition: all 0.3s ease;
-    font-size: clamp(1.2rem, 1.4rem, 1.6rem)
+    font-size: clamp(1.2rem, 1.4rem, 1.6rem) */
 }
 
-input:focus~label,
-.input-field input:valid~label {
-    transform: translateY(-51%) translateX(-10px) scale(0.8);
-    background-color: #fff;
-    padding: 0px 5px;
-    color: var(--cor-destaque);
-    font-weight: bold;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 100px;
-}
 
 .password-visibility {
     position: absolute;
@@ -111,7 +99,6 @@ input:focus~label,
     top: 1rem;
     font-size: medium;
 }
-
 
 
 .form_container_login_and_signIn form .btn-container {

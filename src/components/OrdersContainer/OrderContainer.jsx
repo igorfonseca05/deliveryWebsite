@@ -12,11 +12,11 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     const [productUrl, setProductUrl] = useState('')
 
     const url = `http://localhost:3000/cardapio/${cartProductId}`
-    const { data } = useFetch(url)
+    // const { data } = useFetch(url)
 
 
 
-    console.log(data)
+    // console.log(data)
 
     const [emptyOrders, setEmptyOrders] = useState(0)
 

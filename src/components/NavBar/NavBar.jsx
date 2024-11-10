@@ -10,6 +10,7 @@ import Logo from '../logo/Logo'
 import { useDebounce } from '../../hooks/useDebouce'
 import OrderContainer from '../OrdersContainer/OrderContainer'
 import { useModalContext } from '../../context/ModalContext'
+import { toast } from 'react-toastify'
 
 function NavBar() {
 
@@ -204,7 +205,7 @@ function NavBar() {
                                 </li>
                             </NavLink>
                             <NavLink>
-                                <li className='nav_item'>
+                                <li className='nav_item' onClick={() => toast.success('oi')}>
                                     <span className='material-symbols-outlined list-icon'>call</span>
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Contact</p>
                                 </li>

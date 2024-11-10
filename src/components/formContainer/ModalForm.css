@@ -5,12 +5,15 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.616);
+    background: rgba(0, 0, 0, 0.747);
     z-index: 1000;
     display: none;
+    backdrop-filter: blur(2px);
+
 }
 
 .modalOpen {
+    /* filter: blur(1px); */
     display: block;
     display: flex;
     align-items: center;
