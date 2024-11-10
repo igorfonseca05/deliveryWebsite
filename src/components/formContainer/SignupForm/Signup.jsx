@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import { useAuth } from '../../../hooks/useAuth'
+import { useModalContext } from '../../../context/ModalContext';
 
 import './Signup.css'
 
@@ -18,7 +19,9 @@ function Signup() {
         user: usuario,
         setSuccess
     } = useAuth()
+    const [openLogin, setOpenLogin] = useState(false)
 
+    // FUNCTIONS
 
     function handleUser(e) {
         setUser({
@@ -32,7 +35,7 @@ function Signup() {
         createUser(user)
     }
 
-
+    // HOOKS
 
     useEffect(() => {
         error && toast.error(error, { position: 'top-left' })
@@ -71,7 +74,7 @@ function Signup() {
                                 onChange={(e) => handleUser(e)}
                                 placeholder='Nome'
                             />
-                            <label htmlFor="name">Nome</label>
+                            <label htmlFor="name" id='name'>Nome</label>
                         </div>
                         <div className="input-field">
                             <input
@@ -83,7 +86,7 @@ function Signup() {
                                 onChange={(e) => handleUser(e)}
                                 placeholder='Email'
                             />
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email" id='email'>Email</label>
                         </div>
                         <div className="input-field">
                             <input
@@ -95,7 +98,7 @@ function Signup() {
                                 onChange={(e) => handleUser(e)}
                                 placeholder='Senha'
                             />
-                            <label htmlFor="username">Senha</label>
+                            <label htmlFor="password" id='password'>Senha</label>
                             <span className='material-symbols-outlined password-visibility'>visibility</span>
                         </div>
                         <div className="btn-container">

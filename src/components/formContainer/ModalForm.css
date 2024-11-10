@@ -1,15 +1,20 @@
 /* Modal.css */
 .form_overlay {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.747);
     z-index: 1000;
-    display: none;
+    /* display: none; */
     backdrop-filter: blur(2px);
-
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .modalOpen {
@@ -19,7 +24,8 @@
     align-items: center;
     justify-content: center;
     /* visibility: visible; */
-    /* opacity: 1; */
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-content {

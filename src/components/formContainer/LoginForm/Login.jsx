@@ -26,9 +26,9 @@ function Login() {
                                 typeof="email"
                                 name="email"
                                 id="email"
-                            // placeholder='Email'
+                                placeholder='Email'
                             />
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email" id='email'>Email</label>
                         </div>
                         <div className="input-field">
                             <input
@@ -37,8 +37,9 @@ function Login() {
                                 typeof="password"
                                 name="text"
                                 id="password"
+                                placeholder='Senha'
                             />
-                            <label htmlFor="username">Password</label>
+                            <label htmlFor="username" id='password'>Password</label>
                             <span className='material-symbols-outlined password-visibility'>visibility</span>
                         </div>
                         <div className="btn-container">

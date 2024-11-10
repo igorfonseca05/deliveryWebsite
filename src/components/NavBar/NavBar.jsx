@@ -14,21 +14,50 @@ import { toast } from 'react-toastify'
 
 function NavBar() {
 
-    const lis = useRef()
-    const login_buttons = useRef()
-
-    const { handleOpenModal, modalIsOpen } = useModalContext()
-
     const [isOpen, setIsOpen] = useState(false)
     const [OrderisOpen, setOrderIsOpen] = useState(false)
     const [narrowMenu, setNorrowMenu] = useState(null)
     const [toggleElement, setToggleElement] = useState(false)
     const [screenSize, setScreenSize] = useState(window.innerWidth)
-
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
 
+    const lis = useRef()
+    const login_buttons = useRef()
 
+    const { handleOpenModal, modalIsOpen } = useModalContext()
+
+
+    function handleClick() {
+        setIsOpen(!isOpen)
+    }
+
+    function avoidScrollBody() {
+        if (isOpen || OrderisOpen || modalIsOpen) {
+            document.body.style.overflowY = 'hidden'
+        } else {
+            document.body.style.overflowY = ''
+        }
+    }
+    avoidScrollBody()
+
+
+    function handleHovering(value = '') {
+        // setScreenSize(window.innerWidth)
+        if (screenSize >= 768) {
+            setToggleElement(value)
+        } else {
+            setToggleElement(true)
+        }
+    }
+
+    function handleOrderContainer() {
+        setOrderIsOpen(!OrderisOpen)
+    }
+
+    function handleOrderContainer() {
+        setOrderIsOpen(!OrderisOpen)
+    }
 
     useEffect(() => {
         const allTrigger = [...lis.current.children, ...login_buttons.current.children]
@@ -48,21 +77,6 @@ function NavBar() {
             });
         }
     }, [])
-
-
-    function handleClick() {
-        setIsOpen(!isOpen)
-    }
-
-    function avoidScrollBody() {
-        if (isOpen || OrderisOpen || modalIsOpen) {
-            document.body.style.overflowY = 'hidden'
-        } else {
-            document.body.style.overflowY = ''
-        }
-    }
-
-    avoidScrollBody()
 
 
     useEffect(() => {
@@ -96,24 +110,7 @@ function NavBar() {
 
     }, [])
 
-
-    function handleHovering(value = '') {
-        // setScreenSize(window.innerWidth)
-        if (screenSize >= 768) {
-            setToggleElement(value)
-        } else {
-            setToggleElement(true)
-        }
-    }
-
-    useEffect(() => {
-        handleHovering()
-    }, [screenSize])
-
-
-    function handleOrderContainer() {
-        setOrderIsOpen(!OrderisOpen)
-    }
+    useEffect(() => handleHovering(), [screenSize])
 
     useEffect(() => {
 
@@ -136,9 +133,11 @@ function NavBar() {
         }
     }, [lastScrollY])
 
+
     const memorizedOrderContainer = useMemo(() => (
         <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
     ), [OrderisOpen])
+
 
     return (
         <header>
@@ -148,7 +147,7 @@ function NavBar() {
                 <div className="logo-top-menu">
                     <div className='search_input search-top-menu'>
                         <div className='input-iconSearch-container'>
-                            <input type="text" placeholder='Buscar' />
+                            <input type="text" placeholder='Buscar' id='search' name='search' />
                             <button>
                                 <span className="material-symbols-outlined">
                                     search
@@ -176,7 +175,7 @@ function NavBar() {
                         </div> */}
                     </div>
                     <div className='search_input'>
-                        <input className={`${toggleElement ? '' : 'hideInput'}`} type="text" placeholder='Buscar' />
+                        <input name='search' className={`${toggleElement ? '' : 'hideInput'}`} type="text" placeholder='Buscar' />
                         <button>
                             <span className="material-symbols-outlined">
                                 search
