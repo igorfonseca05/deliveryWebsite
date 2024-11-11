@@ -59,10 +59,11 @@ export function useAuth() {
                 throw new Error('Erro ao criar usuário')
             }
 
-            setUser(res.user)
-            setSuccess('Usuário criado com sucesso')
+            // setUser(res.user)
+            await signOut(auth)
+            setSuccess('Usuário criado com sucesso. Por favor, faça login!')
             setLoading(false)
-            createUserCollection(res.user)
+            createUserCollection(res.user, 'users')
 
         } catch (error) {
             setError(error.message)
@@ -88,6 +89,7 @@ export function useAuth() {
             }
 
             setSuccess('Bem vindo')
+            setUser(res.user)
 
         } catch (error) {
             setError(error.message)

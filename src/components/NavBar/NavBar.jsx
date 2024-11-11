@@ -169,7 +169,7 @@ function NavBar() {
                                 <figure>
                                     <img src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
                                 </figure>
-                                <span>{user.displayName}</span>
+                                <span style={{ textTransform: 'capitalize' }}>{user.displayName}</span>
                                 <span className='mdi mdi-chevron-down'></span>
                             </div>
                             : ''

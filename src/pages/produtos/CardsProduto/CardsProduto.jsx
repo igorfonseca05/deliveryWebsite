@@ -4,13 +4,20 @@ import './CardsProduto.css'
 
 import { useCartProductContext } from '../../../context/CartProductContaiener'
 
-function CardsProduto({ id, name, description, price, image }) {
+import { useFetch } from '../../../hooks/UseFetch'
+import { useDataBase } from '../../../hooks/useRealTimeDatabase'
+import { useAuthContext } from '../../../context/userAuthContext'
 
-    const { setCartProductId } = useCartProductContext()
+function CardsProduto({ id, name, description, price, image, setProductId }) {
+
 
     const [dishName, setDishName] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [ingredientIsOpen, setIngredientIsOpen] = useState('')
+
+
+    const { setCartProductId } = useCartProductContext()
+
 
     function handleName(id) {
         if (!isOpen) {
@@ -32,12 +39,12 @@ function CardsProduto({ id, name, description, price, image }) {
         }
     }
 
-    // console.log(dados)
+
 
     return (
 
         <>
-            <div className='produto_card'>
+            <div className='produto_card' onClick={() => setProductId(id)}>
                 <figure>
                     {image ?
                         <img src={image} alt="" /> :

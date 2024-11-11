@@ -1,22 +1,23 @@
 import { db } from "../firebase/config";
-import { collection, addDoc, doc, setDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
 
 import { useAuthContext } from "../context/userAuthContext";
 
-export function useDataBase(user) {
-
-    // const { user } = useAuthContext()
+export function useDataBase() {
 
     const [dado, setMessage] = useState('')
 
-    async function createUserCollection() {
+    async function createUserCollection(dados, path) {
 
         try {
-            const docRef = await addDoc(collection(db, 'users'), {
-                name: 'igor'
+            const docRef = await addDoc(collection(db, path), {
+                name: dados.displayName,
+                email: dados.email
             })
+
+            console.log(docRef)
 
             setMessage('dado criado')
             console.log('documento criado', docRef.id)
@@ -25,8 +26,26 @@ export function useDataBase(user) {
         }
     }
 
-    // useEffect(() => createUserCollection(), [user])
+    async function myCart(dados, userId) {
 
-    return { dado, createUserCollection }
+        try {
+            const addCartFieldToDocument = await doc(db, 'users', userId)
+
+            const cartField = {
+                ...dados
+            }
+
+            await setDoc(addCartFieldToDocument, cartField, { merge: true })
+
+            // setMessage('dado criado')
+            // console.log('documento criado', docRef.id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+
+    return { dado, createUserCollection, myCart }
 
 }

@@ -25,16 +25,33 @@ function Home() {
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
     const [titleDishes, setTitleDishes] = useState(dataset)
+
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
+
+    const [cartUrl, setCartUrl] = useState('')
+    const [productId, setProductId] = useState(null)
 
     let categorias = new Set()
     const { data, loading, error } = useFetch(url)
 
+    const { data: cartItem } = useFetch(`${productId ? cartUrl : null}`)
+
     const { user } = useAuthContext()
 
     useEffect(() => {
-        console.log(user)
-    }, [user])
+        if (cartItem) {
+            console.log(cartItem)
+        }
+    }, [cartItem])
+
+    useEffect(() => {
+        if (productId === 0) {
+            return
+        }
+
+        const itemUrl = 'http://localhost:3000/cardapio/' + productId
+        setCartUrl(itemUrl)
+    }, [productId])
 
 
 
@@ -69,6 +86,7 @@ function Home() {
 
     }, [category])
 
+
     return (
         <div className='section_container section-hero'>
             <div className='slider_container'>
@@ -92,6 +110,7 @@ function Home() {
                                 data?.map(({ name, price, description, id, image }, i) => (
                                     // <CardsProduto key={i} categorie={item} dados={res[i]} />
                                     <CardsProduto
+                                        setProductId={setProductId}
                                         key={i}
                                         id={id}
                                         name={name}
