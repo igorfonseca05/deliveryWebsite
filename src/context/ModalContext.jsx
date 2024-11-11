@@ -14,17 +14,19 @@ export function ModalContextProvider({ children }) {
 
         if (formToOpen === 'login') {
             setModalLogin(true)
-            setModalIsOpen(!modalIsOpen)
+            setModalIsOpen(true)
             return
             // setModalIsOpen(!modalLogin)
         } else if (formToOpen === 'cadastro') {
             setModalLogin(false)
-            setModalIsOpen(!modalIsOpen)
+            setModalIsOpen(true)
 
         }
         setModalIsOpen(!modalIsOpen)
         // setModalIsOpen(false)
     }
+
+    // handleOpenModal('login')
 
     return (
         <ModalContext.Provider value={{ modalIsOpen, handleOpenModal, modalLogin }}>

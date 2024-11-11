@@ -11,6 +11,7 @@ function Signup() {
 
     const [user, setUser] = useState({ name: '', email: '', password: '' })
     const form = useRef(null)
+    const inputNameRef = useRef(null)
     const {
         createUser,
         error,
@@ -19,7 +20,7 @@ function Signup() {
         user: usuario,
         setSuccess
     } = useAuth()
-    const [openLogin, setOpenLogin] = useState(false)
+    const { handleOpenModal } = useModalContext()
 
     // FUNCTIONS
 
@@ -35,6 +36,12 @@ function Signup() {
         createUser(user)
     }
 
+    function handleInputRef() {
+        inputNameRef.current?.focus()
+    }
+
+    handleInputRef()
+
     // HOOKS
 
     useEffect(() => {
@@ -42,6 +49,9 @@ function Signup() {
         success && toast.success(success, { position: 'top-left' })
         success && form.current.reset()
         setSuccess('')
+        success && setTimeout(() => handleOpenModal('login'), 5000)
+
+        // console.log('oi')
 
     }, [error, success])
 
@@ -73,6 +83,7 @@ function Signup() {
                                 id="name"
                                 onChange={(e) => handleUser(e)}
                                 placeholder='Nome'
+                                ref={inputNameRef}
                             />
                             <label htmlFor="name" id='name'>Nome</label>
                         </div>
@@ -103,7 +114,7 @@ function Signup() {
                         </div>
                         <div className="btn-container">
                             <button className="btn button_loader_container" disabled={loading}>Criar conta
-                                {loading ? <div class="loader"></div> : ''}
+                                {loading ? <div className="loader"></div> : ''}
                             </button>
                             <div className="acc-text">
                                 Já possui conta?

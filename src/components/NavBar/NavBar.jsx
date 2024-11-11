@@ -155,8 +155,16 @@ function NavBar() {
                             </button>
                         </div>
                     </div>
-                    <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
-                    {memorizedOrderContainer}
+                    <div className='cart_and_infosUser_container'>
+                        <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                        {memorizedOrderContainer}
+                        <div className='user_infos_container'>
+                            <figure>
+                                <img src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
+                            </figure>
+                            <span>userName</span>
+                        </div>
+                    </div>
                 </div>
             </nav>
             <nav className={`lateral_navBar

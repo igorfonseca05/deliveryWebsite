@@ -63,12 +63,6 @@ function Home() {
 
     }, [category])
 
-    // function handleOrderContainer() {
-    //     setOrderIsOpen(!OrderisOpen)
-    // }
-
-
-    // console.log(res)
 
 
     return (

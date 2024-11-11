@@ -188,7 +188,7 @@
       "id": 22,
       "name": "Nhoque à Bolonhesa",
       "description": "Marmitex somente de nhoque à bolonhesa.",
-      "price": "3..0",
+      "price": "30.00",
       "category": "massas",
       "image": ""
     },
@@ -196,7 +196,7 @@
       "id": 23,
       "name": "Nhoque com Queijo",
       "description": "Marmitex somente de nhoque com queijo ao molho vermelho.",
-      "price": "..0",
+      "price": "28.00",
       "category": "massas",
       "image": ""
     },
@@ -204,7 +204,7 @@
       "id": 24,
       "name": "Macarrão Recheado",
       "description": ".jpg",
-      "price": "..0",
+      "price": "28.00",
       "category": "massas",
       "image": ""
     },
@@ -212,7 +212,7 @@
       "id": 25,
       "name": "Nhoque com Queijo e Bacon - Copia",
       "description": "Marmitex de nhoque com queijo e bacon ao molho vermelho.",
-      "price": "..0",
+      "price": "30.00",
       "category": "massas",
       "image": ""
     },
@@ -220,7 +220,7 @@
       "id": 26,
       "name": "Macarrão ao Molho Branco com Bacon - Médio",
       "description": "Marmitex de macarrão ao molho branco com toque de catupiry com queijo e bacon.",
-      "price": "..0",
+      "price": "25.00",
       "category": "massas",
       "image": ""
     },
@@ -228,7 +228,7 @@
       "id": 27,
       "name": "Macarrão ao Molho Branco com Bacon - Mini",
       "description": "Marmitex de macarrão ao molho branco com toque de catupiry com queijo e bacon.",
-      "price": "..0",
+      "price": "23.00",
       "category": "massas",
       "image": ""
     }

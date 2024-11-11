@@ -12,11 +12,6 @@ function ModalForm() {
     const [changeForm, setChangeForm] = useState(false)
     const { modalIsOpen, handleOpenModal, modalLogin } = useModalContext()
 
-    const { success } = useAuth()
-
-    useEffect(() => {
-        setChangeForm(!changeForm)
-    }, [success])
 
     // console.log(modalLogin)
 
@@ -24,7 +19,7 @@ function ModalForm() {
         <div className={`form_overlay ${modalIsOpen ? 'modalOpen' : ''}`}>
             <span className='material-symbols-outlined close-button' onClick={() => handleOpenModal()}>close</span>
             {
-                modalLogin || changeForm ? <Login /> : <Signup />
+                modalLogin ? <Login /> : <Signup />
             }
         </div>
     )

@@ -1,14 +1,25 @@
-import React from 'react'
+import { useEffect, useRef } from 'react'
 
 import './Login.css'
 
 
 import { useModalContext } from '../../../context/ModalContext'
+// import { useRef } from 'react'
 
 function Login() {
 
+    const inputRef = useRef(null)
+
+    const focusOnEmail = () => {
+        inputRef.current?.focus();
+    }
+
+    useEffect(() => {
+        focusOnEmail()
+    }, [])
+
     return (
-        <div className={`form_container_login_and_signIn`}>
+        <div className={`form_container_login_and_signIn login_form`}>
             <div className='padding_container'>
                 <div className="form_container">
                     <div className='logo_login'>
@@ -16,7 +27,7 @@ function Login() {
                     </div>
                     <div className='form_heading'>
                         <h1>Bem vindo de volta!</h1>
-                        <p>Complete suas informações para que possamos levar seu pedido até você!</p>
+                        <p>Acesse sua conta para acompanhar e gerenciar seus pedidos de forma fácil e rápida!</p>
                     </div>
                     <form>
                         <div className="input-field">
@@ -27,6 +38,7 @@ function Login() {
                                 name="email"
                                 id="email"
                                 placeholder='Email'
+                                ref={inputRef}
                             />
                             <label htmlFor="email" id='email'>Email</label>
                         </div>
