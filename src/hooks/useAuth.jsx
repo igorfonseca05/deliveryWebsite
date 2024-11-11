@@ -47,10 +47,10 @@ export function useAuth() {
                 password
             )
 
-            // await updateProfile(user, {
-            //     displayName: name,
-            //     photoURL: `${url ? url : ''}`
-            // })
+            await updateProfile(auth.currentUser, {
+                displayName: name
+            })
+
 
             if (!res) {
                 throw new Error('Erro ao criar usuário')
@@ -72,5 +72,5 @@ export function useAuth() {
         return () => setCancelled(true)
     }, [])
 
-    return { auth, error, user, loading, success, createUser, setSuccess }
+    return { auth, error, user, loading, success, createUser, setSuccess, setError }
 }

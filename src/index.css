@@ -269,7 +269,7 @@ hr {
     }
 
     .logo_and_icon_container {
-        margin: 1.6rem 0rem 0rem 0rem;
+        margin: 0.6rem 0rem 1.6rem 0rem;
     }
 
     .narrow_lateral_navBar:hover {
@@ -283,9 +283,7 @@ hr {
         margin: 1.6rem 0rem;
     } */
 
-    .title_lateral_menu {
-        opacity: 0;
-    }
+
 
     .menu_icon {
         display: none;

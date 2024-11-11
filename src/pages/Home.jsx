@@ -32,7 +32,9 @@ function Home() {
 
     const { user } = useAuthContext()
 
-    console.log(user)
+    useEffect(() => {
+        console.log(user)
+    }, [user])
 
 
 

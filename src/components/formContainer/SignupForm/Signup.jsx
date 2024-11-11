@@ -9,7 +9,7 @@ import './Signup.css'
 
 function Signup() {
 
-    const [user, setUser] = useState({ name: '', email: '', password: '' })
+    const [userData, setUserData] = useState({ name: '', email: '', password: '' })
     const form = useRef(null)
     const inputNameRef = useRef(null)
     const inputEmailRef = useRef(null)
@@ -19,23 +19,23 @@ function Signup() {
         error,
         success,
         loading,
-        user: usuario,
-        setSuccess
+        setSuccess,
+        setError
     } = useAuth()
     const { handleOpenModal } = useModalContext()
 
     // FUNCTIONS
 
     function handleUser(e) {
-        setUser({
-            ...user,
+        setUserData({
+            ...userData,
             [e.target.name]: e.target.value
         })
     }
 
     function handleUserData(e) {
         e.preventDefault()
-        createUser(user)
+        createUser(userData)
     }
 
     // HOOKS
@@ -45,6 +45,8 @@ function Signup() {
         success && toast.success(success, { position: 'top-left' })
         success && form.current.reset()
         setSuccess('')
+        setError('')
+
         success && setTimeout(() => handleOpenModal('login'), 5000)
 
         // console.log('oi')
@@ -53,7 +55,7 @@ function Signup() {
 
     useEffect(() => {
         inputNameRef.current.focus()
-    }, [inputNameRef])
+    }, [handleOpenModal])
 
 
     return (
@@ -118,7 +120,7 @@ function Signup() {
                             </button>
                             <div className="acc-text">
                                 Já possui conta?
-                                <span style={{ color: "#0000ff", cursor: "pointer" }}>Entrar</span>
+                                <span style={{ color: "#0000ff", cursor: "pointer", marginLeft: '0.5rem' }}>Entrar</span>
                             </div>
                         </div>
                     </form>

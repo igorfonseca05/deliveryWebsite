@@ -206,10 +206,16 @@ header {
 
 .title_lateral_menu {
     display: block;
-    /* padding: 0rem 0rem 1.6rem 0rem; */
+    padding: 0rem 0rem 1.2rem 0rem;
     font-size: 1.2rem;
-    color: var(--cor-texto-e-icon);
-    font-weight: 600;
+    color: rgb(139, 139, 139);
+    /* font-weight: 600; */
+    opacity: 0;
+    transition: var(--opacity_transition);
+}
+
+.showTitle {
+    opacity: 1 !important;
 }
 
 .li_container {
@@ -310,11 +316,18 @@ header {
 .button span {
     left: 18%;
     /* color: red !important; */
+    /* color: rgb(255, 255, 255) !important; */
 }
 
 .button-signUp span {
-    /* left: 18%; */
+    /* left: 25%; */
     color: rgb(255, 255, 255) !important;
+}
+
+.buttonSignOut {
+    left: 30%;
+    color: rgb(255, 255, 255) !important;
+
 }
 
 .buttonIcon {

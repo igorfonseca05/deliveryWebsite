@@ -10,6 +10,10 @@ function Login() {
 
     const inputRef = useRef(null)
 
+    function handleFormLogin(e) {
+        e.preventDefault()
+    }
+
     const focusOnEmail = () => {
         inputRef.current?.focus();
     }
@@ -29,7 +33,7 @@ function Login() {
                         <h1>Bem vindo de volta!</h1>
                         <p>Acesse sua conta para acompanhar e gerenciar seus pedidos de forma fácil e rápida!</p>
                     </div>
-                    <form>
+                    <form onSubmit={handleFormLogin}>
                         <div className="input-field">
                             <input
                                 required=""

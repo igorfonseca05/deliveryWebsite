@@ -4,13 +4,16 @@ import { NavLink } from 'react-router-dom'
 
 import "./NavBar.css"
 
-
 import Logo from '../logo/Logo'
 
 import { useDebounce } from '../../hooks/useDebouce'
 import OrderContainer from '../OrdersContainer/OrderContainer'
 import { useModalContext } from '../../context/ModalContext'
 import { toast } from 'react-toastify'
+import { useAuthContext } from '../../context/userAuthContext'
+
+import { signOut } from 'firebase/auth'
+import { useAuth } from '../../hooks/useAuth'
 
 function NavBar() {
 
@@ -21,6 +24,8 @@ function NavBar() {
     const [screenSize, setScreenSize] = useState(window.innerWidth)
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
+    const { user } = useAuthContext()
+    const { auth } = useAuth()
 
     const lis = useRef()
     const login_buttons = useRef()
@@ -40,7 +45,6 @@ function NavBar() {
         }
     }
     avoidScrollBody()
-
 
     function handleHovering(value = '') {
         // setScreenSize(window.innerWidth)
@@ -110,7 +114,9 @@ function NavBar() {
 
     }, [])
 
-    useEffect(() => handleHovering(), [screenSize])
+    useEffect(() => {
+        handleHovering()
+    }, [screenSize])
 
     useEffect(() => {
 
@@ -158,12 +164,16 @@ function NavBar() {
                     <div className='cart_and_infosUser_container'>
                         <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
                         {memorizedOrderContainer}
-                        <div className='user_infos_container'>
-                            <figure>
-                                <img src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
-                            </figure>
-                            <span>userName</span>
-                        </div>
+                        {user ?
+                            <div className='user_infos_container'>
+                                <figure>
+                                    <img src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
+                                </figure>
+                                <span>{user.displayName}</span>
+                                <span className='mdi mdi-chevron-down'></span>
+                            </div>
+                            : ''
+                        }
                     </div>
                 </div>
             </nav>
@@ -191,7 +201,7 @@ function NavBar() {
                         </button>
                     </div>
                     <div className='menu_title_container menu_piece'>
-                        <span className='title_lateral_menu'>Menu</span>
+                        <span className={`title_lateral_menu ${toggleElement ? 'showTitle' : ''}`}>Menu</span>
                         <ul ref={lis} className='li_container'>
                             <NavLink to={'/'}>
                                 <li className='nav_item'>
@@ -205,6 +215,14 @@ function NavBar() {
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
                                 </li>
                             </NavLink>
+                            {user ? (
+                                <NavLink to={'/favoritos'}>
+                                    <li className='nav_item'>
+                                        <span className='material-symbols-outlined list-icon'>favorite</span>
+                                        <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Favoritos</p>
+                                    </li>
+                                </NavLink>
+                            ) : ('')}
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
@@ -221,21 +239,31 @@ function NavBar() {
                         <hr />
                     </div>
                     <div className='menu_acccount_container menu_piece'>
-                        <span className='title_lateral_menu'>Account</span>
-                        <div ref={login_buttons} className='buttons_container'>
-                            <button className='button' onClick={() => handleOpenModal('login')}>
-                                <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
-                                <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
-                                {/* {toggleElement ? "Entrar" : ''} */}
-                            </button>
-                            <NavLink>
-                                <button className='button-signUp' onClick={() => handleOpenModal('cadastro')}>
-                                    <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
-                                    <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
-                                    {/* {toggleElement ? "Cadastrar" : ''} */}
+                        <span className={`title_lateral_menu ${toggleElement ? 'showTitle' : ''}`}>Account</span>
+                        {user ? (
+                            <div ref={login_buttons} className='buttons_container'>
+                                <button className='button' onClick={() => signOut(auth)}>
+                                    <span className={`material-symbols-outlined buttonIcon buttonSignOut ${toggleElement ? 'marginIcon' : ''}`}>logout</span>
+                                    <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sair</p>
+                                    {/* {toggleElement ? "Entrar" : ''} */}
                                 </button>
-                            </NavLink>
-                        </div>
+                            </div>
+                        ) : (
+                            <div ref={login_buttons} className='buttons_container'>
+                                <button className='button' onClick={() => handleOpenModal('login')}>
+                                    <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>login</span>
+                                    <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Entrar</p>
+                                    {/* {toggleElement ? "Entrar" : ''} */}
+                                </button>
+                                <NavLink>
+                                    <button className='button-signUp' onClick={() => handleOpenModal('cadastro')}>
+                                        <span className={`material-symbols-outlined buttonIcon ${toggleElement ? 'marginIcon' : ''}`}>person_add</span>
+                                        <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cadastrar</p>
+                                        {/* {toggleElement ? "Cadastrar" : ''} */}
+                                    </button>
+                                </NavLink>
+                            </div>
+                        )}
                         <hr />
                     </div>
                 </div>

@@ -21,6 +21,7 @@ import Login from './pages/login/Login';
 import { MenuContextProvider } from './context/MenuContext';
 import { CartProductContextProvider } from './context/CartProductContaiener';
 import { UserAuthContextProvider } from './context/userAuthContext';
+import { useAuthContext } from './context/userAuthContext';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { useAuth } from './hooks/useAuth';
@@ -30,11 +31,13 @@ function App() {
   const [user, setUser] = useState(undefined)
   const { auth } = useAuth()
 
+
   const loadingUser = user === undefined
 
   useEffect(() => {
     onAuthStateChanged(auth, user => {
       setUser(user)
+      // console.log(user)
     })
   }, [auth])
 
