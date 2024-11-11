@@ -8,6 +8,8 @@ import {
     signOut
 } from 'firebase/auth'
 
+import { useDataBase } from './useRealTimeDatabase.jsx'
+
 
 import { useEffect, useState } from 'react'
 
@@ -16,6 +18,7 @@ export function useAuth() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(null)
+    const { dados, createUserCollection } = useDataBase()
 
     const [user, setUser] = useState(null)
 
@@ -59,6 +62,7 @@ export function useAuth() {
             setUser(res.user)
             setSuccess('Usuário criado com sucesso')
             setLoading(false)
+            createUserCollection(res.user)
 
         } catch (error) {
             setError(error.message)
@@ -68,9 +72,49 @@ export function useAuth() {
         setLoading(false)
     };
 
+
+    async function userLogin({ email, password }) {
+        checkIfCancelled()
+        setLoading(true)
+        setError('')
+        setSuccess('')
+
+        try {
+
+            const res = await signInWithEmailAndPassword(auth, email, password)
+
+            if (!res) {
+                throw new Error('Erro ao fazer login')
+            }
+
+            setSuccess('Bem vindo')
+
+        } catch (error) {
+            setError(error.message)
+            console.log(error)
+        }
+
+        setLoading(false)
+    }
+
+    function logOut() {
+        signOut(auth)
+    }
+
     useEffect(() => {
         return () => setCancelled(true)
     }, [])
 
-    return { auth, error, user, loading, success, createUser, setSuccess, setError }
+    return {
+        auth,
+        error,
+        user,
+        loading,
+        success,
+        createUser,
+        setSuccess,
+        setError,
+        userLogin,
+        logOut
+    }
 }

@@ -210,8 +210,20 @@ hr {
     background-color: #F5F5F5;
     overflow: hidden;
     border-radius: var(--border-Radius);
+    animation: fade 0.3s ease-in-out;
     /* transform: translateY(-120%); */
     /* transition: transform 0.4s 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); */
+}
+
+
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 /* .animateForm {

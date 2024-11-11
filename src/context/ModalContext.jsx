@@ -20,7 +20,7 @@ export function ModalContextProvider({ children }) {
         } else if (formToOpen === 'cadastro') {
             setModalLogin(false)
             setModalIsOpen(true)
-
+            return
         }
         setModalIsOpen(!modalIsOpen)
         // setModalIsOpen(false)

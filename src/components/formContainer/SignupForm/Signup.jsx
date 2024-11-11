@@ -9,6 +9,7 @@ import './Signup.css'
 
 function Signup() {
 
+    const [showPassword, setShowPassword] = useState(false)
     const [userData, setUserData] = useState({ name: '', email: '', password: '' })
     const form = useRef(null)
     const inputNameRef = useRef(null)
@@ -105,14 +106,20 @@ function Signup() {
                             <input
                                 required=""
                                 autoComplete="off"
-                                type='password'
+                                type={showPassword ? 'text' : 'password'}
                                 name="password"
                                 id="password"
                                 onChange={(e) => handleUser(e)}
                                 placeholder='Senha'
                             />
                             <label htmlFor="password" id='password'>Senha</label>
-                            <span className='material-symbols-outlined password-visibility'>visibility</span>
+                            {showPassword ? (
+                                <span onClick={() => setShowPassword(!showPassword)}
+                                    className='material-symbols-outlined password-visibility' >visibility_off</span>
+                            ) : (
+                                <span onClick={() => setShowPassword(!showPassword)}
+                                    className='material-symbols-outlined password-visibility' >visibility</span>
+                            )}
                         </div>
                         <div className="btn-container">
                             <button className="btn button_loader_container" disabled={loading}>Criar conta
@@ -120,7 +127,10 @@ function Signup() {
                             </button>
                             <div className="acc-text">
                                 Já possui conta?
-                                <span style={{ color: "#0000ff", cursor: "pointer", marginLeft: '0.5rem' }}>Entrar</span>
+                                <span
+                                    style={{ color: "#0000ff", cursor: "pointer", marginLeft: '0.5rem' }}
+                                    onClick={() => handleOpenModal('login')}
+                                >Entrar</span>
                             </div>
                         </div>
                     </form>

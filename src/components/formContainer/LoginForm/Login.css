@@ -1,18 +1,6 @@
 /* Login form */
 
-.login_form {
-    animation: fade 0.3s ease-in-out;
-}
 
-@keyframes fade {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
 
 
 .padding_container {
@@ -110,9 +98,14 @@
 
 .password-visibility {
     position: absolute;
+    display: block !important;
     right: 1rem;
-    top: 1rem;
+    top: 1.2rem;
+    bottom: 0rem;
+    /* left: 0; */
     font-size: medium;
+    cursor: pointer;
+    user-select: none;
 }
 
 
