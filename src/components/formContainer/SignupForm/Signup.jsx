@@ -102,7 +102,9 @@ function Signup() {
                             <span className='material-symbols-outlined password-visibility'>visibility</span>
                         </div>
                         <div className="btn-container">
-                            <button className="btn" disabled={loading}>Criar conta</button>
+                            <button className="btn button_loader_container" disabled={loading}>Criar conta
+                                {loading ? <div class="loader"></div> : ''}
+                            </button>
                             <div className="acc-text">
                                 Já possui conta?
                                 <span style={{ color: "#0000ff", cursor: "pointer" }}>Entrar</span>
