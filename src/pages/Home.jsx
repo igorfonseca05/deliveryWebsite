@@ -14,23 +14,27 @@ import CardsProduto from './produtos/CardsProduto/CardsProduto'
 
 import { useMenuContext } from '../context/MenuContext'
 
+// Autenticação
+
+import { useAuthContext } from '../context/userAuthContext'
+
 function Home() {
 
-    let { dataset } = useMenuContext()
 
+    let { dataset } = useMenuContext()
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
     const [titleDishes, setTitleDishes] = useState(dataset)
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
 
-    // const [OrderisOpen, setOrderIsOpen] = useState(false)
-
-
     let categorias = new Set()
-
     const { data, loading, error } = useFetch(url)
 
-    // console.log(data)
+    const { user } = useAuthContext()
+
+    console.log(user)
+
+
 
     useEffect(() => {
 
@@ -62,8 +66,6 @@ function Home() {
         })
 
     }, [category])
-
-
 
     return (
         <div className='section_container section-hero'>

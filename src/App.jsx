@@ -1,4 +1,6 @@
 
+import { useEffect, useState } from 'react';
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'bootstrap/dist/js/bootstrap.bundle'
@@ -20,13 +22,31 @@ import { MenuContextProvider } from './context/MenuContext';
 import { CartProductContextProvider } from './context/CartProductContaiener';
 import { UserAuthContextProvider } from './context/userAuthContext';
 
+import { onAuthStateChanged } from 'firebase/auth';
+import { useAuth } from './hooks/useAuth';
 
 function App() {
+
+  const [user, setUser] = useState(undefined)
+  const { auth } = useAuth()
+
+  const loadingUser = user === undefined
+
+  useEffect(() => {
+    onAuthStateChanged(auth, user => {
+      setUser(user)
+    })
+  }, [auth])
+
+
+  if (loadingUser) {
+    return <p>Carregando...</p>
+  }
 
 
   return (
     <>
-      <UserAuthContextProvider>
+      <UserAuthContextProvider value={{ user, setUser }}>
         <MenuContextProvider>
           <CartProductContextProvider>
             <ModalForm />

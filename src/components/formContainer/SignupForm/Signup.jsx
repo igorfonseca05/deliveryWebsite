@@ -12,6 +12,8 @@ function Signup() {
     const [user, setUser] = useState({ name: '', email: '', password: '' })
     const form = useRef(null)
     const inputNameRef = useRef(null)
+    const inputEmailRef = useRef(null)
+    const inputPasswordRef = useRef(null)
     const {
         createUser,
         error,
@@ -36,12 +38,6 @@ function Signup() {
         createUser(user)
     }
 
-    function handleInputRef() {
-        inputNameRef.current?.focus()
-    }
-
-    handleInputRef()
-
     // HOOKS
 
     useEffect(() => {
@@ -54,6 +50,10 @@ function Signup() {
         // console.log('oi')
 
     }, [error, success])
+
+    useEffect(() => {
+        inputNameRef.current.focus()
+    }, [inputNameRef])
 
 
     return (
