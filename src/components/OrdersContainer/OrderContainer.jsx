@@ -44,7 +44,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             <div className='infors-order-container'>
                 <main ref={orders} className='orders_container scroll-bar'>
                     {emptyOrders > 0 ? (
-                        cartItens?.map(({ id, name, price, image }) => (
+                        cartItens?.map(({ id, name, price, image }, i) => (
                             <CardOrder key={id} id={id} name={name} price={price} img={image} />
                         ))
                     ) : (<p>Seu carrinho está vazio</p>)
@@ -53,11 +53,11 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                 <footer className='total_orders'>
                     <div className='orders_fees'>
                         <hr />
-                        <div className='fess_container'>
+                        <div className='fees_container'>
                             <p>Sub total</p>
                             <span>R$259.36</span>
                         </div>
-                        <div className='fess_container'>
+                        <div className='fees_container'>
                             <p>Taxa de entrega</p>
                             <span>R$9.00</span>
                         </div>

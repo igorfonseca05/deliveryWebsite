@@ -13,6 +13,7 @@ import { useFetch } from '../hooks/UseFetch'
 import CardsProduto from './produtos/CardsProduto/CardsProduto'
 
 import { useMenuContext } from '../context/MenuContext'
+// import { useDataBase } from '../hooks/useRealTimeDatabase'
 
 // Autenticação
 
@@ -29,6 +30,8 @@ function Home() {
     let categorias = new Set()
     const { data, loading, error } = useFetch(url)
 
+    // const { realTimeDocument } = useDataBase()
+
 
     const [itemCartURL, setItemCartURL] = useState('')
     const [productId, setProductId] = useState(null)
@@ -37,8 +40,15 @@ function Home() {
 
     const [cart, setCart] = useState([])
 
-    const { createUserdocument, updateDoc } = useDataBase()
+    const { realTimeDocument, data: itens, updateDoc } = useDataBase()
 
+    realTimeDocument(user ? user.uid : null)
+
+    useEffect(() => {
+        if (!itens) return
+
+        setCart([...itens])
+    }, [itens])
 
     useEffect(() => {
         if (Array.isArray(cart)) {

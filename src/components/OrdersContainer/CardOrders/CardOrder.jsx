@@ -31,6 +31,7 @@ function CardOrder({ id, name, price, img }) {
     useEffect(() => {
         if (!data) return
 
+        console.log(data)
         removeCartItem(data, user.uid)
     }, [data])
 
@@ -59,7 +60,7 @@ function CardOrder({ id, name, price, img }) {
             </div>
             <div className='food_price_container'>
                 <div className='food_price'>R${price}</div>
-                <span style={{ cursor: 'pointer' }} className='material-symbols-outlined'
+                <span style={{ cursor: 'pointer', userSelect: 'none' }} className='material-symbols-outlined'
                     onClick={() => setItemId(id)}>delete</span>
             </div>
         </div>

@@ -91,6 +91,11 @@ header {
     padding: 0rem 5rem 0rem 2.8rem;
 }
 
+.cart_icon {
+    user-select: none;
+}
+
+
 .cart_and_infosUser_container {
     display: flex;
     align-items: center;
