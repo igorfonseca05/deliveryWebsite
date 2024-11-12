@@ -17,6 +17,7 @@ import { useMenuContext } from '../context/MenuContext'
 // Autenticação
 
 import { useAuthContext } from '../context/userAuthContext'
+import { useDataBase } from '../hooks/useRealTimeDatabase'
 
 function Home() {
 
@@ -25,23 +26,38 @@ function Home() {
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
     const [titleDishes, setTitleDishes] = useState(dataset)
-
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
-
-    const [cartUrl, setCartUrl] = useState('')
-    const [productId, setProductId] = useState(null)
-
     let categorias = new Set()
     const { data, loading, error } = useFetch(url)
-
+    const [cartUrl, setCartUrl] = useState('')
+    const [productId, setProductId] = useState(null)
     const { data: cartItem } = useFetch(`${productId ? cartUrl : null}`)
-
     const { user } = useAuthContext()
 
+    const [cart, setCart] = useState([])
+
+    const { createUserdocument } = useDataBase()
+
+    // console.log(;)
+
     useEffect(() => {
-        if (cartItem) {
-            console.log(cartItem)
+        createUserdocument(user, cart, user.uid)
+    }, [cart])
+
+    useEffect(() => {
+        if (!cartItem) {
+            return
         }
+
+        if (cart.some(item => item.id === cartItem.id)) {
+            console.log('item já adicionado ao carrinho')
+            return
+        }
+
+        setCart(prev => [...prev, cartItem])
+
+        // console.log(cart)
+
     }, [cartItem])
 
     useEffect(() => {

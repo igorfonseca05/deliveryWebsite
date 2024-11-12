@@ -13,8 +13,6 @@ function Signup() {
     const [userData, setUserData] = useState({ name: '', email: '', password: '' })
     const form = useRef(null)
     const inputNameRef = useRef(null)
-    const inputEmailRef = useRef(null)
-    const inputPasswordRef = useRef(null)
     const {
         createUser,
         error,

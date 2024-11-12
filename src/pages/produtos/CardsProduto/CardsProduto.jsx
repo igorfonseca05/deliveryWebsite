@@ -18,7 +18,6 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
 
     const { setCartProductId } = useCartProductContext()
 
-
     function handleName(id) {
         if (!isOpen) {
             setDishName(id)
@@ -38,7 +37,6 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
             setIngredientIsOpen('')
         }
     }
-
 
 
     return (

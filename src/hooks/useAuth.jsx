@@ -10,7 +10,6 @@ import {
 
 import { useDataBase } from './useRealTimeDatabase.jsx'
 
-
 import { useEffect, useState } from 'react'
 
 export function useAuth() {
@@ -18,7 +17,7 @@ export function useAuth() {
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(null)
-    const { dados, createUserCollection } = useDataBase()
+    const { dados, createUserdocument } = useDataBase()
 
     const [user, setUser] = useState(null)
 
@@ -63,7 +62,6 @@ export function useAuth() {
             await signOut(auth)
             setSuccess('Usuário criado com sucesso. Por favor, faça login!')
             setLoading(false)
-            createUserCollection(res.user, 'users')
 
         } catch (error) {
             setError(error.message)
@@ -90,6 +88,7 @@ export function useAuth() {
 
             setSuccess('Bem vindo')
             setUser(res.user)
+            createUserdocument(res.user)
 
         } catch (error) {
             setError(error.message)

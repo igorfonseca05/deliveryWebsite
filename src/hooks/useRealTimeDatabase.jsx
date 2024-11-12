@@ -9,33 +9,20 @@ export function useDataBase() {
 
     const [dado, setMessage] = useState('')
 
-    async function createUserCollection(dados, path) {
 
-        try {
-            const docRef = await addDoc(collection(db, path), {
-                name: dados.displayName,
-                email: dados.email
-            })
-
-            console.log(docRef)
-
-            setMessage('dado criado')
-            console.log('documento criado', docRef.id)
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    async function myCart(dados, userId) {
+    async function createUserdocument(dados, cartItens, userId) {
 
         try {
             const addCartFieldToDocument = await doc(db, 'users', userId)
 
             const cartField = {
-                ...dados
+                nome: dados.displayName,
+                myCart: [...cartItens]
             }
+            // 
+            console.log(cartField)
 
-            await setDoc(addCartFieldToDocument, cartField, { merge: true })
+            // await setDoc(addCartFieldToDocument, cartField, { merge: true })
 
             // setMessage('dado criado')
             // console.log('documento criado', docRef.id)
@@ -46,6 +33,6 @@ export function useDataBase() {
 
 
 
-    return { dado, createUserCollection, myCart }
+    return { dado, createUserdocument }
 
 }
