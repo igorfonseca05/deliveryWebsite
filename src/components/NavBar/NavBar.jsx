@@ -11,6 +11,7 @@ import OrderContainer from '../OrdersContainer/OrderContainer'
 import { useModalContext } from '../../context/ModalContext'
 import { toast } from 'react-toastify'
 import { useAuthContext } from '../../context/userAuthContext'
+import { useDataBase } from '../../hooks/useRealTimeDatabase'
 
 import { signOut } from 'firebase/auth'
 import { useAuth } from '../../hooks/useAuth'
@@ -24,13 +25,18 @@ function NavBar() {
     const [screenSize, setScreenSize] = useState(window.innerWidth)
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
+    const [amountItensCart, setAmountItensCart] = useState(0)
     const { user } = useAuthContext()
     const { auth } = useAuth()
+
+    const { data, realTimeDocument } = useDataBase()
 
     const lis = useRef()
     const login_buttons = useRef()
 
     const { handleOpenModal, modalIsOpen } = useModalContext()
+
+    realTimeDocument(user ? user.uid : null)
 
 
     function handleClick() {
@@ -144,6 +150,12 @@ function NavBar() {
         <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
     ), [OrderisOpen])
 
+    useEffect(() => {
+        if (data) {
+            setAmountItensCart(data.length)
+        }
+    }, [data])
+
 
     return (
         <header>
@@ -164,7 +176,11 @@ function NavBar() {
                     <div className='cart_and_infosUser_container'>
                         <div className='cart_itens_indicador'>
                             <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
-                            <span className='indicator'>2</span>
+                            {amountItensCart > 0 ? (
+                                <span className='indicator'>{amountItensCart}</span>
+                            ) : (
+                                <span className='indicator' style={{ display: 'none' }}></span>
+                            )}
                         </div>
 
                         {memorizedOrderContainer}

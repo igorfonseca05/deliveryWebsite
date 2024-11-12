@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import './CardOrder.css'
 
-function CardOrder() {
+function CardOrder({ id, name, price, img }) {
 
     const [amountOrder, setAmountOrder] = useState(1)
 
@@ -18,10 +18,10 @@ function CardOrder() {
     return (
         <div className='card_order'>
             <figure className='food_img_container'>
-                <img src="https://www.saborusa.com/wp-content/uploads/2019/10/Calma-tus-antojos-con-deliciosas-y-rapidas-recetas-Foto-destacada.png" alt="img" />
+                <img src={img} alt="img" />
             </figure>
             <div className='second-part-card'>
-                <p className='food_name'>Calabresa recheada</p>
+                <p className='food_name'>{name}</p>
                 <div className='number_control'>
                     <div className='number_button number_left' onClick={handleDeleteItem}><span className='material-symbols-outlined'>remove</span></div>
                     <div className='number'>{amountOrder}</div>
@@ -29,7 +29,7 @@ function CardOrder() {
                 </div>
             </div>
             <div className='food_price_container'>
-                <div className='food_price'>R$105,26</div>
+                <div className='food_price'>R${price}</div>
                 <span className='material-symbols-outlined'>delete</span>
             </div>
         </div>

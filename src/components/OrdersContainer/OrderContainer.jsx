@@ -15,6 +15,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     const { cartProductId } = useCartProductContext()
     const [productUrl, setProductUrl] = useState('')
     const [emptyOrders, setEmptyOrders] = useState([])
+    const [cartItens, setCartItens] = useState([])
     const orders = useRef(null)
 
     const { user } = useAuthContext()
@@ -24,6 +25,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     useEffect(() => {
         setEmptyOrders(data?.length)
+        setCartItens(data)
     }, [data])
 
     // console.log(emptyOrders)
@@ -41,7 +43,12 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             </header>
             <div className='infors-order-container'>
                 <main ref={orders} className='orders_container scroll-bar'>
-                    {emptyOrders ? (<p>Seu carrinho está vazio</p>) : (<CardOrder />)}
+                    {emptyOrders > 0 ? (
+                        cartItens?.map(({ id, name, price, image }) => (
+                            <CardOrder key={id} name={name} price={price} img={image} />
+                        ))
+                    ) : (<p>Seu carrinho está vazio</p>)
+                    }
                 </main>
                 <footer className='total_orders'>
                     <div className='orders_fees'>
