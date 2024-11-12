@@ -13,12 +13,15 @@ import { useFetch } from '../hooks/UseFetch'
 import CardsProduto from './produtos/CardsProduto/CardsProduto'
 
 import { useMenuContext } from '../context/MenuContext'
+import { useModalContext } from '../context/ModalContext'
+
 // import { useDataBase } from '../hooks/useRealTimeDatabase'
 
 // Autenticação
 
 import { useAuthContext } from '../context/userAuthContext'
 import { useDataBase } from '../hooks/useRealTimeDatabase'
+
 
 function Home() {
 
@@ -32,7 +35,6 @@ function Home() {
 
     // const { realTimeDocument } = useDataBase()
 
-
     const [itemCartURL, setItemCartURL] = useState('')
     const [productId, setProductId] = useState(null)
     const { data: cartItem } = useFetch(`${productId ? itemCartURL : null}`)
@@ -42,49 +44,10 @@ function Home() {
 
     const { realTimeDocument, data: itens, updateDoc } = useDataBase()
 
-    realTimeDocument(user ? user.uid : null)
-
-    useEffect(() => {
-        if (!itens) return
-
-        setCart([...itens])
-    }, [itens])
-
-    useEffect(() => {
-        if (Array.isArray(cart)) {
-            updateDoc(cart, user.uid)
-            return
-        }
-    }, [cart])
+    // realTimeDocument(user ? user.uid : null)
 
 
-    useEffect(() => {
-        const itemAlreadyAdded = cart.some(item => item.id === cartItem.id)
-
-        if (!cartItem) {
-            return
-        }
-
-        if (itemAlreadyAdded) {
-            console.log('item já adicionado ao carrinho')
-            return
-        }
-
-        setCart(prev => [...prev, cartItem])
-
-    }, [cartItem])
-
-
-    useEffect(() => {
-        if (productId === 0) {
-            return
-        }
-
-        const itemUrl = 'http://localhost:3000/cardapio/' + productId
-        setItemCartURL(itemUrl)
-    }, [productId])
-
-
+    const { handleOpenModal } = useModalContext()
 
     useEffect(() => {
 
@@ -117,9 +80,49 @@ function Home() {
 
     }, [category])
 
+    useEffect(() => {
+        if (!itens) return
+
+        setCart([...itens])
+    }, [itens])
+
+    useEffect(() => {
+        if (Array.isArray(cart)) {
+            updateDoc(cart, user ? user.uid : null)
+            return
+        }
+    }, [cart])
+
+
+    useEffect(() => {
+        const itemAlreadyAdded = cart.some(item => item.id === cartItem.id)
+
+        if (!cartItem) {
+            return
+        }
+
+        if (itemAlreadyAdded) {
+            console.log('item já adicionado ao carrinho')
+            return
+        }
+
+        setCart(prev => [...prev, cartItem])
+
+    }, [cartItem])
+
+
+    useEffect(() => {
+        if (productId === 0) {
+            return
+        }
+
+        const itemUrl = 'http://localhost:3000/cardapio/' + productId
+        setItemCartURL(itemUrl)
+    }, [productId])
+
 
     return (
-        <div className='section_container section-hero'>
+        <div className='section_container section-hero' onLoad={() => handleOpenModal('login')}>
             <div className='slider_container'>
                 <Carousel />
             </div>

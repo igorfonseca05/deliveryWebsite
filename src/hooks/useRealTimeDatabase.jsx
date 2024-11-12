@@ -14,37 +14,41 @@ export function useDataBase() {
 
     async function createUserdocument(dados, userId) {
 
-        try {
-            const userDocument = await doc(db, 'users', userId)
+        if (userId && dados) {
+            try {
+                const userDocument = await doc(db, 'users', userId)
 
-            const userInfo = {
-                nome: dados.displayName,
-                userId: dados.uid,
-                email: dados.emailVerified,
-                phone: dados.phoneNumber,
-                metaDados: { ...dados.metadata },
-                email: dados.email,
-                myCart: [],
-                // date: new Date().toISOString()
+                const userInfo = {
+                    nome: dados.displayName,
+                    userId: dados.uid,
+                    email: dados.emailVerified,
+                    phone: dados.phoneNumber,
+                    metaDados: { ...dados.metadata },
+                    email: dados.email,
+                    myCart: [],
+                    // date: new Date().toISOString()
+                }
+
+                await setDoc(userDocument, userInfo, { merge: true })
+            } catch (error) {
+                console.log(error)
             }
-
-            await setDoc(userDocument, userInfo, { merge: true })
-        } catch (error) {
-            console.log(error)
         }
     }
 
     async function updateDoc(cartItens, userId) {
 
-        const item = {
-            myCart: arrayUnion(...cartItens)
-        }
+        if (userId) {
+            const item = {
+                myCart: arrayUnion(...cartItens)
+            }
 
-        try {
-            await setDoc(doc(db, 'users', userId), item, { merge: true });
+            try {
+                await setDoc(doc(db, 'users', userId), item, { merge: true });
 
-        } catch (error) {
-            console.log(error.message)
+            } catch (error) {
+                console.log(error.message)
+            }
         }
 
     }
@@ -52,31 +56,35 @@ export function useDataBase() {
     function realTimeDocument(userId) {
 
         useEffect(() => {
+            if (userId) {
 
-            onSnapshot(doc(db, 'users', userId), { includeMetadataChanges: true }, (doc) => {
-                if (doc.exists()) {
-                    setData(doc.data().myCart)
-                } else {
-                    console.log('Dados não encontrados')
-                }
-            })
+                const unsubscribe = onSnapshot(doc(db, 'users', userId), { includeMetadataChanges: true }, (doc) => {
+                    if (doc.exists()) {
+                        setData(doc.data().myCart)
+                    } else {
+                        console.log('Dados não encontrados')
+                    }
+                })
+
+                return () => unsubscribe()
+            }
 
         }, [userId])
     }
 
     async function removeCartItem(itemToRemove, userId) {
 
-        const item = {
-            myCart: arrayRemove(itemToRemove)
-        }
+        if (userId) {
+            const item = {
+                myCart: arrayRemove(itemToRemove)
+            }
 
-        // console.log(userId, itemToRemove)
+            try {
+                await setDoc(doc(db, 'users', userId), item, { merge: true });
 
-        try {
-            await setDoc(doc(db, 'users', userId), item, { merge: true });
-
-        } catch (error) {
-            console.log(error.message)
+            } catch (error) {
+                console.log(error.message)
+            }
         }
 
     }

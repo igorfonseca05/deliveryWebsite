@@ -72,7 +72,7 @@ function Login() {
                             <input
                                 onChange={handleUserCredentials}
                                 required=""
-                                autoComplete="off"
+                                // autoComplete="off"
                                 typeof="email"
                                 name="email"
                                 id="email"

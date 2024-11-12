@@ -25,6 +25,7 @@ function NavBar() {
     const [screenSize, setScreenSize] = useState(window.innerWidth)
     const [isVisible, setIsVisible] = useState(true)
     const [lastScrollY, setLastScrollY] = useState(0)
+
     const [amountItensCart, setAmountItensCart] = useState(0)
     const { user } = useAuthContext()
     const { auth } = useAuth()
@@ -33,32 +34,22 @@ function NavBar() {
 
     const lis = useRef()
     const login_buttons = useRef()
-
     const { handleOpenModal, modalIsOpen } = useModalContext()
+
 
     realTimeDocument(user ? user.uid : null)
 
 
-    function handleClick() {
-        setIsOpen(!isOpen)
-    }
+    const handleClick = () => setIsOpen(!isOpen)
 
-    function avoidScrollBody() {
-        if (isOpen || OrderisOpen || modalIsOpen) {
-            document.body.style.overflowY = 'hidden'
-        } else {
-            document.body.style.overflowY = ''
-        }
-    }
-    avoidScrollBody()
+    useEffect(() => {
+        document.body.style.overflowY = isOpen || OrderisOpen || modalIsOpen ? 'hidden' : ''
+
+    }, [OrderisOpen, isOpen, modalIsOpen])
+
 
     function handleHovering(value = '') {
-        // setScreenSize(window.innerWidth)
-        if (screenSize >= 768) {
-            setToggleElement(value)
-        } else {
-            setToggleElement(true)
-        }
+        setToggleElement(screenSize >= 768 ? value : true)
     }
 
     function handleOrderContainer() {
@@ -72,10 +63,7 @@ function NavBar() {
     useEffect(() => {
         const allTrigger = [...lis.current.children, ...login_buttons.current.children]
 
-        function addClickEvent() {
-            // console.log('po')
-            setIsOpen(false)
-        }
+        function addClickEvent() { setIsOpen(false) }
 
         allTrigger?.forEach(item => {
             item.addEventListener('click', addClickEvent)
@@ -111,7 +99,6 @@ function NavBar() {
     useEffect(() => {
 
         const debounceResize = useDebounce(() => setScreenSize(window.innerWidth), 100)
-
         window.addEventListener('resize', debounceResize)
 
         return () => {
@@ -123,6 +110,7 @@ function NavBar() {
     useEffect(() => {
         handleHovering()
     }, [screenSize])
+
 
     useEffect(() => {
 
@@ -151,9 +139,8 @@ function NavBar() {
     ), [OrderisOpen])
 
     useEffect(() => {
-        if (data) {
-            setAmountItensCart(data.length)
-        }
+        if (!data) return
+        setAmountItensCart(data.length)
     }, [data])
 
 
