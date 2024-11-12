@@ -1,10 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import './CardOrder.css'
+
+import { useFetch } from '../../../hooks/UseFetch'
+import { useDataBase } from '../../../hooks/useRealTimeDatabase'
+import { useAuthContext } from '../../../context/userAuthContext'
 
 function CardOrder({ id, name, price, img }) {
 
     const [amountOrder, setAmountOrder] = useState(1)
+
+    const [itemId, setItemId] = useState(null)
+    const [urlItemToRemove, setUrlItemToRemove] = useState('')
+
+    const { user } = useAuthContext()
+    const { removeCartItem } = useDataBase()
+    const { data } = useFetch(urlItemToRemove)
+
+
+    useEffect(() => {
+        if (!itemId) {
+            return
+        }
+
+        setUrlItemToRemove('http://localhost:3000/cardapio/' + itemId)
+
+    }, [itemId])
+
+
+    useEffect(() => {
+        if (!data) return
+
+        removeCartItem(data, user.uid)
+    }, [data])
+
 
     function handleAddItem() {
         setAmountOrder(amountOrder + 1)
@@ -30,7 +59,8 @@ function CardOrder({ id, name, price, img }) {
             </div>
             <div className='food_price_container'>
                 <div className='food_price'>R${price}</div>
-                <span className='material-symbols-outlined'>delete</span>
+                <span style={{ cursor: 'pointer' }} className='material-symbols-outlined'
+                    onClick={() => setItemId(id)}>delete</span>
             </div>
         </div>
     )

@@ -45,7 +45,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                 <main ref={orders} className='orders_container scroll-bar'>
                     {emptyOrders > 0 ? (
                         cartItens?.map(({ id, name, price, image }) => (
-                            <CardOrder key={id} name={name} price={price} img={image} />
+                            <CardOrder key={id} id={id} name={name} price={price} img={image} />
                         ))
                     ) : (<p>Seu carrinho está vazio</p>)
                     }

@@ -1,5 +1,5 @@
 import { db } from "../firebase/config";
-import { collection, addDoc, doc, setDoc, updateDoc, getDoc, onSnapshot, arrayUnion } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, updateDoc, getDoc, onSnapshot, arrayUnion, arrayRemove } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
 
@@ -64,6 +64,23 @@ export function useDataBase() {
         }, [userId])
     }
 
+    async function removeCartItem(itemToRemove, userId) {
 
-    return { createUserdocument, data, updateDoc, realTimeDocument }
+        const item = {
+            myCart: arrayRemove(itemToRemove)
+        }
+
+        // console.log(userId, itemToRemove)
+
+        try {
+            await setDoc(doc(db, 'users', userId), item, { merge: true });
+
+        } catch (error) {
+            console.log(error.message)
+        }
+
+    }
+
+
+    return { createUserdocument, data, updateDoc, realTimeDocument, removeCartItem }
 }
