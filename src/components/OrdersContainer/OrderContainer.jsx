@@ -5,24 +5,30 @@ import CardOrder from './CardOrders/CardOrder'
 import { useCartProductContext } from '../../context/CartProductContaiener'
 import { useFetch } from '../../hooks/UseFetch'
 
+import { useDataBase } from '../../hooks/useRealTimeDatabase'
+import { useAuthContext } from '../../context/userAuthContext'
+// import { useAuthContext } from "../context/userAuthContext";
+
+
 function OrderContainer({ isOpen, handleOrderContainer }) {
 
     const { cartProductId } = useCartProductContext()
-
     const [productUrl, setProductUrl] = useState('')
-
-    const url = `http://localhost:3000/cardapio/${cartProductId}`
-    // const { data } = useFetch(url)
-
-
-
-    // console.log(data)
-
-    const [emptyOrders, setEmptyOrders] = useState(0)
-
+    const [emptyOrders, setEmptyOrders] = useState([])
     const orders = useRef(null)
 
-    useEffect(() => setEmptyOrders(orders.current?.children.length), [])
+    const { user } = useAuthContext()
+    const { data, realTimeDocument } = useDataBase()
+
+    realTimeDocument(user ? user.uid : null)
+
+    useEffect(() => {
+        setEmptyOrders(data?.length)
+    }, [data])
+
+    // console.log(emptyOrders)
+
+    // useEffect(() => setEmptyOrders(orders.current?.children.length), [])
 
 
 

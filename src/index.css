@@ -28,7 +28,7 @@
     /* Cor de Destaque para Detalhes e Promoções */
     /* --cor-destaque: #4CAF50; */
     /* --cor-destaque: linear-gradient(135deg, #FF8C00, #FFA726); */
-    --cor-destaque-hover: #ffa93f;
+    --cor-destaque-hover: #f89f32;
     --click: #D85D1C;
     /* Laranja Vibrante */
 
@@ -253,6 +253,24 @@ hr {
 .image-signUp-container div {
     margin: 2rem auto !important;
     width: 50%;
+}
+
+.cart_itens_indicador {
+    position: relative;
+}
+
+.indicator {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 1.6rem;
+    top: -0.3rem;
+    background-color: var(--cor-destaque-hover);
+    width: 1.6rem;
+    height: 1.6rem;
+    border-radius: 50%;
+    color: white;
 }
 
 /* Estilos para telas grandes (desktops) */

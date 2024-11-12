@@ -162,7 +162,11 @@ function NavBar() {
                         </div>
                     </div>
                     <div className='cart_and_infosUser_container'>
-                        <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                        <div className='cart_itens_indicador'>
+                            <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                            <span className='indicator'>2</span>
+                        </div>
+
                         {memorizedOrderContainer}
                         {user ?
                             <div className='user_infos_container'>

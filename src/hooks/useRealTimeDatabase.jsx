@@ -1,38 +1,69 @@
 import { db } from "../firebase/config";
-import { collection, addDoc, doc, setDoc, updateDoc } from "firebase/firestore";
+import { collection, addDoc, doc, setDoc, updateDoc, getDoc, onSnapshot, arrayUnion } from "firebase/firestore";
 
 import { useEffect, useState } from "react";
 
 import { useAuthContext } from "../context/userAuthContext";
+import { serverTimestamp } from "firebase/database";
 
 export function useDataBase() {
 
-    const [dado, setMessage] = useState('')
+    const [data, setData] = useState(null)
 
+    const [cartItens, setItensCart] = useState([])
 
-    async function createUserdocument(dados, cartItens, userId) {
+    async function createUserdocument(dados, userId) {
 
         try {
-            const addCartFieldToDocument = await doc(db, 'users', userId)
+            const userDocument = await doc(db, 'users', userId)
 
-            const cartField = {
+            const userInfo = {
                 nome: dados.displayName,
-                myCart: [...cartItens]
+                userId: dados.uid,
+                email: dados.emailVerified,
+                phone: dados.phoneNumber,
+                metaDados: { ...dados.metadata },
+                email: dados.email,
+                myCart: [],
+                // date: new Date().toISOString()
             }
-            // 
-            console.log(cartField)
 
-            // await setDoc(addCartFieldToDocument, cartField, { merge: true })
-
-            // setMessage('dado criado')
-            // console.log('documento criado', docRef.id)
+            await setDoc(userDocument, userInfo, { merge: true })
         } catch (error) {
             console.log(error)
         }
     }
 
+    async function updateDoc(cartItens, userId) {
+
+        const item = {
+            myCart: arrayUnion(...cartItens)
+        }
+
+        try {
+            await setDoc(doc(db, 'users', userId), item, { merge: true });
+
+        } catch (error) {
+            console.log(error.message)
+        }
+
+    }
+
+    function realTimeDocument(userId) {
+
+        useEffect(() => {
+
+            onSnapshot(doc(db, 'users', userId), { includeMetadataChanges: true }, (doc) => {
+                if (doc.exists()) {
+                    setData(doc.data().myCart)
+                } else {
+                    console.log('Dados não encontrados')
+                }
+            })
+
+        }, [userId])
+    }
 
 
-    return { dado, createUserdocument }
-
+    return { createUserdocument, data, updateDoc, realTimeDocument }
 }

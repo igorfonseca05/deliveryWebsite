@@ -88,7 +88,7 @@ export function useAuth() {
 
             setSuccess('Bem vindo')
             setUser(res.user)
-            createUserdocument(res.user)
+            createUserdocument(res.user, res.user.uid)
 
         } catch (error) {
             setError(error.message)

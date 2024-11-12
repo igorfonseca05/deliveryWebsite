@@ -21,7 +21,6 @@ import { useDataBase } from '../hooks/useRealTimeDatabase'
 
 function Home() {
 
-
     let { dataset } = useMenuContext()
     const [category, setCategory] = useState([])
     const [res, setRes] = useState([])
@@ -29,36 +28,42 @@ function Home() {
     const [url, setUrl] = useState('http://localhost:3000/cardapio')
     let categorias = new Set()
     const { data, loading, error } = useFetch(url)
-    const [cartUrl, setCartUrl] = useState('')
+
+
+    const [itemCartURL, setItemCartURL] = useState('')
     const [productId, setProductId] = useState(null)
-    const { data: cartItem } = useFetch(`${productId ? cartUrl : null}`)
+    const { data: cartItem } = useFetch(`${productId ? itemCartURL : null}`)
     const { user } = useAuthContext()
 
     const [cart, setCart] = useState([])
 
-    const { createUserdocument } = useDataBase()
+    const { createUserdocument, updateDoc } = useDataBase()
 
-    // console.log(;)
 
     useEffect(() => {
-        createUserdocument(user, cart, user.uid)
+        if (Array.isArray(cart)) {
+            updateDoc(cart, user.uid)
+            return
+        }
     }, [cart])
 
+
     useEffect(() => {
+        const itemAlreadyAdded = cart.some(item => item.id === cartItem.id)
+
         if (!cartItem) {
             return
         }
 
-        if (cart.some(item => item.id === cartItem.id)) {
+        if (itemAlreadyAdded) {
             console.log('item já adicionado ao carrinho')
             return
         }
 
         setCart(prev => [...prev, cartItem])
 
-        // console.log(cart)
-
     }, [cartItem])
+
 
     useEffect(() => {
         if (productId === 0) {
@@ -66,7 +71,7 @@ function Home() {
         }
 
         const itemUrl = 'http://localhost:3000/cardapio/' + productId
-        setCartUrl(itemUrl)
+        setItemCartURL(itemUrl)
     }, [productId])
 
 
