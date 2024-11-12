@@ -249,7 +249,11 @@ function NavBar() {
                         <span className={`title_lateral_menu ${toggleElement ? 'showTitle' : ''}`}>Account</span>
                         {user ? (
                             <div ref={login_buttons} className='buttons_container'>
-                                <button className='button' onClick={() => signOut(auth)}>
+                                <button className='button'
+                                    onClick={() => {
+                                        signOut(auth)
+                                        handleOpenModal('login')
+                                    }}>
                                     <span className={`material-symbols-outlined buttonIcon buttonSignOut ${toggleElement ? 'marginIcon' : ''}`}>logout</span>
                                     <p className={` buttonText ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sair</p>
                                     {/* {toggleElement ? "Entrar" : ''} */}

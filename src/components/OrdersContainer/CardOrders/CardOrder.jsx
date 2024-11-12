@@ -14,7 +14,7 @@ function CardOrder({ id, name, price, img }) {
     const [urlItemToRemove, setUrlItemToRemove] = useState('')
 
     const { user } = useAuthContext()
-    const { removeCartItem } = useDataBase()
+    const { removeCartItem, updateDoc } = useDataBase()
     const { data } = useFetch(urlItemToRemove)
 
 
@@ -40,8 +40,8 @@ function CardOrder({ id, name, price, img }) {
         setAmountOrder(amountOrder + 1)
     }
     function handleDeleteItem() {
-        if (amountOrder === 1) return
-        setAmountOrder(amountOrder - 1)
+        // if (amountOrder === 1) return
+        setAmountOrder(amountOrder === 1 ? null : amountOrder - 1)
     }
 
 

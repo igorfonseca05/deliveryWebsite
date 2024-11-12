@@ -121,7 +121,7 @@ function Signup() {
                         </div>
                         <div className="btn-container">
                             <button className="btn button_loader_container" disabled={loading}>Criar conta
-                                {loading ? <div className="loader"></div> : ''}
+                                {loading && <div className="loader"></div>}
                             </button>
                             <div className="acc-text">
                                 Já possui conta?

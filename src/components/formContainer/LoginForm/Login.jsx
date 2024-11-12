@@ -101,7 +101,10 @@ function Login() {
                             )}
                         </div>
                         <div className="btn-container">
-                            <button className="btn" disabled={loading}>Entrar</button>
+                            <button className="btn button_loader_container" disabled={loading}>Entrar
+                                {loading && <div className="loader"></div>}
+                            </button>
+
                             <div className="acc-text">
                                 Novo aqui ?
                                 <span

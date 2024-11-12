@@ -122,7 +122,7 @@ function Home() {
 
 
     return (
-        <div className='section_container section-hero' onLoad={() => handleOpenModal('login')}>
+        <div className='section_container section-hero' onLoad={() => user ? null : handleOpenModal('login')}>
             <div className='slider_container'>
                 <Carousel />
             </div>
