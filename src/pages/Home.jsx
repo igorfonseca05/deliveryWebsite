@@ -55,8 +55,18 @@ function Home() {
 
 
     useEffect(() => {
-        if (isAdmin) {
+        const root = document.documentElement
 
+        if (isAdmin) {
+            const rootStyle = getComputedStyle(root)
+
+            root.style.setProperty('--cor-principal', '#ffac33')
+            root.style.setProperty('--cor-principal-hover', '#ff9800')
+
+            // console.log(mainColor)
+        } else {
+            root.style.setProperty('--cor-principal', '#4CAF50')
+            root.style.setProperty('--cor-principal-hover', '#388E3C')
         }
 
     }, [isAdmin])
