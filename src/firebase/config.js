@@ -6,13 +6,12 @@ import {getFirestore} from 'firebase/firestore'
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD3slU0GVKjUalK7kGi0Q8ew7lSpQA-wvc",
-  authDomain: "autent-faac9.firebaseapp.com",
-  databaseURL: "https://autent-faac9-default-rtdb.firebaseio.com",
-  projectId: "autent-faac9",
-  storageBucket: "autent-faac9.firebasestorage.app",
-  messagingSenderId: "221927790207",
-  appId: "1:221927790207:web:f0e1632d2d642f6f3c514a"
+  apiKey: "AIzaSyBGlj5pR5-TI3ctldE9HczbtcSEIGstxpY",
+  authDomain: "delivery-971d7.firebaseapp.com",
+  projectId: "delivery-971d7",
+  storageBucket: "delivery-971d7.firebasestorage.app",
+  messagingSenderId: "265068280243",
+  appId: "1:265068280243:web:d09e2b9ef53362e7f973c6"
 };
 
 

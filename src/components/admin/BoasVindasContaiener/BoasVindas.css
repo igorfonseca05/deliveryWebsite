@@ -1,0 +1,9 @@
+.admin_container {
+    background-color: rgb(190, 214, 188);
+}
+
+.saudação_text {
+    font-size: 5rem;
+    text-transform: capitalize;
+    color: var(--cor-principal);
+}

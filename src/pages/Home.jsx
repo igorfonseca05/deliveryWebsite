@@ -21,6 +21,8 @@ import { useModalContext } from '../context/ModalContext'
 
 import { useAuthContext } from '../context/userAuthContext'
 import { useDataBase } from '../hooks/useRealTimeDatabase'
+import { useAdmin } from '../hooks/useAdmin'
+import BoasVindas from '../components/admin/BoasVindasContaiener/BoasVindas'
 
 
 function Home() {
@@ -33,19 +35,31 @@ function Home() {
     let categorias = new Set()
     const { data, loading, error } = useFetch(url)
 
-    // const { realTimeDocument } = useDataBase()
-
+    // Obtendo Url Item Base de dados
     const [itemCartURL, setItemCartURL] = useState('')
     const [productId, setProductId] = useState(null)
+
+    //  Obtendo Dado
     const { data: cartItem } = useFetch(`${productId ? itemCartURL : null}`)
     const { user } = useAuthContext()
 
+    //  Array de itens do carrinho
     const [cart, setCart] = useState([])
 
     const { realTimeDocument, data: itens, updateDoc } = useDataBase()
+    const { handleOpenModal } = useModalContext()
+
+    const { isAdmin } = useAdmin(user)
+
     realTimeDocument(user ? user.uid : null)
 
-    const { handleOpenModal } = useModalContext()
+
+    useEffect(() => {
+        if (isAdmin) {
+
+        }
+
+    }, [isAdmin])
 
 
     useEffect(() => {
@@ -56,13 +70,18 @@ function Home() {
     }, [itens])
 
     useEffect(() => {
-        if (Array.isArray(cart)) {
-            updateDoc(cart, user ? user.uid : null)
+        if (cart.length === 0) {
             return
+        }
+
+        if (cart && cart?.length !== itens?.length && user) {
+            updateDoc(cart, user.uid)
+            // console.log('oi')
         }
     }, [cart])
 
 
+    // Adcionando o Item do banco ao array de itens do carrinho
     useEffect(() => {
         const itemAlreadyAdded = cart.some(item => item?.id === cartItem?.id)
 
@@ -80,7 +99,7 @@ function Home() {
     }, [cartItem])
 
 
-    // obtendo Id do produto Clicado
+    // obtendo URL do produto Clicado
     useEffect(() => {
         if (productId === 0) {
             return
@@ -88,6 +107,7 @@ function Home() {
 
         const itemUrl = 'http://localhost:3000/cardapio/' + productId
         setItemCartURL(itemUrl)
+        // console.log('4')
     }, [productId])
 
     useEffect(() => {
@@ -121,15 +141,19 @@ function Home() {
 
     }, [category])
 
+    // console.log(user)
 
     return (
         <div className='section_container section-hero' onLoad={() => user ? null : handleOpenModal('login')}>
             <div className='slider_container'>
-                <Carousel />
+                {!isAdmin ? <Carousel /> : <BoasVindas adminName={user?.displayName} />}
+
             </div>
             <div className='produtos'>
                 <div className='products_infos_container'>
-                    <h1 className='title_section'>Categorias</h1>
+                    {!isAdmin ?
+                        <h1 className='title_section'>Categorias</h1> :
+                        <h1 className='title_section'>Produtos Cadastrados</h1>}
                     <Menu />
                     {/* <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} /> */}
                     {/* <div className='title_category'>

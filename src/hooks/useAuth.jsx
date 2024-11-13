@@ -64,11 +64,20 @@ export function useAuth() {
             setLoading(false)
 
         } catch (error) {
-            setError(error.message)
-            console.log(error)
+
+            let systemError
+
+            if (error.message.includes('Password should be at least 6 characters')) {
+                systemError = 'A senha deve possuir no minimo 6 caracteres'
+            }
+
+            setError(systemError)
+            console.log(error.message)
+
+        } finally {
+            setLoading(false)
         }
 
-        setLoading(false)
     };
 
 
@@ -91,8 +100,16 @@ export function useAuth() {
             createUserdocument(res.user, res.user.uid)
 
         } catch (error) {
-            setError(error.message)
-            console.log(error)
+
+            let systemError
+
+            if (error.message.includes('auth/invalid-credential')) {
+                systemError = 'Email não cadastrado, crie uma conta!'
+            }
+
+            setError(systemError)
+
+
         }
 
         setLoading(false)

@@ -77,7 +77,7 @@ function Signup() {
                     <form ref={form} onSubmit={handleUserData}>
                         <div className="input-field">
                             <input
-                                required=""
+                                required={true}
                                 autoComplete="off"
                                 type="text"
                                 name="name"
@@ -90,7 +90,7 @@ function Signup() {
                         </div>
                         <div className="input-field">
                             <input
-                                required=""
+                                required={true}
                                 autoComplete="off"
                                 type='email'
                                 name="email"
@@ -102,7 +102,7 @@ function Signup() {
                         </div>
                         <div className="input-field">
                             <input
-                                required=""
+                                required={true}
                                 autoComplete="off"
                                 type={showPassword ? 'text' : 'password'}
                                 name="password"

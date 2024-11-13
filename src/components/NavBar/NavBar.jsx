@@ -16,6 +16,8 @@ import { useDataBase } from '../../hooks/useRealTimeDatabase'
 import { signOut } from 'firebase/auth'
 import { useAuth } from '../../hooks/useAuth'
 
+import { useAdmin } from '../../hooks/useAdmin'
+
 function NavBar() {
 
     const [isOpen, setIsOpen] = useState(false)
@@ -24,23 +26,28 @@ function NavBar() {
     const [toggleElement, setToggleElement] = useState(false)
     const [screenSize, setScreenSize] = useState(window.innerWidth)
     const [isVisible, setIsVisible] = useState(true)
-    const [lastScrollY, setLastScrollY] = useState(0)
-
     const [amountItensCart, setAmountItensCart] = useState(0)
-    const { user } = useAuthContext()
-    const { auth } = useAuth()
-
-    const { data, realTimeDocument } = useDataBase()
 
     const lis = useRef()
     const login_buttons = useRef()
+
+    const { user } = useAuthContext()
+    const { auth } = useAuth()
+    const { data, realTimeDocument } = useDataBase()
     const { handleOpenModal, modalIsOpen } = useModalContext()
 
+    const { isAdmin } = useAdmin(user)
+
+    // console.log(dado)
 
     realTimeDocument(user ? user.uid : null)
 
-
     const handleClick = () => setIsOpen(!isOpen)
+
+    useEffect(() => {
+        if (!data) return
+        setAmountItensCart(data.length)
+    }, [data])
 
     useEffect(() => {
         document.body.style.overflowY = isOpen || OrderisOpen || modalIsOpen ? 'hidden' : ''
@@ -63,7 +70,7 @@ function NavBar() {
     useEffect(() => {
         const allTrigger = [...lis.current.children, ...login_buttons.current.children]
 
-        function addClickEvent() { setIsOpen(false) }
+        const addClickEvent = () => setIsOpen(false)
 
         allTrigger?.forEach(item => {
             item.addEventListener('click', addClickEvent)
@@ -112,36 +119,31 @@ function NavBar() {
     }, [screenSize])
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        function handleScroll() {
-            const currentScrollY = window.scrollY
+    //     function handleScroll() {
+    //         const currentScrollY = window.scrollY
 
-            if (currentScrollY > lastScrollY) {
-                setIsVisible(false)
-            } else {
-                setIsVisible(true)
-            }
+    //         if (currentScrollY > lastScrollY) {
+    //             setIsVisible(false)
+    //         } else {
+    //             setIsVisible(true)
+    //         }
 
-            setLastScrollY(currentScrollY)
-        }
+    //         setLastScrollY(currentScrollY)
+    //     }
 
-        window.addEventListener('scroll', handleScroll)
+    //     window.addEventListener('scroll', useDebounce(() => handleScroll, 1000))
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll)
-        }
-    }, [lastScrollY])
+    //     return () => {
+    //         window.removeEventListener('scroll', useDebounce(() => handleScroll, 1000))
+    //     }
+    // }, [lastScrollY])
 
 
     const memorizedOrderContainer = useMemo(() => (
         <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
     ), [OrderisOpen])
-
-    useEffect(() => {
-        if (!data) return
-        setAmountItensCart(data.length)
-    }, [data])
 
 
     return (
@@ -161,15 +163,16 @@ function NavBar() {
                         </div>
                     </div>
                     <div className='cart_and_infosUser_container'>
-                        <div className='cart_itens_indicador'>
-                            <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
-                            {amountItensCart > 0 ? (
-                                <span className='indicator'>{amountItensCart}</span>
-                            ) : (
-                                <span className='indicator' style={{ display: 'none' }}></span>
-                            )}
-                        </div>
-
+                        {!isAdmin &&
+                            <div className='cart_itens_indicador'>
+                                <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                                {amountItensCart > 0 ? (
+                                    <span className='indicator'>{amountItensCart}</span>
+                                ) : (
+                                    <span className='indicator' style={{ display: 'none' }}></span>
+                                )}
+                            </div>
+                        }
                         {memorizedOrderContainer}
                         {user ?
                             <div className='user_infos_container'>
@@ -187,8 +190,8 @@ function NavBar() {
             <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 
             ${narrowMenu ? 'narrow_lateral_navBar' : ''}`}
-                onMouseEnter={() => handleHovering(true)}
-                onMouseLeave={() => handleHovering(false)}
+                onMouseEnter={useDebounce(() => handleHovering(true), 100)}
+                onMouseLeave={useDebounce(() => handleHovering(false), 100)}
             >
 
                 <div className="sideMenu_content">
@@ -237,11 +240,19 @@ function NavBar() {
                                 </li>
                             </NavLink>
                             <NavLink>
-                                <li className='nav_item' onClick={() => toast.success('oi')}>
+                                <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>call</span>
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Contact</p>
                                 </li>
                             </NavLink>
+                            {isAdmin &&
+                                <NavLink>
+                                    <li className='nav_item'>
+                                        <span className='material-symbols-outlined list-icon'>Settings</span>
+                                        <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Configurações</p>
+                                    </li>
+                                </NavLink>
+                            }
                         </ul>
                         <hr />
                     </div>

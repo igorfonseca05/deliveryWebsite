@@ -29,7 +29,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             setEmptyOrders(data?.length)
             setCartItens(data)
 
-            console.log(data)
+            // console.log('data')
         }
     }, [data])
 
@@ -49,7 +49,13 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                 <main ref={orders} className='orders_container scroll-bar'>
                     {emptyOrders > 0 ? (
                         cartItens?.map(({ id, name, price, image }, i) => (
-                            <CardOrder key={id} id={id} name={name} price={price} img={image} />
+                            <CardOrder
+                                key={id}
+                                id={id}
+                                name={name}
+                                price={price}
+                                img={image}
+                                dbItemId={i} />
                         ))
                     ) : (<p>Seu carrinho está vazio</p>)
                     }

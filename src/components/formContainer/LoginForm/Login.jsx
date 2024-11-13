@@ -6,7 +6,7 @@ import { useAuth } from '../../../hooks/useAuth'
 
 
 import { useModalContext } from '../../../context/ModalContext'
-import { ToastContainer } from 'react-toastify'
+import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 // import { useRef } from 'react'
 

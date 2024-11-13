@@ -14,6 +14,7 @@ export function useDataBase() {
 
     async function createUserdocument(dados, userId) {
 
+
         if (userId && dados) {
             try {
                 const userDocument = await doc(db, 'users', userId)
@@ -29,7 +30,9 @@ export function useDataBase() {
                     // date: new Date().toISOString()
                 }
 
+                if ((await getDoc(userDocument)).exists()) return
                 await setDoc(userDocument, userInfo, { merge: true })
+
             } catch (error) {
                 console.log(error)
             }
@@ -38,14 +41,37 @@ export function useDataBase() {
 
     async function updateDoc(cartItens, userId) {
 
-        if (userId) {
+        if (userId && cartItens) {
 
             const item = {
                 myCart: arrayUnion(...cartItens)
             }
 
+            // console.log('addCartItem')
+
             try {
                 await setDoc(doc(db, 'users', userId), item, { merge: true });
+
+            } catch (error) {
+                console.log(error.message)
+            }
+        }
+
+    }
+    async function updateQuantity(itemId, quantity, userId) {
+
+        if (userId) {
+
+            const item = {
+                [`myCart.itemId.quantity`]: quantity
+            }
+
+            console.log('gravação 2')
+
+            // console.log(item)
+
+            try {
+                // await setDoc(doc(db, 'users', userId), item, { merge: true });
 
             } catch (error) {
                 console.log(error.message)
@@ -60,6 +86,10 @@ export function useDataBase() {
             if (userId) {
 
                 const unsubscribe = onSnapshot(doc(db, 'users', userId), { includeMetadataChanges: true }, (doc) => {
+                    if (doc.metadata.hasPendingWrites) {
+                        return; // Ignora gravações locais pendentes
+                    }
+
                     if (doc.exists()) {
                         setData(doc.data().myCart)
                     } else {
@@ -80,6 +110,8 @@ export function useDataBase() {
                 myCart: arrayRemove(itemToRemove)
             }
 
+            console.log('gravação 3')
+
             try {
                 await setDoc(doc(db, 'users', userId), item, { merge: true });
 
@@ -91,5 +123,12 @@ export function useDataBase() {
     }
 
 
-    return { createUserdocument, data, updateDoc, realTimeDocument, removeCartItem }
+    return {
+        createUserdocument,
+        data,
+        updateDoc,
+        realTimeDocument,
+        removeCartItem,
+        updateQuantity
+    }
 }
