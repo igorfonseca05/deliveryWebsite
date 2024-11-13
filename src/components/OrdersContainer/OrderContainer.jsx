@@ -17,6 +17,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     const [emptyOrders, setEmptyOrders] = useState([])
     const [cartItens, setCartItens] = useState([])
     const orders = useRef(null)
+    const dataRef = useRef()
 
     const { user } = useAuthContext()
     const { data, realTimeDocument } = useDataBase()
@@ -24,14 +25,17 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     realTimeDocument(user ? user.uid : null)
 
     useEffect(() => {
-        setEmptyOrders(data?.length)
-        setCartItens(data)
+        if (data && data.length !== emptyOrders) {
+            setEmptyOrders(data?.length)
+            setCartItens(data)
+
+            console.log(data)
+        }
     }, [data])
 
     // console.log(emptyOrders)
 
     // useEffect(() => setEmptyOrders(orders.current?.children.length), [])
-
 
 
     return (

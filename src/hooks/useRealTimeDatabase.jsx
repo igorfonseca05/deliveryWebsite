@@ -36,12 +36,12 @@ export function useDataBase() {
         }
     }
 
-    async function updateDoc(cartItens, quantity, userId) {
+    async function updateDoc(cartItens, userId) {
 
         if (userId) {
 
             const item = {
-                myCart: quantity
+                myCart: arrayUnion(...cartItens)
             }
 
             try {

@@ -12,27 +12,27 @@ function CardOrder({ id, name, price, img }) {
 
     const [itemId, setItemId] = useState(null)
     const [urlItemToRemove, setUrlItemToRemove] = useState('')
+    const [removeEffect, setRemovedEffect] = useState(false)
 
     const { user } = useAuthContext()
-    const { removeCartItem, updateDoc } = useDataBase()
+    const { removeCartItem, updateDoc, realTimeDocument } = useDataBase()
     const { data } = useFetch(urlItemToRemove)
 
 
     useEffect(() => {
-        if (!itemId) {
+        if (itemId) {
+            setUrlItemToRemove('http://localhost:3000/cardapio/' + itemId)
             return
         }
-
-        setUrlItemToRemove('http://localhost:3000/cardapio/' + itemId)
 
     }, [itemId])
 
 
     useEffect(() => {
-        if (!data) return
-
-        console.log(data)
-        removeCartItem(data, user.uid)
+        if (data) {
+            // console.log(data)
+            removeCartItem(data, user.uid)
+        }
     }, [data])
 
 
@@ -43,6 +43,8 @@ function CardOrder({ id, name, price, img }) {
         // if (amountOrder === 1) return
         setAmountOrder(amountOrder === 1 ? null : amountOrder - 1)
     }
+
+
 
 
     return (

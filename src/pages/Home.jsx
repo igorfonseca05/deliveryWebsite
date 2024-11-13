@@ -43,11 +43,52 @@ function Home() {
     const [cart, setCart] = useState([])
 
     const { realTimeDocument, data: itens, updateDoc } = useDataBase()
-
-    // realTimeDocument(user ? user.uid : null)
-
+    realTimeDocument(user ? user.uid : null)
 
     const { handleOpenModal } = useModalContext()
+
+
+    useEffect(() => {
+        if (itens) {
+            setCart([...itens])
+        }
+
+    }, [itens])
+
+    useEffect(() => {
+        if (Array.isArray(cart)) {
+            updateDoc(cart, user ? user.uid : null)
+            return
+        }
+    }, [cart])
+
+
+    useEffect(() => {
+        const itemAlreadyAdded = cart.some(item => item?.id === cartItem?.id)
+
+        if (!cartItem) {
+            return
+        }
+
+        if (itemAlreadyAdded) {
+            console.log('item já adicionado ao carrinho')
+            return
+        }
+
+        setCart(prev => [...prev, cartItem])
+
+    }, [cartItem])
+
+
+    // obtendo Id do produto Clicado
+    useEffect(() => {
+        if (productId === 0) {
+            return
+        }
+
+        const itemUrl = 'http://localhost:3000/cardapio/' + productId
+        setItemCartURL(itemUrl)
+    }, [productId])
 
     useEffect(() => {
 
@@ -79,46 +120,6 @@ function Home() {
         })
 
     }, [category])
-
-    useEffect(() => {
-        if (!itens) return
-
-        setCart([...itens])
-    }, [itens])
-
-    useEffect(() => {
-        if (Array.isArray(cart)) {
-            updateDoc(cart, user ? user.uid : null)
-            return
-        }
-    }, [cart])
-
-
-    useEffect(() => {
-        const itemAlreadyAdded = cart.some(item => item.id === cartItem.id)
-
-        if (!cartItem) {
-            return
-        }
-
-        if (itemAlreadyAdded) {
-            console.log('item já adicionado ao carrinho')
-            return
-        }
-
-        setCart(prev => [...prev, cartItem])
-
-    }, [cartItem])
-
-
-    useEffect(() => {
-        if (productId === 0) {
-            return
-        }
-
-        const itemUrl = 'http://localhost:3000/cardapio/' + productId
-        setItemCartURL(itemUrl)
-    }, [productId])
 
 
     return (
