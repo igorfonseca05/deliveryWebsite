@@ -151,8 +151,6 @@ function Home() {
 
     }, [category])
 
-    // console.log(user)
-
     return (
         <div className='section_container section-hero' onLoad={() => user ? null : handleOpenModal('login')}>
             <div className='slider_container'>
@@ -169,9 +167,13 @@ function Home() {
                     {/* <div className='title_category'>
                         <h2>{titleDishes}</h2>
                     </div> */}
-                    {loading ?
+                    {loading || data === null ?
                         <>
-                            <p>Loading...</p>
+                            <div className='loading_container'>
+                                <div>
+                                    <p>Carregando produtos...</p>
+                                </div>
+                            </div>
                         </>
                         :
                         <div className='produtos_container'>

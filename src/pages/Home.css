@@ -21,6 +21,8 @@
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     max-width: 1171px;
     gap: 3rem;
+    min-height: 100vh;
+    /* background-color: rebeccapurple; */
 }
 
 .title_section {
@@ -28,4 +30,17 @@
     margin: var(--margin-lg) 0px;
     /* padding: 1rem 0rem 2rem 0rem !important; */
     /* font-family: var(--logoFont); */
+}
+
+.loading_container {
+    display: grid;
+    place-items: center;
+    justify-self: ce;
+    min-height: 50vh;
+
+}
+
+.loading_container div {
+    display: inline-flex;
+    flex-direction: column;
 }

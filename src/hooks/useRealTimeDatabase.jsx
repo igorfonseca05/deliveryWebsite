@@ -62,19 +62,29 @@ export function useDataBase() {
 
         if (userId) {
 
-            const item = {
-                [`myCart.itemId.quantity`]: quantity
-            }
+            const docRef = await getDoc(doc(db, 'users', userId))
+            const itemQuantity = docRef.data().myCart.quantity
 
-            console.log('gravação 2')
+            if (docRef.exists() && itemQuantity !== quantity) {
+                const item = [
+                    {
+                        ...docRef.data(),
+                        myCart: {
+                            ...docRef.data().myCart,
+                            [`${itemId}`]: {
+                                ...docRef.data().myCart[itemId],
+                                quantity
+                            }
+                        }
+                    }
+                ]
+                console.log('oi')
 
-            // console.log(item)
-
-            try {
-                // await setDoc(doc(db, 'users', userId), item, { merge: true });
-
-            } catch (error) {
-                console.log(error.message)
+                try {
+                    // await setDoc(doc(db, 'users', userId), item, { merge: true });
+                } catch (error) {
+                    console.log(error.message)
+                }
             }
         }
 
