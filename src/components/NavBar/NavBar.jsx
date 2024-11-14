@@ -150,8 +150,43 @@ function NavBar() {
         <header>
             <nav className={`top_navbar ${!isVisible ? 'top_navbar_hidden' : ''}`}>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
-                <img src="logo.svg" alt="" />
-                <div className="logo-top-menu">
+                <figure className='logo_top_menu_container'>
+                    <img src="blackLogo.svg" alt="" />
+                </figure>
+                <div className='search_input search-top-menu'>
+                    <div className='input-iconSearch-container'>
+                        <input type="text" placeholder='Buscar' id='search' name='search' />
+                        <button>
+                            <span className="material-symbols-outlined">
+                                search
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <div className='cart_and_infosUser_container'>
+                    {!isAdmin &&
+                        <div className='cart_itens_indicador'>
+                            <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
+                            {amountItensCart > 0 ? (
+                                <span className='indicator'>{amountItensCart}</span>
+                            ) : (
+                                <span className='indicator' style={{ display: 'none' }}></span>
+                            )}
+                        </div>
+                    }
+                    {memorizedOrderContainer}
+                    {user ?
+                        <div className='user_infos_container'>
+                            <figure className='user_image_container'>
+                                <img className='user_img' src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
+                            </figure>
+                            <span style={{ textTransform: 'capitalize' }}>{user.displayName}</span>
+                            <span className='mdi mdi-chevron-down'></span>
+                        </div>
+                        : ''
+                    }
+                </div>
+                {/* <div className="logo-top-menu">
                     <div className='search_input search-top-menu'>
                         <div className='input-iconSearch-container'>
                             <input type="text" placeholder='Buscar' id='search' name='search' />
@@ -185,7 +220,7 @@ function NavBar() {
                             : ''
                         }
                     </div>
-                </div>
+                </div> */}
             </nav>
             <nav className={`lateral_navBar
              ${isOpen ? 'open' : ''} 

@@ -5,10 +5,13 @@ import './CardOrder.css'
 import { useFetch } from '../../../hooks/UseFetch'
 import { useDataBase } from '../../../hooks/useRealTimeDatabase'
 import { useAuthContext } from '../../../context/userAuthContext'
+import { useCartProductContext } from '../../../context/CartProductContaiener'
 
-function CardOrder({ id, name, price, img, dbItemId, setAmountOrder, amountOrder }) {
+function CardOrder({ id, name, price, img, dbItemId, setTotalAmountOrder, setSubTotal }) {
 
+    // const { amountOrder, setAmountOrder } = useCartProductContext()
 
+    const [amountOrder, setAmountOrder] = useState(1)
 
     const [itemId, setItemId] = useState(null)
     const [urlItemToRemove, setUrlItemToRemove] = useState('')
@@ -19,12 +22,29 @@ function CardOrder({ id, name, price, img, dbItemId, setAmountOrder, amountOrder
     const { data } = useFetch(urlItemToRemove)
 
 
+    useEffect(() => {
+        // if (amountOrder < 1) return
+        setTotalAmountOrder(amountOrder)
 
+        setSubTotal(id)
+
+    }, [amountOrder])
+
+    // console.log(price)
+
+    // useEffect(() => {
+    //     if (amountOrder !== 1 && user) {
+    //         updateQuantity(dbItemId, amountOrder, user.uid)
+
+    //         console.log('oi')
+    //     }
+    // }, [amountOrder])
 
     useEffect(() => {
         if (itemId) {
             setUrlItemToRemove('http://localhost:3000/cardapio/' + itemId)
             return
+
         }
 
     }, [itemId])
@@ -41,11 +61,12 @@ function CardOrder({ id, name, price, img, dbItemId, setAmountOrder, amountOrder
 
 
     function handleAddItem() {
-        setAmountOrder(amountOrder === 1 ? null : amountOrder + 1)
+        setAmountOrder(amountOrder + 1)
     }
+
     function handleDeleteItem() {
         // if (amountOrder === 1) return
-        setAmountOrder(amountOrder === 1 ? null : amountOrder - 1)
+        setAmountOrder(Math.max(amountOrder - 1, 1))
     }
 
 
@@ -62,15 +83,9 @@ function CardOrder({ id, name, price, img, dbItemId, setAmountOrder, amountOrder
             <div className='second-part-card'>
                 <p className='food_name'>{name}</p>
                 <div className='number_control'>
-                    <div className='number_button number_left'
-                        onClick={() => setAmountOrder(amountOrder === 1 ? 1 : amountOrder - 1)}>
-                        <span className='material-symbols-outlined'>remove</span>
-                    </div>
+                    <div className='number_button number_left' onClick={handleDeleteItem}><span className='material-symbols-outlined'>remove</span></div>
                     <div className='number'>{amountOrder}</div>
-                    <div className='number_button number_right'
-                        onClick={() => setAmountOrder(amountOrder >= 1 ? amountOrder + 1 : 1)}>
-                        <span className='material-symbols-outlined'>add</span>
-                    </div>
+                    <div className='number_button number_right' onClick={handleAddItem}><span className='material-symbols-outlined'>add</span></div>
                 </div>
             </div>
             <div className='food_price_container'>

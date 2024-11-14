@@ -313,9 +313,9 @@ hr {
         display: none;
     }
 
-    .top_navbar img[src='logo.svg'] {
+    /* .top_navbar img[src='logo.svg'] {
         display: none !important;
-    }
+    } */
 
     .overlay {
         display: none !important;
@@ -382,9 +382,9 @@ hr {
     }
 
 
-    .top_navbar img {
+    /* .top_navbar img {
         display: none !important;
-    }
+    } */
 
     .narrow_lateral_navBar {
         display: flex;

@@ -11,12 +11,13 @@ header {
     justify-content: space-between;
     height: var(--top-menu-height);
     align-items: center;
-    width: 100vw;
+    width: calc(100vw - var(--lateral-menu-width));
     padding: 1rem;
     background-color: var(--cor-fundo-menu);
     transition: transform 0.3s ease;
     z-index: 10;
-    /* margin: 0 auto; */
+    margin-left: var(--lateral-menu-width);
+    padding: 0px 6rem 0rem 5rem;
     /* background-color: rgb(101, 247, 33); */
 }
 
@@ -82,13 +83,22 @@ header {
     /* background-color: rgba(224, 228, 21, 0.342); */
 }
 
+.logo_top_menu_container {
+    width: 14rem !important;
+    margin: 0px;
+}
+
+.logo_top_menu_container img {
+    width: 100%;
+}
+
 .logo-top-menu {
     /* margin: 0 auto; */
     display: flex;
     justify-content: space-between;
     width: calc(100% - var(--lateral-menu-width));
-    margin-left: 6.6rem !important;
-    padding: 0rem 5rem 0rem 2.8rem;
+    /* margin-left: 6.6rem !important; */
+    /* padding: 0rem 5rem 0rem 2.8rem; */
 }
 
 .cart_icon {

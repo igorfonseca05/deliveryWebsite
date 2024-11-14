@@ -20,43 +20,80 @@ import { useAuthContext } from '../../context/userAuthContext'
 
 function OrderContainer({ isOpen, handleOrderContainer }) {
 
-    const { cartProductId } = useCartProductContext()
+    // const { amountOrder } = useCartProductContext()
     const [productUrl, setProductUrl] = useState('')
     const [emptyOrders, setEmptyOrders] = useState([])
     const [cartItens, setCartItens] = useState([])
-    const [amountOrder, setAmountOrder] = useState(1)
+    const [totalAmountOrder, setTotalAmountOrder] = useState(0)
+    const [lastTotalAmount, setLastTotalAmount] = useState(0)
+    let [subTotal, setSubTotal] = useState(0)
     const orders = useRef(null)
     const dataRef = useRef()
 
+    const [total, setTotal] = useState(0)
+
     const { user } = useAuthContext()
-    const { data, realTimeDocument } = useDataBase()
+    const { data: dbCartItens, realTimeDocument, updateQuantity } = useDataBase()
 
     realTimeDocument(user ? user.uid : null)
 
 
     function handleOrder() {
-        toast.error('Seu carrinho está vazio', {
-            position: 'top-center', style: {
-                fontSize: '1.4rem',
-                backgroundColor: '#f77b72',
-                color: 'white'
-            }
-        })
-
         if (emptyOrders === 0) {
+            toast.error('Seu carrinho está vazio', {
+                position: 'top-center', style: {
+                    fontSize: '1.4rem',
+                    backgroundColor: '#f77b72',
+                    color: 'white'
+                }
+            })
+
+            return
         }
+
     }
 
     useEffect(() => {
-        if (data && data.length !== emptyOrders) {
-            setEmptyOrders(data?.length)
-            setCartItens(data)
+        setLastTotalAmount(totalAmountOrder)
+        console.log(totalAmountOrder)
+        if (totalAmountOrder === lastTotalAmount || totalAmountOrder === 1) return
 
-            console.log('iu')
 
-            // console.log('data')
+        dbCartItens?.map((item) => {
+            if (item.id === subTotal) {
+
+                setTotal(prev => {
+
+                    let addItemPrice = prev + (Number(item.price));
+                    let removeItemPrice = prev - (Number(item.price));
+
+                    const count = {
+                        addPrice: addItemPrice,
+                        removePrice: removeItemPrice,
+                    }[totalAmountOrder <= lastTotalAmount ? 'removePrice' : 'addPrice']
+
+                    // console.log(count)
+                    // console.log(count, item.price, (totalAmountOrder - 1))
+                    return count
+                })
+            }
+        })
+
+    }, [totalAmountOrder, subTotal])
+
+
+    useEffect(() => {
+        if (dbCartItens && dbCartItens.length !== emptyOrders) {
+            setEmptyOrders(dbCartItens?.length)
+            setCartItens(dbCartItens)
+
+            const num = dbCartItens?.reduce((total, item) => {
+                return total = Number(total) + Number(item.price)
+            }, 0)
+
+            setTotal(num)
         }
-    }, [data])
+    }, [dbCartItens])
 
     // console.log(emptyOrders)
 
@@ -82,8 +119,9 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                                 price={price}
                                 img={image}
                                 dbItemId={i}
-                                setAmountOrder={setAmountOrder}
-                                amountOrder={amountOrder} />
+                                setTotalAmountOrder={setTotalAmountOrder}
+                                setSubTotal={setSubTotal}
+                            />
                         ))
                     ) : (<p>Seu carrinho está vazio</p>)
                     }
@@ -93,7 +131,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                         <hr />
                         <div className='fees_container'>
                             <p>Sub total</p>
-                            <span>R$259.36</span>
+                            <span>R${total}.00</span>
                         </div>
                         <div className='fees_container'>
                             <p>Taxa de entrega</p>
