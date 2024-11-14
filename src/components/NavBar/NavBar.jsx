@@ -17,6 +17,7 @@ import { signOut } from 'firebase/auth'
 import { useAuth } from '../../hooks/useAuth'
 
 import { useAdmin } from '../../hooks/useAdmin'
+import ToggleButton from './toggleButton/ToggleButton'
 
 function NavBar() {
 
@@ -164,7 +165,7 @@ function NavBar() {
                     </div>
                 </div>
                 <div className='cart_and_infosUser_container'>
-                    {!isAdmin &&
+                    {!isAdmin ?
                         <div className='cart_itens_indicador'>
                             <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
                             {amountItensCart > 0 ? (
@@ -173,6 +174,9 @@ function NavBar() {
                                 <span className='indicator' style={{ display: 'none' }}></span>
                             )}
                         </div>
+                        :
+                        <ToggleButton />
+
                     }
                     {memorizedOrderContainer}
                     {user ?
