@@ -55,7 +55,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     useEffect(() => {
         setLastTotalAmount(totalAmountOrder)
-        console.log(totalAmountOrder)
+        // console.log(totalAmountOrder)
         if (totalAmountOrder === lastTotalAmount || totalAmountOrder === 1) return
 
 

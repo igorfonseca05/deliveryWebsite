@@ -7,6 +7,7 @@ import { useCartProductContext } from '../../../context/CartProductContaiener'
 import { useFetch } from '../../../hooks/UseFetch'
 import { useDataBase } from '../../../hooks/useRealTimeDatabase'
 import { useAuthContext } from '../../../context/userAuthContext'
+import { useAdmin } from '../../../hooks/useAdmin'
 
 function CardsProduto({ id, name, description, price, image, setProductId }) {
 
@@ -17,6 +18,8 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
 
 
     const { setCartProductId } = useCartProductContext()
+    const { user } = useAuthContext()
+    const { isAdmin } = useAdmin(user)
 
     function handleName(id) {
         if (!isOpen) {
@@ -38,9 +41,7 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
         }
     }
 
-
     return (
-
         <>
             <div className='produto_card' onClick={() => setProductId(id)}>
                 <figure>
@@ -61,7 +62,7 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
                 </div>
                 <div className='price_and_cart_container'>
                     <p className='produto_price'>R${price}</p>
-                    <button onClick={() => setCartProductId(id)}><span className="mdi mdi-cart-plus"></span></button>
+                    {!isAdmin ? <button onClick={() => setCartProductId(id)}><span className="mdi mdi-cart-plus"></span></button> : null}
                 </div>
             </div>
 

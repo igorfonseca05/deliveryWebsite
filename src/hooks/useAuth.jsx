@@ -108,8 +108,6 @@ export function useAuth() {
             }
 
             setError(systemError)
-
-
         }
 
         setLoading(false)

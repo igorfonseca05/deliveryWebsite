@@ -27,7 +27,6 @@ export function useAdmin(user) {
 
     }, [user])
 
-    // console.log(isAdmin)
 
 
     return { isAdmin }

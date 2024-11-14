@@ -14,7 +14,6 @@ export function useDataBase() {
 
     async function createUserdocument(dados, userId) {
 
-
         if (userId && dados) {
             try {
                 const userDocument = await doc(db, 'users', userId)

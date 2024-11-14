@@ -1,12 +1,29 @@
 .admin_container {
     background-color: white;
     padding: 2.4rem 0rem;
+    border-radius: var(--border-Radius);
 }
 
-.saudação_text {
+.saudação_text {}
+
+.saudação_text h1 {
     font-size: 5rem;
+    margin: 0px;
     text-transform: capitalize;
     color: var(--cor-principal);
 }
 
-.adm_infos {}
+.saudação_text p {
+    color: var(--cor-texto-e-icon);
+}
+
+.adm_infos {
+    margin-top: var(--margin-lg);
+    /* background-color: tomato; */
+}
+
+.adm_infos .dash {
+    width: 24rem;
+    height: 24rem;
+    background-color: rgb(236, 236, 236);
+}

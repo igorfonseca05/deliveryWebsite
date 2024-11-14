@@ -299,7 +299,7 @@ function NavBar() {
                                 </li>
                             </NavLink>
                             {isAdmin &&
-                                <NavLink>
+                                <NavLink to={'/settings'}>
                                     <li className='nav_item'>
                                         <span className='material-symbols-outlined list-icon'>Settings</span>
                                         <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Configurações</p>
