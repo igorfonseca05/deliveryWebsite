@@ -254,7 +254,7 @@ function NavBar() {
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
-                            {user &&
+                            {user && !isAdmin ?
                                 <>
                                     <NavLink to={'/favoritos'}>
                                         <li className='nav_item'>
@@ -278,14 +278,14 @@ function NavBar() {
                                             <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Meus pedidos</p>
                                         </li>
                                     </NavLink>
-                                </>
+                                    <NavLink to={'/produtos'}>
+                                        <li className='nav_item'>
+                                            <span className='material-symbols-outlined list-icon'>lunch_dining</span>
+                                            <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
+                                        </li>
+                                    </NavLink>
+                                </> : ''
                             }
-                            <NavLink to={'/produtos'}>
-                                <li className='nav_item'>
-                                    <span className='material-symbols-outlined list-icon'>lunch_dining</span>
-                                    <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
-                                </li>
-                            </NavLink>
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
@@ -299,12 +299,20 @@ function NavBar() {
                                 </li>
                             </NavLink>
                             {isAdmin &&
-                                <NavLink to={'/settings'}>
-                                    <li className='nav_item'>
-                                        <span className='material-symbols-outlined list-icon'>Settings</span>
-                                        <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Configurações</p>
-                                    </li>
-                                </NavLink>
+                                <>
+                                    <NavLink to={'/newdish'}>
+                                        <li className='nav_item'>
+                                            <span style={{ color: 'black' }} className='material-symbols-outlined list-icon'>add</span>
+                                            <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Novo prato</p>
+                                        </li>
+                                    </NavLink>
+                                    <NavLink to={'/settings'}>
+                                        <li className='nav_item'>
+                                            <span className='material-symbols-outlined list-icon'>edit</span>
+                                            <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Editar Pratos</p>
+                                        </li>
+                                    </NavLink>
+                                </>
                             }
                         </ul>
                         <hr />

@@ -44,3 +44,14 @@
     display: inline-flex;
     flex-direction: column;
 }
+
+/* admin */
+
+.produtos_container_admin {
+    display: grid;
+    /* flex-grow: 1; */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1171px;
+    gap: 3rem;
+    min-height: 100vh;
+}

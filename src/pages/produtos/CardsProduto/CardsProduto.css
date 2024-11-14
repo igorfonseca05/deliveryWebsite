@@ -9,7 +9,8 @@
     font-weight: 400;
 }
 
-.produtos_container div {
+.produtos_container div,
+.produtos_container_admin div {
     background-color: var(--cor-fundo-menu);
 }
 

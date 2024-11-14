@@ -16,6 +16,8 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
     const [isOpen, setIsOpen] = useState(false)
     const [ingredientIsOpen, setIngredientIsOpen] = useState('')
 
+    const [editPrice, setEditPrice] = useState(false)
+
 
     const { setCartProductId } = useCartProductContext()
     const { user } = useAuthContext()
@@ -39,6 +41,10 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
             setIsOpen(!isOpen)
             setIngredientIsOpen('')
         }
+    }
+
+    function handlePrice() {
+
     }
 
     return (

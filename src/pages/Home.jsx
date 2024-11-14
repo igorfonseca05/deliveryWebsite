@@ -176,7 +176,7 @@ function Home() {
                             </div>
                         </>
                         :
-                        <div className='produtos_container'>
+                        <div className={`${!isAdmin ? 'produtos_container' : "produtos_container_admin"}`}>
                             {
                                 data?.map(({ name, price, description, id, image }, i) => (
                                     // <CardsProduto key={i} categorie={item} dados={res[i]} />

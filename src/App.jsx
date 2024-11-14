@@ -25,6 +25,8 @@ import { useAuthContext } from './context/userAuthContext';
 
 import { onAuthStateChanged } from 'firebase/auth';
 import { useAuth } from './hooks/useAuth';
+import Settings from './pages/settings/Settings';
+import NewDish from './pages/newDish/NewDish';
 
 function App() {
 
@@ -58,6 +60,8 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />}></Route>
                 <Route path='/produtos' element={<Produtos />}></Route>
+                <Route path='/settings' element={<Settings />}></Route>
+                <Route path='/newdish' element={<NewDish />}></Route>
                 {/* <Route path='/login' element={<Login />}></Route> */}
               </Routes>
             </BrowserRouter>
