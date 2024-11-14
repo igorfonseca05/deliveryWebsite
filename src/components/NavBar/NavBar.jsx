@@ -176,8 +176,8 @@ function NavBar() {
                         {memorizedOrderContainer}
                         {user ?
                             <div className='user_infos_container'>
-                                <figure>
-                                    <img src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
+                                <figure className='user_image_container'>
+                                    <img className='user_img' src="https://i.pinimg.com/736x/2f/15/f2/2f15f2e8c688b3120d3d26467b06330c.jpg" alt="" />
                                 </figure>
                                 <span style={{ textTransform: 'capitalize' }}>{user.displayName}</span>
                                 <span className='mdi mdi-chevron-down'></span>
@@ -219,20 +219,38 @@ function NavBar() {
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Home</p>
                                 </li>
                             </NavLink>
+                            {user &&
+                                <>
+                                    <NavLink to={'/favoritos'}>
+                                        <li className='nav_item'>
+                                            {amountItensCart === 0 ? (
+                                                <span className='indicator indicador_menu'>1</span>
+                                            ) : (
+                                                <span className='indicator' style={{ display: 'none' }}></span>
+                                            )}
+                                            <span className='material-symbols-outlined list-icon'>favorite</span>
+                                            <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Favoritos</p>
+                                        </li>
+                                    </NavLink>
+                                    <NavLink to={'/favoritos'}>
+                                        <li className='nav_item'>
+                                            {amountItensCart === 0 ? (
+                                                <span className='indicator indicador_menu'>1</span>
+                                            ) : (
+                                                <span className='indicator' style={{ display: 'none' }}></span>
+                                            )}
+                                            <span className='material-symbols-outlined list-icon'>orders</span>
+                                            <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Meus pedidos</p>
+                                        </li>
+                                    </NavLink>
+                                </>
+                            }
                             <NavLink to={'/produtos'}>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>lunch_dining</span>
                                     <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
                                 </li>
                             </NavLink>
-                            {user ? (
-                                <NavLink to={'/favoritos'}>
-                                    <li className='nav_item'>
-                                        <span className='material-symbols-outlined list-icon'>favorite</span>
-                                        <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Favoritos</p>
-                                    </li>
-                                </NavLink>
-                            ) : ('')}
                             <NavLink>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>

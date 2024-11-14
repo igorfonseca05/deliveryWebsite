@@ -1,12 +1,20 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+// CSS
 import "./OrderContainer.css"
+
+// Components
 import CardOrder from './CardOrders/CardOrder'
 
+// Hooks and Contexts
 import { useCartProductContext } from '../../context/CartProductContaiener'
 import { useFetch } from '../../hooks/UseFetch'
-
 import { useDataBase } from '../../hooks/useRealTimeDatabase'
 import { useAuthContext } from '../../context/userAuthContext'
+
+
 // import { useAuthContext } from "../context/userAuthContext";
 
 
@@ -16,6 +24,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     const [productUrl, setProductUrl] = useState('')
     const [emptyOrders, setEmptyOrders] = useState([])
     const [cartItens, setCartItens] = useState([])
+    const [amountOrder, setAmountOrder] = useState(1)
     const orders = useRef(null)
     const dataRef = useRef()
 
@@ -24,10 +33,26 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     realTimeDocument(user ? user.uid : null)
 
+
+    function handleOrder() {
+        toast.error('Seu carrinho está vazio', {
+            position: 'top-center', style: {
+                fontSize: '1.4rem',
+                backgroundColor: '#f77b72',
+                color: 'white'
+            }
+        })
+
+        if (emptyOrders === 0) {
+        }
+    }
+
     useEffect(() => {
         if (data && data.length !== emptyOrders) {
             setEmptyOrders(data?.length)
             setCartItens(data)
+
+            console.log('iu')
 
             // console.log('data')
         }
@@ -40,6 +65,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     return (
         <div className={`myShoppingCard_container ${isOpen ? 'openOrderContaiener' : ''}`}>
+            <ToastContainer />
             <header className='order_title_container'>
                 <span className='material-symbols-outlined close_orders_container'
                     onClick={handleOrderContainer}> close</span>
@@ -55,7 +81,9 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                                 name={name}
                                 price={price}
                                 img={image}
-                                dbItemId={i} />
+                                dbItemId={i}
+                                setAmountOrder={setAmountOrder}
+                                amountOrder={amountOrder} />
                         ))
                     ) : (<p>Seu carrinho está vazio</p>)
                     }
@@ -78,7 +106,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                         <span>R$268.36</span>
                     </div>
                     <div className='order_button'>
-                        <button className='button-style'>
+                        <button className='button-style' onClick={handleOrder}>
                             <p>Fazer pedido</p>
                             <span className='material-symbols-outlined'>chevron_right</span>
                         </button>

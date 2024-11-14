@@ -109,15 +109,19 @@ header {
     column-gap: 0.8rem;
 }
 
-.user_infos_container figure {
+.user_infos_container .user_image_container {
     width: 3.5rem;
     border-radius: 50%;
     overflow: hidden;
     margin: 0;
+    display: block !important;
+    height: 3.5rem !important;
+    /* background-color: rebeccapurple; */
 }
 
-.user_infos_container img {
+.user_infos_container .user_img {
     width: 100%;
+    display: block !important;
 }
 
 .user_infos_container span {
@@ -234,6 +238,7 @@ header {
 }
 
 .li_container a li {
+    position: relative;
     list-style: none;
     display: flex;
     align-items: center;
@@ -242,6 +247,14 @@ header {
     border-radius: var(--border-Radius);
     /* row-gap: 1rem; */
 }
+
+.indicador_menu {
+    position: absolute;
+    left: 0.5rem !important;
+    top: 0.1rem !important;
+    font-size: 1.2rem;
+}
+
 
 .li_container a li:hover {
     background-color: var(--cor-principal);
