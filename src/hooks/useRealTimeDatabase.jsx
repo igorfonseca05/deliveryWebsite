@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { useAuthContext } from "../context/userAuthContext";
 import { serverTimestamp } from "firebase/database";
 
+import { useFetch } from "./UseFetch";
+
 export function useDataBase() {
 
     const [data, setData] = useState(null)
+    const [userData, setUserData] = useState(null)
 
     const [cartItens, setItensCart] = useState([])
-
 
     async function createUserdocument(dados, userId) {
 
@@ -102,6 +104,7 @@ export function useDataBase() {
 
                     if (doc.exists()) {
                         setData(doc.data().myCart)
+                        setUserData(doc.data())
                     } else {
                         console.log('Dados não encontrados')
                     }
@@ -133,28 +136,19 @@ export function useDataBase() {
     }
 
     async function update(userId, data, fieldName = '') {
-        if (userId) {
+        if (userId && data) {
 
-            console.log(userId, data)
+            const item = {
+                [fieldName]: arrayUnion(data)
+            }
+
+            console.log('oi')
 
             try {
-                const docRef = doc(db, "users", userId)
-
-                // const getData = await getDoc(docRef)
-
-                if (getData.exists) {
-                    // const item = {
-                    //     [fieldName]: 
-                    // }
-
-                    // console.log(getData.data())
-
-                }
-
-
+                await setDoc(doc(db, 'users', userId), item, { merge: true });
 
             } catch (error) {
-
+                console.log(error.message)
             }
         }
     }
@@ -168,6 +162,7 @@ export function useDataBase() {
         realTimeDocument,
         removeCartItem,
         updateQuantity,
-        update
+        update,
+        userData
     }
 }

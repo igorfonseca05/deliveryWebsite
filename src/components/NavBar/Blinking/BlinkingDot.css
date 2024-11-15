@@ -1,0 +1,43 @@
+/* BlinkingDot.css */
+
+.blinking_container {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 1rem;
+    height: fit-content;
+    width: fit-content;
+}
+
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+/* Efeito de piscar ondulado */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}

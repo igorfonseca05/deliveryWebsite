@@ -24,9 +24,11 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
     const [productUrl, setProductUrl] = useState('')
     const [emptyOrders, setEmptyOrders] = useState([])
     const [cartItens, setCartItens] = useState([])
+
     const [totalAmountOrder, setTotalAmountOrder] = useState(0)
     const [lastTotalAmount, setLastTotalAmount] = useState(0)
     let [subTotal, setSubTotal] = useState(0)
+    const [deliveryFees, setDeliveryFees] = useState(9)
     const orders = useRef(null)
     const dataRef = useRef()
 
@@ -55,9 +57,14 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
 
     useEffect(() => {
         setLastTotalAmount(totalAmountOrder)
-        // console.log(totalAmountOrder)
-        if (totalAmountOrder === lastTotalAmount || totalAmountOrder === 1) return
 
+        if (totalAmountOrder === lastTotalAmount || totalAmountOrder === 1) {
+            const num = dbCartItens
+                ?.reduce((total, item) => total = Number(total) + Number(item.price), 0)
+
+            setTotal(num)
+            return
+        }
 
         dbCartItens?.map((item) => {
             if (item.id === subTotal) {
@@ -79,7 +86,7 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             }
         })
 
-    }, [totalAmountOrder, subTotal])
+    }, [totalAmountOrder, subTotal, dbCartItens])
 
 
     useEffect(() => {
@@ -87,11 +94,11 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
             setEmptyOrders(dbCartItens?.length)
             setCartItens(dbCartItens)
 
-            const num = dbCartItens?.reduce((total, item) => {
-                return total = Number(total) + Number(item.price)
-            }, 0)
+            // const num = dbCartItens?.reduce((total, item) => {
+            //     return total = Number(total) + Number(item.price)
+            // }, 0)
 
-            setTotal(num)
+            // setTotal(num)
         }
     }, [dbCartItens])
 
@@ -135,13 +142,13 @@ function OrderContainer({ isOpen, handleOrderContainer }) {
                         </div>
                         <div className='fees_container'>
                             <p>Taxa de entrega</p>
-                            <span>R$9.00</span>
+                            <span>R${deliveryFees}.00</span>
                         </div>
                     </div>
                     <hr />
                     <div className='order_total'>
                         <p>Total</p>
-                        <span>R$268.36</span>
+                        <span>R${deliveryFees + total}.00</span>
                     </div>
                     <div className='order_button'>
                         <button className='button-style' onClick={handleOrder}>

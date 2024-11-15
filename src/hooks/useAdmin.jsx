@@ -21,10 +21,10 @@ export function useAdmin(user) {
     }
 
     async function getUsersData() {
-        const usersSnapshot = await getDocs(collection(db, 'users'));
-        const users = usersSnapshot.docs.map((item) => {
-            // console.log(item.data())
-        })
+        // const usersSnapshot = await getDocs(collection(db, 'users'));
+        // const users = usersSnapshot.docs.map((item) => {
+        //     // console.log(item.data())
+        // })
     }
 
 
@@ -32,7 +32,6 @@ export function useAdmin(user) {
         if (user) {
             getAdminDoc()
             getUsersData()
-            console.log('oi')
         }
 
     }, [user])

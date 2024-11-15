@@ -41,20 +41,28 @@ function Home() {
     const [itemCartURL, setItemCartURL] = useState('')
     const [productId, setProductId] = useState(null)
 
+    const [itemFavoriteId, setItemFavoriteId] = useState(null)
+
     //  Obtendo Dado
     const { data: cartItem } = useFetch(`${productId ? itemCartURL : null}`)
+    const { data: favoriteItem } = useFetch(itemFavoriteId && `http://localhost:3000/cardapio/${itemFavoriteId}`)
     const { user } = useAuthContext()
 
     //  Array de itens do carrinho
     const [cart, setCart] = useState([])
 
-    const { realTimeDocument, data: itens, updateDoc } = useDataBase()
+    const { realTimeDocument, data: itens, updateDoc, update } = useDataBase()
     const { handleOpenModal } = useModalContext()
 
     const { isAdmin } = useAdmin(user)
 
     realTimeDocument(user ? user.uid : null)
 
+    useEffect(() => {
+        if (itemFavoriteId) {
+            update(user.uid, favoriteItem, 'favorites')
+        }
+    }, [favoriteItem])
 
     useEffect(() => {
         const root = document.documentElement
@@ -190,7 +198,8 @@ function Home() {
                                         description={description}
                                         price={price}
                                         image={image}
-                                        isAdmin={isAdmin} />
+                                        isAdmin={isAdmin}
+                                        setItemFavoriteId={setItemFavoriteId} />
                                 ))
                             }
                         </div>

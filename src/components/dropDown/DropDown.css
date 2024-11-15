@@ -1,0 +1,82 @@
+.status-dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 14px;
+}
+
+.status-circle {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.status-label {
+    color: red;
+    font-weight: bold;
+}
+
+.arrow {
+    font-size: 18px;
+    margin-left: 5px;
+    transform: rotate(0deg);
+    transition: transform 0.2s;
+}
+
+.status-dropdown:hover .arrow {
+    transform: rotate(180deg);
+    /* Seta vira ao passar o mouse */
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 5px;
+    display: none;
+    height: max-content;
+    /* Inicialmente, o menu está oculto */
+}
+
+.status-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-content {
+    padding: 10px;
+    /* max-height: 200px; */
+    /* overflow-y: auto; */
+    /* Scroll se o conteúdo for muito grande */
+    font-size: 14px;
+    line-height: 1.6;
+    height: fit-content !important;
+}
+
+.schedule-list {
+    list-style: none;
+    /* Remove marcadores */
+    padding: 0;
+    margin: 0;
+}
+
+.schedule-list li {
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.schedule-list li strong {
+    color: #555;
+}

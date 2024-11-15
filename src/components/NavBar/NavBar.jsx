@@ -15,9 +15,10 @@ import { useDataBase } from '../../hooks/useRealTimeDatabase'
 
 import { signOut } from 'firebase/auth'
 import { useAuth } from '../../hooks/useAuth'
-
 import { useAdmin } from '../../hooks/useAdmin'
+
 import ToggleButton from './toggleButton/ToggleButton'
+import BlinkingDot from '../NavBar/Blinking/BlinkingDot'
 
 function NavBar() {
 
@@ -34,12 +35,11 @@ function NavBar() {
 
     const { user } = useAuthContext()
     const { auth } = useAuth()
-    const { data, realTimeDocument } = useDataBase()
+    const { data, realTimeDocument, userData } = useDataBase()
     const { handleOpenModal, modalIsOpen } = useModalContext()
 
     const { isAdmin } = useAdmin(user)
 
-    // console.log(dado)
 
     realTimeDocument(user ? user.uid : null)
 
@@ -120,28 +120,6 @@ function NavBar() {
     }, [screenSize])
 
 
-    // useEffect(() => {
-
-    //     function handleScroll() {
-    //         const currentScrollY = window.scrollY
-
-    //         if (currentScrollY > lastScrollY) {
-    //             setIsVisible(false)
-    //         } else {
-    //             setIsVisible(true)
-    //         }
-
-    //         setLastScrollY(currentScrollY)
-    //     }
-
-    //     window.addEventListener('scroll', useDebounce(() => handleScroll, 1000))
-
-    //     return () => {
-    //         window.removeEventListener('scroll', useDebounce(() => handleScroll, 1000))
-    //     }
-    // }, [lastScrollY])
-
-
     const memorizedOrderContainer = useMemo(() => (
         <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} />
     ), [OrderisOpen])
@@ -152,7 +130,7 @@ function NavBar() {
             <nav className={`top_navbar ${!isVisible ? 'top_navbar_hidden' : ''}`}>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                 <figure className='logo_top_menu_container'>
-                    <img src="blackLogo.svg" alt="" />
+                    <BlinkingDot />
                 </figure>
                 <div className='search_input search-top-menu'>
                     <div className='input-iconSearch-container'>
@@ -260,10 +238,10 @@ function NavBar() {
                             </NavLink>
                             {user && !isAdmin ?
                                 <>
-                                    <NavLink to={'/favoritos'}>
+                                    <NavLink to={'/favorites'}>
                                         <li className='nav_item'>
-                                            {amountItensCart === 0 ? (
-                                                <span className='indicator indicador_menu'>1</span>
+                                            {userData?.favorites.length !== 0 ? (
+                                                <span className='indicator indicador_menu'>{userData?.favorites.length}</span>
                                             ) : (
                                                 <span className='indicator' style={{ display: 'none' }}></span>
                                             )}
@@ -273,7 +251,7 @@ function NavBar() {
                                     </NavLink>
                                     <NavLink to={'/favoritos'}>
                                         <li className='nav_item'>
-                                            {amountItensCart === 0 ? (
+                                            {amountItensCart !== 0 ? (
                                                 <span className='indicator indicador_menu'>1</span>
                                             ) : (
                                                 <span className='indicator' style={{ display: 'none' }}></span>
@@ -282,12 +260,12 @@ function NavBar() {
                                             <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Meus pedidos</p>
                                         </li>
                                     </NavLink>
-                                    <NavLink to={'/produtos'}>
+                                    {/* <NavLink to={'/produtos'}>
                                         <li className='nav_item'>
                                             <span className='material-symbols-outlined list-icon'>lunch_dining</span>
                                             <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Cardápio</p>
                                         </li>
-                                    </NavLink>
+                                    </NavLink> */}
                                 </> : ''
                             }
                             <NavLink>

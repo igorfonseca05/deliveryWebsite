@@ -100,12 +100,14 @@
 }
 
 .order_button .button-style {
+    height: 4.5rem;
     display: inline-flex;
     align-items: center;
 }
 
 .order_total p {
     font-size: 1.6rem;
+    color: var(--cor-texto-e-icon);
 }
 
 .order_total span {

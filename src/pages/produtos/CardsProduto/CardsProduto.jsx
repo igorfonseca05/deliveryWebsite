@@ -2,25 +2,26 @@ import { useEffect, useState } from 'react'
 
 import './CardsProduto.css'
 
-import { useCartProductContext } from '../../../context/CartProductContaiener'
+import { useDataBase } from '../../../hooks/useRealTimeDatabase'
+import { useAuthContext } from '../../../context/userAuthContext'
 
 import { useFetch } from '../../../hooks/UseFetch'
-import { useDataBase } from '../../../hooks/useRealTimeDatabase'
-// import { useAuthContext } from '../../../context/userAuthContext'
-// import { useAdmin } from '../../../hooks/useAdmin'
 
-function CardsProduto({ id, name, description, price, image, setProductId, isAdmin }) {
+function CardsProduto(
+    { id,
+        name,
+        description,
+        price,
+        image,
+        setProductId,
+        isAdmin,
+        setItemFavoriteId
+    }) {
 
 
     const [dishName, setDishName] = useState('')
     const [isOpen, setIsOpen] = useState(false)
     const [ingredientIsOpen, setIngredientIsOpen] = useState('')
-
-    const [editPrice, setEditPrice] = useState(false)
-
-
-    const { setCartProductId } = useCartProductContext()
-
 
     function handleName(id) {
         if (!isOpen) {
@@ -42,10 +43,25 @@ function CardsProduto({ id, name, description, price, image, setProductId, isAdm
         }
     }
 
+    function handleCart(id) {
+        if (!isAdmin) {
+            setProductId(id)
+
+        }
+    }
+
+    function handleFavorite(id) {
+        if (!isAdmin) {
+            setItemFavoriteId(id)
+
+        }
+    }
+
     return (
         <>
-            <div className='produto_card' onClick={() => !isAdmin && setProductId(id)}>
+            <div className='produto_card'>
                 <figure>
+                    <span className='material-symbols-outlined favorite_icon' onClick={() => handleFavorite(id)}>favorite</span>
                     {image ?
                         <img src={image} alt="" /> :
                         <img src="5.jpg" alt="comida" />}
@@ -63,7 +79,7 @@ function CardsProduto({ id, name, description, price, image, setProductId, isAdm
                 </div>
                 <div className='price_and_cart_container'>
                     <p className='produto_price'>R${price}</p>
-                    {!isAdmin ? <button onClick={() => setCartProductId(id)}><span className="mdi mdi-cart-plus"></span></button> : null}
+                    {!isAdmin ? <button onClick={() => handleCart(id)}><span className="mdi mdi-cart-plus"></span></button> : null}
                 </div>
             </div>
 

@@ -27,6 +27,8 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useAuth } from './hooks/useAuth';
 import Settings from './pages/settings/Settings';
 import NewDish from './pages/newDish/NewDish';
+import Footer from './components/footer/Footer';
+import Favorite from './pages/Favoritos/Favorite';
 
 function App() {
 
@@ -62,9 +64,11 @@ function App() {
                 <Route path='/produtos' element={<Produtos />}></Route>
                 <Route path='/settings' element={<Settings />}></Route>
                 <Route path='/newdish' element={<NewDish />}></Route>
+                <Route path='/favorites' element={<Favorite />}></Route>
                 {/* <Route path='/login' element={<Login />}></Route> */}
               </Routes>
             </BrowserRouter>
+            <Footer />
           </CartProductContextProvider>
         </MenuContextProvider>
       </UserAuthContextProvider>
