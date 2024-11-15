@@ -168,7 +168,7 @@ function NavBar() {
                     {!isAdmin ?
                         <div className='cart_itens_indicador'>
                             <span className='material-symbols-outlined cart_icon' onClick={handleOrderContainer}>shopping_cart</span>
-                            {amountItensCart > 0 ? (
+                            {amountItensCart > 0 && user ? (
                                 <span className='indicator'>{amountItensCart}</span>
                             ) : (
                                 <span className='indicator' style={{ display: 'none' }}></span>

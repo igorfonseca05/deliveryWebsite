@@ -1,0 +1,77 @@
+.Order-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.dashboard-table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dashboard-header,
+.dashboard-row {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr 1fr 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.dashboard-header {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.dashboard-row:nth-child(even) {
+    background-color: #f5f5f5;
+}
+
+.dashboard-row {
+    border-bottom: 1px solid #ddd;
+}
+
+.dashboard-row:last-child {
+    border-bottom: none;
+}
+
+.status-badge {
+    padding: 5px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.status-badge.success {
+    background-color: #28a745;
+}
+
+.status-badge.warning {
+    background-color: #ffc107;
+}
+
+.status-badge.error {
+    background-color: #dc3545;
+}
+
+.no-orders {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #666;
+}

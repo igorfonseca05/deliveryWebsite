@@ -12,6 +12,7 @@ export function useDataBase() {
 
     const [cartItens, setItensCart] = useState([])
 
+
     async function createUserdocument(dados, userId) {
 
         if (userId && dados) {
@@ -131,6 +132,34 @@ export function useDataBase() {
 
     }
 
+    async function update(userId, data, fieldName = '') {
+        if (userId) {
+
+            console.log(userId, data)
+
+            try {
+                const docRef = doc(db, "users", userId)
+
+                // const getData = await getDoc(docRef)
+
+                if (getData.exists) {
+                    // const item = {
+                    //     [fieldName]: 
+                    // }
+
+                    // console.log(getData.data())
+
+                }
+
+
+
+            } catch (error) {
+
+            }
+        }
+    }
+
+
 
     return {
         createUserdocument,
@@ -138,6 +167,7 @@ export function useDataBase() {
         updateDoc,
         realTimeDocument,
         removeCartItem,
-        updateQuantity
+        updateQuantity,
+        update
     }
 }

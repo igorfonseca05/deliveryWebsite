@@ -1,14 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './ToggleButton.css'
 
+import { useAuthContext } from '../../../context/userAuthContext';
+import { useDataBase } from '../../../hooks/useRealTimeDatabase';
 
 function ToggleButton() {
     const [isOpen, setIsOpen] = useState(false); // Estado para controlar o toggle
 
-    // Função para alternar o estado
+    const { user } = useAuthContext()
+    const { update } = useDataBase()
+
     const handleToggle = () => {
-        setIsOpen(!isOpen);
+        setIsOpen(!isOpen)
+        update(user.uid, isOpen)
     };
+
 
     return (
         <div className="toggle-switch-container">

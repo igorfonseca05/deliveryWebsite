@@ -22,7 +22,9 @@ import { useModalContext } from '../context/ModalContext'
 import { useAuthContext } from '../context/userAuthContext'
 import { useDataBase } from '../hooks/useRealTimeDatabase'
 import { useAdmin } from '../hooks/useAdmin'
-import BoasVindas from '../components/admin/BoasVindasContaiener/BoasVindas'
+
+
+import AdminContent from '../components/admin/adminContent/adminContent'
 
 
 function Home() {
@@ -154,7 +156,7 @@ function Home() {
     return (
         <div className='section_container section-hero' onLoad={() => user ? null : handleOpenModal('login')}>
             <div className='slider_container'>
-                {!isAdmin ? <Carousel /> : <BoasVindas adminName={user?.displayName} />}
+                {!isAdmin ? <Carousel /> : <AdminContent adminName={user?.displayName} />}
 
             </div>
             <div className='produtos'>
@@ -187,7 +189,8 @@ function Home() {
                                         name={name}
                                         description={description}
                                         price={price}
-                                        image={image} />
+                                        image={image}
+                                        isAdmin={isAdmin} />
                                 ))
                             }
                         </div>

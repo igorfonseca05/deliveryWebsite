@@ -6,10 +6,10 @@ import { useCartProductContext } from '../../../context/CartProductContaiener'
 
 import { useFetch } from '../../../hooks/UseFetch'
 import { useDataBase } from '../../../hooks/useRealTimeDatabase'
-import { useAuthContext } from '../../../context/userAuthContext'
-import { useAdmin } from '../../../hooks/useAdmin'
+// import { useAuthContext } from '../../../context/userAuthContext'
+// import { useAdmin } from '../../../hooks/useAdmin'
 
-function CardsProduto({ id, name, description, price, image, setProductId }) {
+function CardsProduto({ id, name, description, price, image, setProductId, isAdmin }) {
 
 
     const [dishName, setDishName] = useState('')
@@ -20,8 +20,7 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
 
 
     const { setCartProductId } = useCartProductContext()
-    const { user } = useAuthContext()
-    const { isAdmin } = useAdmin(user)
+
 
     function handleName(id) {
         if (!isOpen) {
@@ -43,13 +42,9 @@ function CardsProduto({ id, name, description, price, image, setProductId }) {
         }
     }
 
-    function handlePrice() {
-
-    }
-
     return (
         <>
-            <div className='produto_card' onClick={() => setProductId(id)}>
+            <div className='produto_card' onClick={() => !isAdmin && setProductId(id)}>
                 <figure>
                     {image ?
                         <img src={image} alt="" /> :
