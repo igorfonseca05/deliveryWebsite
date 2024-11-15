@@ -29,6 +29,8 @@ import Settings from './pages/settings/Settings';
 import NewDish from './pages/newDish/NewDish';
 import Footer from './components/footer/Footer';
 import Favorite from './pages/Favoritos/Favorite';
+import AboutUs from './pages/aboutUs/AboutUs';
+import MyOrders from './pages/pedidos/MyOrders';
 
 function App() {
 
@@ -65,6 +67,8 @@ function App() {
                 <Route path='/settings' element={<Settings />}></Route>
                 <Route path='/newdish' element={<NewDish />}></Route>
                 <Route path='/favorites' element={<Favorite />}></Route>
+                <Route path='/aboutUs' element={<AboutUs />}></Route>
+                <Route path='/orderHistory' element={<MyOrders />}></Route>
                 {/* <Route path='/login' element={<Login />}></Route> */}
               </Routes>
             </BrowserRouter>

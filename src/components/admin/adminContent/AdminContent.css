@@ -1,21 +1,27 @@
 .admin_container {
     background-color: white;
-    padding: 2.4rem 0rem;
+    /* padding: 2.4rem 0rem; */
     border-radius: var(--border-Radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-
+.saudação_text {
+    background-color: var(--cor-principal);
+    padding: 5rem;
+    /* border-radius: var(--border-Radius); */
+}
 
 .saudação_text h1 {
     font-size: 5rem;
     margin: 0px;
     text-transform: capitalize;
-    color: var(--cor-principal);
+    color: white;
 }
 
 .saudação_text p {
-    color: var(--cor-texto-e-icon);
+    color: white;
+    /* color: var(--cor-texto-e-icon); */
 }
 
 .adm_infos {

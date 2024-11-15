@@ -14,7 +14,7 @@ const Carousel = () => {
         speed: 800,           // Velocidade da transição
         slidesToShow: 1,      // Quantidade de slides visíveis
         slidesToScroll: 1,    // Quantidade de slides que passam ao rolar
-        autoplay: false, // Ativa o autoplay
+        autoplay: true, // Ativa o autoplay
         autoplaySpeed: 3000,
         responsive: [         // Configurações para diferentes tamanhos de tela
             {
@@ -51,9 +51,9 @@ const Carousel = () => {
                     <Card
                         title={"Promoções Exclusivas Todos os Dias!"}
                         subtitle={'Aproveite pratos deliciosos com descontos especiais. Não perca!'}
-                        imgSource={"sorvete.webp"} />
+                        imgSource={"https://gkpb.com.br/wp-content/uploads/2024/09/prestigio-burger-king-GKPB-BANNER.jpg"} />
                 </div>
-                <div className='card'>
+                {/* <div className='card'>
                     <Card
                         title={"Sabores Caseiros Feitos com Carinho!"}
                         subtitle={'Sinta o gostinho de comida caseira em cada refeição. Feito com ingredientes frescos e muito amor.'}
@@ -64,7 +64,7 @@ const Carousel = () => {
                         title={"Faça seu Pedido em Poucos Cliques!"}
                         subtitle={'Com nosso sistema prático, escolher e pedir ficou mais fácil do que nunca!'}
                         imgSource={"sorvete.webp"} />
-                </div>
+                </div> */}
             </Slider>
         </div>
     );

@@ -13,14 +13,14 @@ const Dropdown = () => {
             <div className="status-indicator" >
                 {/* <span className="status-circle"></span> */}
                 <span className="status-label">Fechado</span>
-                <span class="material-symbols-outlined arrow" onClick={toggleDropdown}>keyboard_arrow_down</span>
+                <span className="material-symbols-outlined arrow" onClick={toggleDropdown}>keyboard_arrow_down</span>
             </div>
             {isOpen && <div className="dropdown-menu ">
 
-                <div class="scroll-bar dropdown-content ">
+                <div className="scroll-bar dropdown-content ">
                     <h3>Horário de funcionamento</h3>
                     <hr />
-                    <ul class="schedule-list">
+                    <ul className="schedule-list">
                         <li><strong>Segunda-feira:</strong> 10:40 às 14:00</li>
                         <li><strong>Terça-feira:</strong> 10:40 às 14:00</li>
                         <li><strong>Quarta-feira:</strong> 10:50 às 14:00</li>

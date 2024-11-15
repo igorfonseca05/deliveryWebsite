@@ -130,7 +130,7 @@ function NavBar() {
             <nav className={`top_navbar ${!isVisible ? 'top_navbar_hidden' : ''}`}>
                 <span className='material-symbols-outlined menu_icon' onClick={handleClick}>menu</span>
                 <figure className='logo_top_menu_container'>
-                    <BlinkingDot />
+                    {!isAdmin && <BlinkingDot />}
                 </figure>
                 <div className='search_input search-top-menu'>
                     <div className='input-iconSearch-container'>
@@ -249,7 +249,7 @@ function NavBar() {
                                             <p className={`${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Favoritos</p>
                                         </li>
                                     </NavLink>
-                                    <NavLink to={'/favoritos'}>
+                                    <NavLink to={'/orderHistory'}>
                                         <li className='nav_item'>
                                             {amountItensCart !== 0 ? (
                                                 <span className='indicator indicador_menu'>1</span>
@@ -268,7 +268,7 @@ function NavBar() {
                                     </NavLink> */}
                                 </> : ''
                             }
-                            <NavLink>
+                            <NavLink to={'/aboutUs'}>
                                 <li className='nav_item'>
                                     <span className='material-symbols-outlined list-icon'>group</span>
                                     <p className={` ${toggleElement ? 'showTextMenu' : 'hideTextMenu'}`}>Sobre nós</p>

@@ -1,0 +1,115 @@
+.order-history-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    /* max-width: 800px; */
+    margin: 0 auto;
+}
+
+.order-history-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.order-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.order-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    /* Centraliza verticalmente dentro do cartão */
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 25rem;
+}
+
+.order-id {
+    font-weight: bold;
+    color: #333;
+}
+
+.order-date {
+    color: #777;
+}
+
+.order-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Alinha todos os itens verticalmente no centro */
+    gap: 15px;
+    /* Distância entre os itens */
+    flex-grow: 1;
+}
+
+.order-image img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.order-details {
+    display: flex;
+    align-items: center;
+}
+
+.order-name {
+    font-size: 16px;
+    color: #555;
+    margin: 0;
+}
+
+.order-price {
+    display: flex;
+    align-items: center;
+}
+
+.order-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2a9d8f;
+}
+
+.order-status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.status {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.status.entregue {
+    background-color: #2a9d8f;
+    color: #fff;
+}
+
+.status.em-preparacao {
+    background-color: #ffb840;
+    color: #fff;
+}
+
+.no-orders {
+    text-align: center;
+    color: #888;
+    font-size: 18px;
+}

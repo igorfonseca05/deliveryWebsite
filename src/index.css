@@ -460,6 +460,13 @@ hr {
         padding: 1rem;
     }
 
+    .top_navbar,
+    .footer {
+        margin: 0;
+        width: 100%;
+
+    }
+
 }
 
 /* Estilos para telas pequenas (smartphones) */
@@ -545,6 +552,13 @@ hr {
         order: -1;
     }
 
+    .top_navbar,
+    .footer {
+        margin: 0;
+        width: 100%;
+
+    }
+
 
 
 
@@ -558,9 +572,20 @@ hr {
 
     .section_container {
         width: 100%;
-        margin: 0;
+        margin-top: 6rem;
         padding: 1rem 0.8rem;
         /* background-color: slateblue !important; */
+    }
+
+    .top_navbar,
+    .footer {
+        margin: 0;
+        width: 100%;
+
+    }
+
+    .blinking_container {
+        display: none;
     }
 
     /* .search-top-menu {
