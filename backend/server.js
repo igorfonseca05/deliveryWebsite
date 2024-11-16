@@ -2,26 +2,27 @@ require('dotenv').config()
 
 const express = require('express')
 const routes = require('./src/routes/routes')
-const mongoose = require('mongoose')
-
 const app = express()
 
-const {dbConnection, dbEvents} = require('./dbConnection')
 
-dbConnection(process.env.URL_CONNECTION)
+// Base de dados
+const { getDbConnection, dbEvents } = require('./Database')
+// getDbConnection(process.env.URL_CONNECTION)
+getDbConnection(process.env.URL_CONNECTION_2)
 
 
+// Middlewares
 app.use(express.json())
-app.use(express.urlencoded({extended: true}))
+app.use(express.urlencoded({ extended: true }))
 
+// Minhas rotas
 app.use(routes)
 
-// console.log(dbEvents.events)
 
-dbEvents.on('conectou', () => {
+// servidor
+dbEvents.on('connected', () => {
     app.listen(3000, () => {
         console.log('servidor ON')
         console.log('http://localhost:3000')
     })
-    // console.log('ouvi')
 })
