@@ -18,7 +18,7 @@ import { useAuth } from '../../hooks/useAuth'
 import { useAdmin } from '../../hooks/useAdmin'
 
 import ToggleButton from './toggleButton/ToggleButton'
-import BlinkingDot from '../NavBar/Blinking/BlinkingDot'
+import BlinkingDot from './Blinking/BlinkingDot'
 
 function NavBar() {
 
