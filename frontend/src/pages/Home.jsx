@@ -18,7 +18,6 @@ import { useModalContext } from '../context/ModalContext'
 // import { useDataBase } from '../hooks/useRealTimeDatabase'
 
 // Autenticação
-
 import { useAuthContext } from '../context/userAuthContext'
 import { useDataBase } from '../hooks/useRealTimeDatabase'
 import { useAdmin } from '../hooks/useAdmin'
@@ -96,6 +95,7 @@ function Home() {
 
         if (cart && cart?.length !== itens?.length && user) {
             updateDoc(cart, user.uid)
+
         }
     }, [cart])
 
@@ -172,10 +172,6 @@ function Home() {
                         <h1 className='title_section'>Categorias</h1> :
                         <h1 className='title_section'>Produtos Cadastrados</h1>}
                     <Menu />
-                    {/* <OrderContainer isOpen={OrderisOpen} handleOrderContainer={handleOrderContainer} /> */}
-                    {/* <div className='title_category'>
-                        <h2>{titleDishes}</h2>
-                    </div> */}
                     {loading || data === null ?
                         <>
                             <div className='loading_container'>
