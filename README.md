@@ -1,8 +1,35 @@
-# Projeto Paraíso da gastronomia :bowl_with_spoon:
+![capa projeto](delivery.png)
 
 ## Descrição do projeto
 
 O **Paraíso da Gastronomia** é um site de delivery especializado em marmitex, oferecendo refeições caseiras, frescas e saborosas para seus clientes. Este projeto visa criar uma plataforma online onde os usuários possam visualizar o cardápio, fazer pedidos personalizados e realizar pagamentos de forma segura e prática.
+
+## Indice
+
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias utilizadas](#tecnologias-utilizadas)
+- [Acompanhe o desenvolvimento do projeto](#acompanhe-o-desenvolvimento-do-projeto)
+- [Descrição das etapas](#descrição-das-etapas)
+  - [Requisitos e Funcionalidades](#1---requisitos-e-funcionalidades)
+    - [Gestão de Pedidos](#11-gestão-de-pedidos)
+    - [Geolocalização (Talvez)](#2-geolocalização-talvez)
+    - [Integração com Pagamento](#3-integração-com-pagamento)
+    - [Notificações e Suporte](#4-notificações-e-suporte)
+    - [Gestão de pedidos (adm e funcionários)](#12-gestão-de-pedidos-adm-e-funcionarios)
+  - [Cadastro de Clientes](#13-cadastro-de-clientes)
+  - [Avaliações e Comentários dos Clientes](#14-avaliações-e-comentários-dos-clientes)
+  - [Tecnologias e Ferramentas](#2---tecnologias-e-ferramentas)
+  - [Criar o Design e Layout](#3---criar-o-design-e-layout)
+  - [Configurar Ambiente de Desenvolvimento](#4---configurar-ambiente-de-desenvolvimento)
+  - [Desenvolver a Estrutura do Site](#5---desenvolver-a-estrutura-do-site)
+  - [Implementar Funcionalidades de Menu e Pedido](#6---implementar-funcionalidades-de-menu-e-pedido)
+  - [Integrar Sistema de Pagamento](#7---integrar-sistema-de-pagamento)
+  - [Desenvolver o Back-end e Banco de Dados](#8---desenvolver-o-back-end-e-banco-de-dados)
+  - [Testar Funcionalidades e Responsividade](#9---testar-funcionalidades-e-responsividade)
+  - [Implementar Medidas de Segurança](#10---implementar-medidas-de-segurança)
+  - [Realizar Testes Finais e Correções](#11---realizar-testes-finais-e-correções)
+  - [Deploy do Site](#12---deploy-do-site)
+  - [Monitorar e Manter o Site](#13---monitorar-e-manter-o-site)
 
 ## Funcionalidades
 
