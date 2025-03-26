@@ -200,9 +200,6 @@ function Home() {
                         </div>
                     }
                 </div>
-                {/* <div className='user_location_container'>
-                    <h2>oi</h2>
-                </div> */}
             </div>
 
         </div>
