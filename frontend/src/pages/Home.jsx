@@ -95,7 +95,6 @@ function Home() {
 
         if (cart && cart?.length !== itens?.length && user) {
             updateDoc(cart, user.uid)
-
         }
     }, [cart])
 

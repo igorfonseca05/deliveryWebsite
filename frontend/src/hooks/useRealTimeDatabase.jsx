@@ -1,12 +1,22 @@
 import { db } from "../firebase/config";
-import { collection, addDoc, doc, setDoc, updateDoc, getDoc, onSnapshot, arrayUnion, arrayRemove } from "firebase/firestore";
+
+import {
+    collection,
+    addDoc,
+    doc,
+    setDoc,
+    updateDoc,
+    getDoc,
+    onSnapshot,
+    arrayUnion,
+} from "firebase/firestore";
 
 import { useEffect, useState } from "react";
 
 import { useAuthContext } from "../context/userAuthContext";
 import { serverTimestamp } from "firebase/database";
-
 import { useFetch } from "./UseFetch";
+
 
 export function useDataBase() {
 
@@ -17,28 +27,30 @@ export function useDataBase() {
 
     async function createUserdocument(dados, userId) {
 
-        if (userId && dados) {
-            try {
-                const userDocument = await doc(db, 'users', userId)
+        if (!userId && dados) return
 
-                const userInfo = {
-                    nome: dados.displayName,
-                    userId: dados.uid,
-                    email: dados.emailVerified,
-                    phone: dados.phoneNumber,
-                    metaDados: { ...dados.metadata },
-                    email: dados.email,
-                    myCart: [],
-                    // date: new Date().toISOString()
-                }
+        try {
+            const userDocument = await doc(db, 'users', userId)
+            const ifUserAlreadyExist = (await getDoc(userDocument)).exists()
 
-                if ((await getDoc(userDocument)).exists()) return
-                await setDoc(userDocument, userInfo, { merge: true })
-
-            } catch (error) {
-                console.log(error)
+            const userInfo = {
+                nome: dados.displayName,
+                userId: dados.uid,
+                email: dados.emailVerified,
+                phone: dados.phoneNumber,
+                metaDados: { ...dados.metadata },
+                email: dados.email,
+                myCart: [],
+                // date: new Date().toISOString()
             }
+
+            if (ifUserAlreadyExist) return
+            await setDoc(userDocument, userInfo, { merge: true })
+
+        } catch (error) {
+            console.log(error)
         }
+
     }
 
     async function updateDoc(cartItens, userId) {
